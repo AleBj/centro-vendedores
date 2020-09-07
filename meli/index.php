@@ -19,10 +19,10 @@ $course = LP_Global::course();
 <?php include('inc_hero.php') ?>
 <div id="filters">	
 	<div id="categories" class="wp">
-		<a href="mercado-libre" class="ml">mercado libre</a>
-		<a href="mercado-pago" class="mp">mercado pago</a>
-		<a href="mercado-envios" class="me">mercado envíos</a>
-		<a href="mercado-shops" class="ms">mercado shops</a>
+		<a href="mercado-libre" class="ml">Mercado libre</a>
+		<a href="mercado-pago" class="mp">Mercado pago</a>
+		<a href="mercado-envios" class="me">Mercado envíos</a>
+		<a href="mercado-shops" class="ms">Mercado shops</a>
 	</div>
 </div>
 <script>

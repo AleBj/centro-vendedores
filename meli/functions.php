@@ -137,18 +137,11 @@
 	add_post_type('notas', 'Notas', 'nota', 'dashicons-welcome-write-blog', array('title', 'editor', 'thumbnail', 'revisions'), array('category', 'post_tag', 'page-category'));
 	add_post_type('webinars', 'Webinars', 'webinar', 'dashicons-format-video', array('title', 'editor', 'thumbnail', 'revisions'), array('category', 'post_tag', 'page-category'));
 	add_post_type('alertas', 'Alertas', 'alerta', 'dashicons-format-status', array('title', 'editor', 'revisions'), array('category', 'post_tag', 'page-category'));
-	// add_post_type('tourney', 'Torneos', 'Torneo', 'dashicons-awards', array('title'), array('post_tag', 'category'));
-	// add_post_type('activity', 'Actividades', 'Actividad', 'dashicons-tickets', array('title'), array('post_tag', 'category'));
-	// add_post_type('benefits', 'Beneficios', 'Beneficio', 'dashicons-heart', array('title'), array('post_tag', 'category'));
-	// add_post_type('wells', 'Pozos', 'Pozo', 'dashicons-chart-area', array('title'), array('post_tag', 'category'));
-	// add_post_type('ranking', 'Ranking Torneos', 'Ranking', 'dashicons-list-view', array('title'), array('post_tag', 'category'));
+
 
 	#'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'page-attributes' ),
 	#'taxonomies' => array( 'category', 'post_tag', 'page-category' )
 
-	//$post_type_any = array('misc');
-
-	//$post_type_any = array('notas','colecciones');
 	
 	# Admin
 	# ----------------------------------

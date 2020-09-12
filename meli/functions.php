@@ -133,12 +133,10 @@
 		});
 	}
 
-	
-
-	add_post_type('novedades', 'Novedades', 'novedad', 'dashicons-welcome-write-blog', array('title', 'editor', 'thumbnail'), array('category', 'post_tag', 'page-category'));
-	add_post_type('notas', 'Notas', 'nota', 'dashicons-welcome-write-blog', array('title', 'editor', 'thumbnail'), array('category', 'post_tag', 'page-category'));
-	add_post_type('webinars', 'Webinars', 'webinar', 'dashicons-format-video', array('title', 'editor', 'thumbnail'), array('category', 'post_tag', 'page-category'));
-	add_post_type('alertas', 'Alertas', 'alerta', 'dashicons-format-status', array('title', 'editor'), array('category', 'post_tag', 'page-category'));
+	add_post_type('novedades', 'Novedades', 'novedad', 'dashicons-welcome-write-blog', array('title', 'editor', 'thumbnail', 'revisions'), array('category', 'post_tag', 'page-category'));
+	add_post_type('notas', 'Notas', 'nota', 'dashicons-welcome-write-blog', array('title', 'editor', 'thumbnail', 'revisions'), array('category', 'post_tag', 'page-category'));
+	add_post_type('webinars', 'Webinars', 'webinar', 'dashicons-format-video', array('title', 'editor', 'thumbnail', 'revisions'), array('category', 'post_tag', 'page-category'));
+	add_post_type('alertas', 'Alertas', 'alerta', 'dashicons-format-status', array('title', 'editor', 'revisions'), array('category', 'post_tag', 'page-category'));
 	// add_post_type('tourney', 'Torneos', 'Torneo', 'dashicons-awards', array('title'), array('post_tag', 'category'));
 	// add_post_type('activity', 'Actividades', 'Actividad', 'dashicons-tickets', array('title'), array('post_tag', 'category'));
 	// add_post_type('benefits', 'Beneficios', 'Beneficio', 'dashicons-heart', array('title'), array('post_tag', 'category'));

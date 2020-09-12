@@ -289,7 +289,8 @@ main .block_home.novedades .card:after{
 	content: '';
 }
 main .block_home.novedades .card.mercado-pago:after{background:var(--m-pago);}
-main .block_home.novedades .card.mercado-libre:after{background:var(--m-libre);}
+main .block_home.novedades .card.mercado-libre:after,
+main .block_home.novedades .card.mercado-livre:after{background:var(--m-libre);}
 main .block_home.novedades .card.mercado-shops:after{background:var(--m-shop);}
 main .block_home.novedades .card.mercado-envios:after{background:var(--m-envios);}
 @media (min-width: 1100px) {
@@ -318,7 +319,8 @@ main .block_home.notas .card .copy{
 }
 main .block_home.notas .card .copy small{font-weight:500;position: absolute;top:-12px;line-height: 26px;height:24px;font-size: 12px;color: var(--black);padding: 0 6px;border-radius: 15px;text-transform: uppercase;letter-spacing: .8px}
 main .block_home.notas .card .copy small.mercado-pago{background:var(--m-pago);}
-main .block_home.notas .card .copy small.mercado-libre{background:var(--m-libre);}
+main .block_home.notas .card .copy small.mercado-libre,
+main .block_home.notas .card .copy small.mercado-livre{background:var(--m-libre);}
 main .block_home.notas .card .copy small.mercado-shops{background:var(--m-shop);}
 main .block_home.notas .card .copy small.mercado-envios{background:var(--m-envios);}
 main .block_home.notas .card .copy p{font-size: 14px;color: var(--black-80);line-height: 1.5;max-height: 130px;height: 0;overflow: hidden;margin: 16px 0;transition: ease-out 0.3s}
@@ -376,7 +378,8 @@ main .block_home.cursos .card .copy{padding-right: 30px;width: 100%;}
 main .block_home.cursos .card > div{position: relative;z-index: 1}
 main .block_home.cursos .card .copy small{font-weight:500;display:inline-block;margin-bottom:10px;line-height: 26px;height:24px;font-size: 12px;color: var(--black);padding: 0 6px;border-radius: 15px;text-transform: uppercase;letter-spacing: .8px}
 main .block_home.cursos .card .copy small.mercado-pago{background:var(--m-pago);}
-main .block_home.cursos .card .copy small.mercado-libre{background:var(--m-libre);}
+main .block_home.cursos .card .copy small.mercado-libre,
+main .block_home.cursos .card .copy small.mercado-livre{background:var(--m-libre);}
 main .block_home.cursos .card .copy small.mercado-shops{background:var(--m-shop);}
 main .block_home.cursos .card .copy small.mercado-envios{background:var(--m-envios);}
 main .block_home.cursos .card .tags span{
@@ -592,7 +595,8 @@ main #shared .wp-fixear a.tag {
 }
 main #shared .wp-fixear .share {margin-left: 20px}
 main #shared .wp-fixear .category.mercado-pago{background:var(--m-pago);}
-main #shared .wp-fixear .category.mercado-libre{background:var(--m-libre);}
+main #shared .wp-fixear .category.mercado-libre,
+main #shared .wp-fixear .category.mercado-livre{background:var(--m-libre);}
 main #shared .wp-fixear .category.mercado-shops{background:var(--m-shop);}
 main #shared .wp-fixear .category.mercado-envios{background:var(--m-envios);}
 main #shared .wp-fixear.fix{position: fixed;top: 64px;background-color: #FFF;box-shadow: var(--box-shadow);z-index: 6}
@@ -919,7 +923,8 @@ main#site-content .categories small {
     margin-right: 24px;
 }
 main#site-content .categories small.mercado-pago{background:var(--m-pago);}
-main#site-content .categories small.mercado-libre{background:var(--m-libre);}
+main#site-content .categories small.mercado-libre,
+main#site-content .categories small.mercado-livre{background:var(--m-libre);}
 main#site-content .categories small.mercado-shops{background:var(--m-shop);}
 main#site-content .categories small.mercado-envios{background:var(--m-envios);}
 main#site-content .tags a.tags {
@@ -990,7 +995,8 @@ main#site-content .related-course .card .copy{padding-right: 30px;width: 100%}
 main#site-content .related-course .card > div{position: relative;z-index: 1}
 main#site-content .related-course .card .copy small{margin-bottom:16px;display: inline-block;font-weight:500;line-height: 26px;height:24px;font-size: 12px;color: var(--black);padding: 0 8px;border-radius: 15px;text-transform: uppercase;}
 main#site-content .related-course .card .copy small.mercado-pago{background:var(--m-pago);}
-main#site-content .related-course .card .copy small.mercado-libre{background:var(--m-libre);}
+main#site-content .related-course .card .copy small.mercado-libre,
+main#site-content .related-course .card .copy small.mercado-livre{background:var(--m-libre);}
 main#site-content .related-course .card .copy small.mercado-shops{background:var(--m-shop);}
 main#site-content .related-course .card .copy small.mercado-envios{background:var(--m-envios);}
 main#site-content .related-course .card .tags span{

@@ -354,11 +354,12 @@ array_push($exclude_post, $post->ID);
 			<div class="content-small bloque-descarga">
 			    
 			        <h2><?= strip_tags($titulo); ?></h2>
-					
+					<div class="content-btns"  style="flex-direction: <?php the_sub_field('align_bloque_btns') ?>;display: flex;flex-wrap: wrap; align-items: flex-start;">
 					<?php $btns = get_sub_field('botones_bloque_btns'); ?>
 			        <?php foreach( $btns as $btn): ?>
 			        	<a href="<?= $btn["url_bloque_btns"] ?>" <?= ($btn["blank_bloque_btns"])? 'target="_blank"' : ''; ?>><?= $btn["cta_bloque_btns"] ?></a>
 			        <?php endforeach; ?>
+			        </div>
 
 			    
 			</div>

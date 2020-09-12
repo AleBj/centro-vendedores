@@ -94,7 +94,7 @@
 
 <header>
 	<div class="wp">
-		<a href="<?php bloginfo('url') ?>/"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/logo-meli.svg" alt="Centro de Vendedores"></a>
+		<a href="<?php bloginfo('url') ?>/"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/logo-meli.svg" alt="Centro de Vendedores" class="logo"></a>
 		
 		<div class="right">
 		<nav>

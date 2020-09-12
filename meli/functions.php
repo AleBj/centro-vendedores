@@ -521,52 +521,6 @@
 	  
 	    $post_tags = [];
 
-	    $the_query2 = new WP_Query( 
-	    	array( 
-	    		'posts_per_page' => -1, 
-	    		's' => esc_attr( $_POST['keyword'] ), 
-	    		'post_type' => array('novedades'),
-			    'tax_query' => array(
-			        array(
-			            'taxonomy' => 'novedades_categories',
-			            'field'    => 'term_id',
-			            'terms'    => array( 68 ),
-			            'operator' => 'NOT IN',
-			        ),
-			    ) 
-	    	) 
-	    );
-	    $y++;
-	    if( $the_query2->have_posts() ) :
-	    echo '<div class="block_home novedades" style="display: block;"><div class="contentRes">';
-	    while( $the_query2->have_posts() ):
-                $y++; $the_query2->the_post(); 
-                ?>
-				<?php if( $_POST['keyword'] ):					
-                    $gcat = get_object_taxonomies('novedades');
-                    $cat = wp_get_post_terms(get_the_ID(), $taxonomy = $gcat[1]);
-				?>
-                    
-                        <!-- NOVEDADES -->
-                        <a href="<?php echo esc_url( get_permalink() ); ?>" class="card <?=$cat[0]->slug;?>">
-                    		<?= ($y == 1) ? '<div class="ribbon"><span>New</span><div class="triangle"></div></div>' : '';?>    
-
-                            <small><?php $post_date = get_the_date( 'd M Y' ); echo $post_date; ?></small>
-                            <h2><?php the_title();?></h2>
-                        </a>
-
-				<?php array_push($post_tags, get_the_tags()); ?>
-				<?php endif; ?>
-
-	    <?php endwhile;
-        echo '</div></div>';
-	        wp_reset_postdata();  
-	    else:?>
-			<div class="block_home novedades" style="display: block;">
-				<div class="noExist">No existen resultados para tu búsqueda.</div>
-			</div>
-	    <?php endif;
-
 	    $the_query3 = new WP_Query( 
 	    	array( 
 	    		'posts_per_page' => -1, 
@@ -584,7 +538,7 @@
 	    );
 	    $i++;
 	    if( $the_query3->have_posts() ) :
-		echo '<div class="block_home notas"><div class="contentRes">';
+		echo '<div class="block_home notas" style="display: block;"><div class="contentRes">';
 	        while( $the_query3->have_posts() ): 
 	        	$i++;
 	        	$the_query3->the_post(); 
@@ -628,6 +582,52 @@
 	        wp_reset_postdata();  
 	    else:?>
 			<div class="block_home notas">
+				<div class="noExist">No existen resultados para tu búsqueda.</div>
+			</div>
+	    <?php endif;
+
+	    $the_query2 = new WP_Query( 
+	    	array( 
+	    		'posts_per_page' => -1, 
+	    		's' => esc_attr( $_POST['keyword'] ), 
+	    		'post_type' => array('novedades'),
+			    'tax_query' => array(
+			        array(
+			            'taxonomy' => 'novedades_categories',
+			            'field'    => 'term_id',
+			            'terms'    => array( 68 ),
+			            'operator' => 'NOT IN',
+			        ),
+			    ) 
+	    	) 
+	    );
+	    $y++;
+	    if( $the_query2->have_posts() ) :
+	    echo '<div class="block_home novedades"><div class="contentRes">';
+	    while( $the_query2->have_posts() ):
+                $y++; $the_query2->the_post(); 
+                ?>
+				<?php if( $_POST['keyword'] ):					
+                    $gcat = get_object_taxonomies('novedades');
+                    $cat = wp_get_post_terms(get_the_ID(), $taxonomy = $gcat[1]);
+				?>
+                    
+                        <!-- NOVEDADES -->
+                        <a href="<?php echo esc_url( get_permalink() ); ?>" class="card <?=$cat[0]->slug;?>">
+                    		<?= ($y == 1) ? '<div class="ribbon"><span>New</span><div class="triangle"></div></div>' : '';?>    
+
+                            <small><?php $post_date = get_the_date( 'd M Y' ); echo $post_date; ?></small>
+                            <h2><?php the_title();?></h2>
+                        </a>
+
+				<?php array_push($post_tags, get_the_tags()); ?>
+				<?php endif; ?>
+
+	    <?php endwhile;
+        echo '</div></div>';
+	        wp_reset_postdata();  
+	    else:?>
+			<div class="block_home novedades" style="display: block;">
 				<div class="noExist">No existen resultados para tu búsqueda.</div>
 			</div>
 	    <?php endif;

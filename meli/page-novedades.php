@@ -5,6 +5,10 @@ Template Name: Novedades
 
 get_header();
 
+$url = explode("=", add_query_arg( $wp->query_vars, home_url() ));
+$url = $url[1];
+
+$url = $_GET['u'];
 ?>
 <?php
 $the_query_novedades = new WP_Query( array(
@@ -113,7 +117,12 @@ endwhile;
 
 </main>
 <script>
+
 (function($) {
+
+$(window).on('load', function(){
+    $('#filters .bt[data-filter="<?=$url?>"]').trigger('click')
+})
 
 var $filters = $('#filters .bt'),
     $boxes = $('.card');

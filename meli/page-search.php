@@ -20,8 +20,8 @@ get_header();
         </div>
         <div id="results">
             <div class="nav-result">
-                <div class="bt active" id="novedades">Novedades</div>
-                <div class="bt" id="notas">Notas</div>
+                <div class="bt active" id="notas">Notas</div>
+                <div class="bt" id="novedades">Novedades</div>
                 <div class="bt" id="cursos">Cursos</div>
                 <div class="bt" id="etiquetas">Etiquetas</div>
                 <i></i>
@@ -44,6 +44,7 @@ $('#results .nav-result .bt').on('click', function(e){
     var lft = $(this).position().left;
     var frm = $(this).attr('id');
     var wpx = $(this).width();
+    console.log(frm)
     $('#results .nav-result i').css({'left': lft+'px', 'width': wpx+'px'});
     $('#results .block_home').fadeOut(300);
     $('#results .block_home.'+frm).stop(true,true).delay(300).fadeIn(300)
@@ -58,7 +59,8 @@ input.addEventListener("keyup", function(event) {
 $('#formEnviar').on('submit', function(e){e.preventDefault();})
 
 function fetch(){
-    $('#novedades.bt').trigger('click');
+    
+    $('#notas.bt').trigger('click');
     $('#filterssearch .bt').removeClass('active')
     jQuery.ajax({
         url: '<?php echo admin_url('admin-ajax.php'); ?>',
@@ -92,7 +94,8 @@ function fetch(){
 
 }
 function fetch2(xxx){
-    $('#novedades.bt').trigger('click');
+
+    $('#notas.bt').trigger('click');
     $('#filterssearch .bt').removeClass('active')
     jQuery.ajax({
         url: '<?php echo admin_url('admin-ajax.php'); ?>',

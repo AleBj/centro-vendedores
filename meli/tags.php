@@ -28,15 +28,15 @@ $url = $_GET['t'];
         </div>
         <div id="results">
             <div class="nav-result">
-                <div class="bt active" id="novedades">Novedades</div>
-                <div class="bt" id="notas">Notas</div>
+                <div class="bt active" id="notas">Notas</div>
+                <div class="bt" id="novedades">Novedades</div>
                 <div class="bt" id="cursos">Cursos</div>
                 <i></i>
             </div>
             
             <div class="main-result" id="mainresult">
 				<!-- CONTENT NOVEDADES -->
-				<div class="block_home novedades" style="display: block;"><div class="contentRes">
+				<div class="block_home novedades"><div class="contentRes">
             	<?php 
 				if($url):
 
@@ -62,14 +62,20 @@ $url = $_GET['t'];
 							$gcat = get_object_taxonomies('novedades');
                     		$cat = wp_get_post_terms(get_the_ID(), $taxonomy = $gcat[1]);
 				?>
-                    
+                    <script>
+                    	$('.bt#novedades').addClass('hay')
+                    </script>
 	                <!-- NOVEDADES -->
 	                <a href="<?php echo esc_url( get_permalink() ); ?>" class="card <?=$cat[0]->slug;?>">
 	                    <small><?php $post_date = get_the_date( 'd M Y' ); echo $post_date; ?></small>
 	                    <h2><?php the_title();?></h2>
 	                </a>
 
-				<?php  endwhile; else:
+				<?php  endwhile; else:?>
+                    <script>
+                    	$('.bt#novedades').removeClass('hay')
+                    </script>
+				<?php
 					echo '<div class="noExist">No existen resultados para tu búsqueda.</div>';
 					endif; 
 				wp_reset_postdata();
@@ -78,7 +84,7 @@ $url = $_GET['t'];
 				</div></div>
 
 				<!-- CONTENT NOTAS -->
-				<div class="block_home notas"><div class="contentRes">
+				<div class="block_home notas" style="display: block;"><div class="contentRes">
             	<?php 
 				if($url):
 				?>
@@ -114,6 +120,9 @@ $url = $_GET['t'];
 
 					?>
 
+                    <script>
+                    	$('.bt#notas').addClass('hay')
+                    </script>
 					<!-- NOTA -->
 					<a href="<?php echo esc_url( get_permalink() ); ?>" class="card <?= $ptg; ?> <?=$cat[0]->slug;?>">
 					    <div class="img" style="background-image: url(<?= $image['sizes']['large'] ?>)"></div>
@@ -131,7 +140,12 @@ $url = $_GET['t'];
 					    </div>
 					</a>
 
-				<?php endwhile; else:
+				<?php endwhile; else:?>
+
+                    <script>
+                    	$('.bt#notas').removeClass('hay')
+                    </script>
+				<?php
 				echo '<div class="noExist">No existen resultados para tu búsqueda.</div>';
 				endif;
 				wp_reset_postdata();
@@ -170,6 +184,9 @@ $url = $_GET['t'];
 							$img = get_the_post_thumbnail_url($post->ID, 'thumbnail');
 				?>
                     
+                    <script>
+                    	$('.bt#cursos').addClass('hay')
+                    </script>
                         <!-- CURSOS -->
                         <a href="<?php echo esc_url( get_permalink() ); ?>" class="card <?=$cat[0]->slug;?>">
                             <div class="img" style="background-image: url(<?= $img ?>"></div>
@@ -200,7 +217,12 @@ $url = $_GET['t'];
                             </div>
                         </a>
                 
-				<?php  endwhile; else:
+				<?php  endwhile; else: ?>
+
+                    <script>
+                    	$('.bt#cursos').removeClass('hay')
+                    </script>
+				<?php
 					echo '<div class="noExist">No existen resultados para tu búsqueda.</div>';
 					endif; 
 				wp_reset_postdata();

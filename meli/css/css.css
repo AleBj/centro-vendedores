@@ -40,7 +40,7 @@ header .right{
 	justify-content: space-between;
 }
 header .wp{padding:0 64px;max-width: 100%;}
-
+header .wp .logo{height: 32px;}
 @media (max-width: 1440px) {
 	header .wp{padding: 0 20px}
 }

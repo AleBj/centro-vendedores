@@ -376,44 +376,9 @@
 				<h4>Antiguas <a href="">Ver más</a></h4>
 			</div>
 	    <?php endif;*/
-
-	    $the_query2 = new WP_Query( 
-	    array( 
-	    	'posts_per_page' => 1, 
-		    's' => esc_attr( $_POST['keyword'] ), 
-		    'post_type' => array('novedades') ,
-		    'tax_query' => array(
-		        array(
-		            'taxonomy' => 'novedades_categories',
-		            'field'    => 'term_id',
-		            'terms'    => array( 68 ),
-		            'operator' => 'NOT IN',
-		        ),
-		    )
-		) );
-
-	    if( $the_query2->have_posts() ) :
-	        while( $the_query2->have_posts() ): $the_query2->the_post(); ?>
-				<?php if( $_POST['keyword'] ):?>
-	            <div class="item">
-					<h4>Novedades <a href="<?php bloginfo('url')?>/novedades">Ver más</a></h4>
-					<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title();?></a>
-				</div>
-				<?php array_push($post_tags, get_the_tags()); ?>
-				<?php endif; ?>
-
-	        <?php endwhile;
-
-	        wp_reset_postdata();  
-	    else:?>
-			<div class="item">
-				<h4>Novedades <a href="<?php bloginfo('url')?>/novedades">Ver más</a></h4>
-			</div>
-	    <?php endif;
-
 	    $the_query3 = new WP_Query( 
 	    	array( 
-	    		'posts_per_page' => 1, 
+	    		'posts_per_page' => 3, 
 	    		's' => esc_attr( $_POST['keyword'] ), 
 	    		'post_type' => array('notas'),
 			    'tax_query' => array(
@@ -446,9 +411,45 @@
 
 	        wp_reset_postdata();  
 	    else:?>
-			<div class="item">
+			<!-- <div class="item">
+				<h4>Novedades <a href="<?php bloginfo('url')?>/novedades">Ver más</a></h4>
+			</div> -->
+	    <?php endif;
+
+
+	    $the_query2 = new WP_Query( 
+	    array( 
+	    	'posts_per_page' => 1, 
+		    's' => esc_attr( $_POST['keyword'] ), 
+		    'post_type' => array('novedades') ,
+		    'tax_query' => array(
+		        array(
+		            'taxonomy' => 'novedades_categories',
+		            'field'    => 'term_id',
+		            'terms'    => array( 68 ),
+		            'operator' => 'NOT IN',
+		        ),
+		    )
+		) );
+
+	    if( $the_query2->have_posts() ) :
+	        while( $the_query2->have_posts() ): $the_query2->the_post(); ?>
+				<?php if( $_POST['keyword'] ):?>
+	            <div class="item">
+					<h4>Novedades <a href="<?php bloginfo('url')?>/novedades">Ver más</a></h4>
+					<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title();?></a>
+				</div>
+				<?php array_push($post_tags, get_the_tags()); ?>
+				<?php endif; ?>
+
+	        <?php endwhile;
+
+	        wp_reset_postdata();  
+	    
+	    else:?>
+			<!-- <div class="item">
 				<h4>Notas <a href="<?php bloginfo('url')?>/notas">Ver más</a></h4>
-			</div>
+			</div> -->
 	    <?php endif;
 
 	    $the_query4 = new WP_Query( array( 'posts_per_page' => 1, 's' => esc_attr( $_POST['keyword'] ), 'post_type' => array('lp_course') ) );
@@ -467,9 +468,9 @@
 
 	        wp_reset_postdata();  
 	    else:?>
-			<div class="item">
+			<!-- <div class="item">
 				<h4>Cursos <a href="<?php bloginfo('url')?>/cursos">Ver más</a></h4>
-			</div>
+			</div> -->
 	    <?php endif;?>
 		
 		<div class="tags">
@@ -481,7 +482,7 @@
 				foreach($post_tags as $post){
 					if($post[0]):
 					?>
-					<a href=""><?=$post[0]->name?></a>
+					<a href="<?php bloginfo('url')?>/tags/?t=<?=$post[0]->slug?>"><?=$post[0]->name?></a>
 			<?php	endif; 
 				}
 			?>

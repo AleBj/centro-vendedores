@@ -37,7 +37,7 @@ function slugify($text)
 <main>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post();?>
 	
-	<div class="breadcrumbs"><a href="<?php bloginfo('url')?>/notas">Notas</a> <i class="fa fa-angle-right"></i> <a href=""><?= $category;  ?> </a> <i class="fa fa-angle-right"></i> <?php the_title(); ?></div>
+	<div class="breadcrumbs"><a href="<?php bloginfo('url')?>/notas">Notas</a> <i class="fa fa-angle-right"></i> <a href="<?php bloginfo('url')?>/notas/?u=<?=$categorySlug?>"><?= $category;  ?> </a> <i class="fa fa-angle-right"></i> <?php the_title(); ?></div>
 	<div class="wp" id="single">
 
 		<div class="content-small">
@@ -83,7 +83,7 @@ function slugify($text)
 					<?php $post_tags = get_the_tags(); 
 						if($post_tags):
 						foreach ($post_tags as $tags) :?>
-							<a href="<?php bloginfo('url')?>/tags/?=<?= $tags->slug;?>" class="tag"><?= $tags->name;?></a> 
+							<a href="<?php bloginfo('url')?>/tags/?t=<?= $tags->slug;?>" class="tag"><?= $tags->name;?></a> 
 						<?php endforeach; endif;
 					?>
 					<a href="" class="share"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/share.svg" alt="share"></a>
@@ -421,22 +421,22 @@ function slugify($text)
 
                     $image = get_field('imagen_principal_nota'); 
 			    ?>
-			        <a href="<?php the_permalink(); ?>" class="card">
-						<div class="img" style="background-image: url(<?= $image['sizes']['medium'] ?>);"></div>
+			        <div class="card">
+						<a href="<?php the_permalink(); ?>" class="img" style="background-image: url(<?= $image['sizes']['medium'] ?>);"></a>
 						<div class="copy">
                         	<small class="<?=$cat[0]->slug;?>"><?=$cat[0]->name;?></small>
-							<h2><?php the_title(); ?></h2>
+							<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 							<?php $content = get_the_content(); ?>
-							<p><?= $content ?></p>
+							<p><a href="<?php the_permalink(); ?>"><?= strip_tags($content) ?></a></p>
 							<div class="tags">
 								<?php $tags = get_the_tags();
 	                            foreach ($tags as $tg) {?>
-	                                <span><?= $tg->name ?></span>
+	                                <a href="<?=get_bloginfo('url')?>/tags/?t=<?= $tg->slug?>"><?= $tg->name ?></a>
 	                            <?php }
 	                            ?>
 							</div>
 						</div>
-					</a>
+					</div>
 			    <?php endforeach; ?>
 			    
 			    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
@@ -474,21 +474,21 @@ function slugify($text)
 					?>
 		                
 						<!-- NOTA -->
-		                <a href="<?php echo esc_url( get_permalink() ); ?>" class="card <?=$cat[0]->slug;?>">
-		                    <div class="img" style="background-image: url(<?= $image['sizes']['large'] ?>)"></div>
+		                <div class="card <?=$cat[0]->slug;?>">
+		                    <a href="<?php echo esc_url( get_permalink() ); ?>" class="img" style="background-image: url(<?= $image['sizes']['large'] ?>)"></a>
 		                    <div class="copy">
 		                		<small class="<?=$cat[0]->slug;?>"><?=$cat[0]->name;?></small>
-		                        <h2><?php the_title();?></h2>
+		                        <h2><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title();?></a></h2>
 		                        <?php $content = get_the_content(); ?>
-		                		<p><?= $content ?></p>
+		                		<p><a href="<?php echo esc_url( get_permalink() ); ?>"><?= $content ?></a></p>
 		                        <div class="tags">
 		                        	<?php $tags = get_the_tags();
 		                            foreach ($tags as $tg) {?>
-		                                <span><?= $tg->name ?></span>
+		                                <a href="<?=get_bloginfo('url')?>/tags/?t=<?= $tg->slug?>"><?= $tg->name ?></a>
 		                            <?php } ?>
 		                        </div>
 		                    </div>
-		                </a>
+		                </div>
 
 		    <?php endwhile;
 		        wp_reset_postdata();  
@@ -519,22 +519,22 @@ function slugify($text)
 					?>
 		                
 						<!-- NOTA -->
-		                <a href="<?php echo esc_url( get_permalink() ); ?>" class="card <?=$cat[0]->slug;?>">
-		                    <div class="img" style="background-image: url(<?= $image['sizes']['large'] ?>)"></div>
+		                <div class="card <?=$cat[0]->slug;?>">
+		                    <a href="<?php echo esc_url( get_permalink() ); ?>" class="img" style="background-image: url(<?= $image['sizes']['large'] ?>)"></a>
 		                    <div class="copy">
 		                		<small class="<?=$cat[0]->slug;?>"><?=$cat[0]->name;?></small>
-		                        <h2><?php the_title();?></h2>
+		                        <h2><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title();?></a></h2>
 		                        <?php $content = get_the_content(); ?>
-		                		<p><?= $content ?></p>
+		                		<p><a href="<?php echo esc_url( get_permalink() ); ?>"><?= $content ?></a></p>
 		                        <div class="tags">
 		                        	<?php $tags = get_the_tags();
 		                        	if($tags):
 		                            foreach ($tags as $tg) {?>
-		                                <span><?= $tg->name ?></span>
+		                                <a href="<?=get_bloginfo('url')?>/tags/?t=<?= $tg->slug?>"><?= $tg->name ?></a>
 		                            <?php } endif;?>
 		                        </div>
 		                    </div>
-		                </a>
+		                </div>
 
 		    <?php endwhile;
 		        wp_reset_postdata();  

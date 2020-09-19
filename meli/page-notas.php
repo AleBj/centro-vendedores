@@ -5,6 +5,11 @@ Template Name: Notas
 
 get_header();
 
+$url = explode("=", add_query_arg( $wp->query_vars, home_url() ));
+$url = $url[1];
+
+$url = $_GET['u'];
+
 ?>
 <?php
 $the_query_novedades = new WP_Query( array(
@@ -99,31 +104,31 @@ endwhile;
                     $image = get_field('imagen_principal_nota'); 
                 ?>
 
-                <a href="<?php the_permalink()?>" class="card <?= ($y == 1) ? 'important' : '';?> <?= $ptg ?> <?=$cat[0]->slug;?>">
-                    <div class="img" style="background-image: url(<?= $image['sizes']['medium'] ?>"></div>
+                <div class="card <?= ($y == 1) ? 'important' : '';?> <?= $ptg ?> <?=$cat[0]->slug;?>">
+                    <a href="<?php the_permalink()?>" class="img" style="background-image: url(<?= $image['sizes']['medium'] ?>"></a>
                     <div class="copy">
                         <?php 
                             $gcat = get_object_taxonomies('notas');
                             $cat = wp_get_post_terms($post->ID, $taxonomy = $gcat[1]);
                         ?>
                         <small class="<?=$cat[0]->slug;?>"><?=$cat[0]->name;?></small>
-                        <h2><?php the_title(); ?></h2>
+                        <h2><a href="<?php the_permalink()?>"><?php the_title(); ?></a></h2>
 
                         <?php $content = get_the_content(); ?>
-                        <p><?= $content ?></p>
+                        <p><a href="<?php the_permalink()?>"><?= $content ?></a></p>
 
                         <div class="tags">
                             <?php $tags = get_the_tags();
                             if($tags){
                             foreach ($tags as $tg) {?>
-                                <span><?= $tg->name ?></span>
+                                <a href="<?=get_bloginfo('url')?>/tags/?t=<?= $tg->slug?>"><?= $tg->name ?></a>
                             <?php }
                             }
                             ?>
                             
                         </div>
                     </div>
-                </a>
+                </div>
             <?php endwhile; ?>
             <p class="noExist" style="display: none;">No existen resultados para Notas.</p>
         </div>
@@ -133,6 +138,10 @@ endwhile;
 </main>
 <script>
 (function($) {
+
+$(window).on('load', function(){
+    $('#filters .bt[data-filter="<?=$url?>"]').trigger('click')
+})
 
 var $filters = $('#filters .bt'),
     $boxes = $('.card');

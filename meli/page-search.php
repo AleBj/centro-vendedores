@@ -62,6 +62,9 @@ function fetch(){
     
     $('#notas.bt').trigger('click');
     $('#filterssearch .bt').removeClass('active')
+
+    $('#mainresult').html('<div class="loading"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/spinner.svg" width="30"></div>')
+    
     jQuery.ajax({
         url: '<?php echo admin_url('admin-ajax.php'); ?>',
         type: 'post',
@@ -130,6 +133,13 @@ function fetch2(xxx){
 }
 //CAPTURA HASH
     var hash = window.location.hash.substring(1);
+    hash = hash.replace('%C3%A1', 'á')
+    hash = hash.replace('%C3%A9', 'é')
+    hash = hash.replace('%C3%AD', 'í')
+    hash = hash.replace('%C3%B3', 'ó')
+    hash = hash.replace('%C3%BA', 'ú')
+    hash = hash.replace('%20', ' ')
+    
     console.log(hash)
     if(hash){
         $('#buscar').val(hash)

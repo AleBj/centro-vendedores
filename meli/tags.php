@@ -260,6 +260,10 @@ function conversorSegundosHoras($tiempo_en_segundos) {
 
 
 <script>
+
+var onlyUrl = window.location.href.replace(window.location.search,'');
+window.history.pushState("object or string", "Title", onlyUrl );
+    
 $('#results .nav-result .bt').on('click', function(e){
     e.preventDefault();
     $('#results .nav-result .bt').removeClass('active');

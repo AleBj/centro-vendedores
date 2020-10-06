@@ -39,6 +39,7 @@
 	</div>
 </div>
 <script type="text/javascript">
+var texto;
 function fetch(){
 
     jQuery.ajax({
@@ -47,6 +48,7 @@ function fetch(){
         data: { action: 'data_fetch', keyword: jQuery('#search').val() },
         success: function(data) {
         	// console.log(data);
+        	texto = jQuery('#search').val();
             jQuery('#datafetch').html( data );
             $('#formSearch .list-search').delay(300).slideDown(500)
         }
@@ -67,5 +69,9 @@ input.addEventListener("keyup", function(event) {
 
   }
 });
+function clickGoSearch(){
+	window.location.href = '<?php bloginfo('url'); ?>/buscar/#'+texto
+	console.log('<?php bloginfo('url'); ?>/buscar/#'+texto)
+}
 
 </script>

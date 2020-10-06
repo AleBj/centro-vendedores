@@ -33,7 +33,7 @@ $course = LP_Global::course();
 
 				<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 					
-					<div class="breadcrumbs"><a href="<?php bloginfo('url')?>/cursos">Cursos</a> <i class="fa fa-angle-right"></i> <a href=""><?= $category;  ?> </a> <i class="fa fa-angle-right"></i> <?php the_title(); ?></div>
+					<div class="breadcrumbs"><a href="<?php bloginfo('url')?>/cursos">Cursos</a> <i class="fa fa-angle-right"></i> <a href="<?php bloginfo('url')?>/cursos/?u=<?=$categorySlug?>"><?= $category;  ?> </a> <i class="fa fa-angle-right"></i> <?php the_title(); ?></div>
 
 						
 					<div class="wp-small">

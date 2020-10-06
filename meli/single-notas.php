@@ -3,6 +3,7 @@
 get_header(); 
 
 //print_r(get_post()) ;
+global $wp;
 ?>
 <?php 
 $exclude_post = [];
@@ -11,8 +12,10 @@ $postType = get_post_type();
 $terms = get_the_terms( $post->ID, $postType.'_categories' ); 
 
 foreach($terms as $term) {
-  $category = $term->name;
-  $categorySlug = $term->slug;
+  if($term->name != 'OCULTA'){
+	  $category = $term->name;
+	  $categorySlug = $term->slug;
+  }
 }
 
 array_push($exclude_post, $post->ID);
@@ -86,7 +89,24 @@ function slugify($text)
 							<a href="<?php bloginfo('url')?>/tags/?t=<?= $tags->slug;?>" class="tag"><?= $tags->name;?></a> 
 						<?php endforeach; endif;
 					?>
-					<a href="" class="share"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/share.svg" alt="share"></a>
+					<div class="share"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/share.svg" alt="share">
+						<ul class="share-buttons" data-source="simplesharingbuttons.com">
+						  <li>
+						  	<a href="https://www.facebook.com/sharer/sharer.php?u=<?=home_url( $wp->request )?>%2F&quote=<?php the_title(); ?>" title="Share on Facebook" target="_blank">
+						  		<i class="fa fa-facebook"></i>
+						  	</a>
+						  </li>
+						  <li><a href="https://twitter.com/intent/tweet?source=<?=home_url( $wp->request )?>%2F&text=<?php the_title(); ?>:%20http%3A%2F%2Ftest-vendedores.mercadolibre.com.ar%2F" target="_blank" title="Tweet">
+						  	<i class="fa fa-twitter"></i></a>
+						  </li>
+						  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=<?=home_url( $wp->request )?>%2F&title=<?php the_title(); ?>&summary=<?= get_the_content(); ?>%2F" target="_blank" title="Share on LinkedIn">
+						  	<i class="fa fa-linkedin"></i></a>
+						  </li>
+						  <li><a href="mailto:?subject=<?php the_title(); ?>&body=<?= get_the_content(); ?>:%20<?=home_url( $wp->request )?>%2F" target="_blank" title="Send email">
+						  	<i class="fa fa-envelope"></i></a>
+						  </li>
+						</ul>
+					</div>
 				</div>
 				</div>
 			</div>
@@ -248,7 +268,7 @@ function slugify($text)
 		        <?php
 		        	// check current row layout
 		        elseif( get_row_layout() == 'tablas_nota' ): ?>
-					<div class="block_tables">
+					<div class="block_tables content-small">
 						<table>
 						<?php
 			        		$table = get_sub_field('tabla_nota');
@@ -577,6 +597,9 @@ function slugify($text)
 			},1000);
 		
 	});
+	$('.share').on('click', function(){
+		$(this).find('.share-buttons').slideToggle(400)
+	})
 </script>
 
 <?php

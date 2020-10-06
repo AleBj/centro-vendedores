@@ -75,6 +75,7 @@ header .right ul li .submenu{
 	z-index: -1;
 	max-height: calc(100vh - 70px);
 	overflow:auto;
+	transition: ease-out 0.3s;
 }
 header .right ul li .submenu a{font-size: 14px;white-space: nowrap;display: block;line-height: 40px;padding: 0 20px;transition: ease-out 0.3s;position: relative;letter-spacing: 0.05em;text-transform: capitalize;}
 header .right ul li .submenu a:before {
@@ -89,6 +90,7 @@ header .right ul li .submenu a:before {
 	transition: ease-out 0.3s;
 	opacity: 0;
 }
+header .right ul li a:hover,
 header .right ul li a.active{font-weight: 500}
 
 @media (min-width: 1100px) {
@@ -128,7 +130,7 @@ header .right ul li a.active{font-weight: 500}
 }
 #header .copy form .list-search .item > a{display: flex;align-items: center;justify-content: space-between;}
 #header .copy form .list-search .item > a .img{min-width: 97px;height: 64px;background-size: cover;background-position: center;margin-left: 10px;}
-#header .copy form .list-search .item h4 a{font-size: 12px;font-weight: 400;color: var(--blue);text-transform: initial;letter-spacing: .5px;line-height: 20px;padding-left: 8px;}
+#header .copy form .list-search .item h4 a{font-size: 12px;font-weight: 400;color: var(--blue);text-transform: initial;letter-spacing: .5px;line-height: 20px;padding-left: 8px;cursor:pointer;}
 #header .copy form .list-search .tags{padding: 10px 30px;border-top: 1px solid var(--black-25);}
 #header .copy form .list-search .tags strong{
 	font-size: 12px;
@@ -225,11 +227,23 @@ header .right ul li a.active{font-weight: 500}
 	border:1px solid var(--black-25);
 	font-size: 12px;
 	white-space: nowrap;
+	position: relative;
 }
 #tags .content a.active{
 	color: var(--blue);
 	background-color: var(--blue-light);
 	border-color: var(--blue);
+}
+#tags .content a.active:before{
+	content: "\f00d";
+	font: normal normal normal 9px/1.3 FontAwesome;
+	position: absolute;
+	background-color: #c3c3c3;
+	border-radius: 100%;
+	width: 12px;height: 12px;
+	text-align: center;
+	right: -4px;top:-4px;
+	text-indent: 1px;
 }
 
 @media (min-width: 1100px) {
@@ -270,6 +284,12 @@ main h3 a{font-size: 16px;font-weight: 400;color: var(--blue);text-transform: in
 main .card{background-color: var(--white);box-shadow: var(--box-shadow);display: block;border-radius: 24px;position: relative;margin: 12px;transition: ease-out 0.3s}
 main .block_home .card h2{ font-size: 20px;font-weight: 500;color: var(--black-80);line-height: 1.2}
 main .content{position: relative;max-width: 1240px;padding: 0 12px;margin: 0 auto;display: flex;align-items: flex-start;justify-content: flex-start;flex-wrap: wrap}
+main .content .empty-card h2{
+	color: var(--black-80);
+    font-size: 26px;
+    font-weight: 300;
+    margin: 0 8px;
+}
 main .content .noExist{ color: var(--black-80);font-size: 26px;font-weight: 300;margin: 0 8px;}
 main .block_home {margin-bottom: 60px}
 /*novedades*/
@@ -358,7 +378,11 @@ main .block_home.notas .card .tags span{
 		box-shadow: var(--box-shadow-over);
 	}
 	main .block_home.notas .card:hover p{height: 120px}
-	main .block_home.notas .card .tags a:hover{background-color: #f3f3f3}
+	main .block_home.notas .card .tags a:hover{
+		color: var(--blue);
+    	background-color: var(--blue-light);
+    	border-color: var(--blue);
+	}
 }
 /*cursos*/
 main .block_home.cursos .loading{height: 352px;}
@@ -551,11 +575,14 @@ main #shared .wp-fixear .wp-indice .listindice ul li a{
 	display: flex;
 	align-items: center;
 	position: relative;
+	transition: ease-out 0.3s;
 }
+main #shared .wp-fixear .wp-indice .listindice ul li a:hover,
 main #shared .wp-fixear .wp-indice .listindice ul li a.active{
 	color: var(--blue);
 	font-weight: 600;
 }
+main #shared .wp-fixear .wp-indice .listindice ul li a:hover:before,
 main #shared .wp-fixear .wp-indice .listindice ul li a.active:before{
 	content: '';
 	left: 0;width: 3px;
@@ -595,7 +622,9 @@ main #shared .wp-fixear a.tag {
     font-size: 12px;
     white-space: nowrap;
 }
-main #shared .wp-fixear .share {margin-left: 20px}
+main #shared .wp-fixear .share {margin-left: 20px;position: relative;cursor: pointer;}
+main #shared .wp-fixear .share ul.share-buttons{position: absolute;background-color: rgba(255,255,255,.8);padding:5px 15px;border-radius: 4px;left: -10px;top: 70%;z-index: 4;display: none;}
+main #shared .wp-fixear .share ul.share-buttons li{background-image: none;padding: 0;}
 main #shared .wp-fixear .category.mercado-pago{background:var(--m-pago);}
 main #shared .wp-fixear .category.mercado-libre,
 main #shared .wp-fixear .category.mercado-livre{background:var(--m-libre);}
@@ -632,7 +661,8 @@ main #single ol li::before {
       left:10px
     }
 main #single ul li{margin: 10px 0;padding-left: 30px;background-image: url(../img/bullet.svg);background-position: 14px 12px;background-repeat: no-repeat;background-size: 8px auto;}
-main #single a{color: var(--blue);}
+main #single a{color: var(--blue);transition: ease-out 0.3s;}
+main #single a:hover{color: #2968C8;}
 main #single a.btn-block{
 	display: inline-block;
     background: var(--blue);
@@ -745,10 +775,15 @@ main #single .bloque-links{
 }
 main #single .bloque-links h2{ font-size: 26px;padding: 10px 0;text-align: center;margin-bottom: 16px;}
 main #single .bloque-links .bloque_links_btns{display: flex;align-items: center;justify-content: center;max-width: 600px;flex-wrap: wrap}
-main #single .bloque-links a{line-height: 48px;height: 48px;padding: 0 30px;color: var(--white);background-color: var(--blue);border-radius: 24px;margin:10px;border:1px solid var(--blue);}
+main #single .bloque-links a{line-height: 48px;height: 48px;padding: 0 30px;color: var(--white);background-color: var(--blue);border-radius: 24px;margin:10px;border:1px solid var(--blue);transition: ease-out 0.3s;}
+main #single .bloque-links a:hover{background-color: #2968C8;border-color: #2968C8;}
 main #single .bloque-links a.btn-secundary{
 	color:var(--blue);
 	background-color: var(--blue-light);
+}
+main #single .bloque-links a.btn-secundary:hover{
+	color:#FFF;
+	background-color: var(--blue);
 }
 main #related{
 	margin-bottom: 0;
@@ -1185,7 +1220,7 @@ body.full-screen-content-item #course-item-content-header .toggle-content-item:b
 	main #related{padding: 40px 0 20px;top: 25px;}
 	main #single img{margin: auto;}
 	main #single p img{display: block;max-width: 100%;margin: 0 auto 16px;float: none;}
-	main #single h2, main #single .bloque-links h2{font-size: 20px;}
+	main #single h2, main #single .bloque-links h2{font-size: 24px;}
 	main #single .bloque-descarga{text-align: center;}
 	main #single .bloque-descarga h2{font-size: 22px;}
 	main #single .bloque-descarga a{line-height: 38px;height: 38px;padding: 0 20px;}
@@ -1196,13 +1231,13 @@ body.full-screen-content-item #course-item-content-header .toggle-content-item:b
 	main #single .block-mids-small, main #single .block-mids-large{flex-direction: column;}
 	main #single .block-mids-large .text, main #single .block-mids-small.invert .img{padding-left: 0;}
 	main #single .bloque-links{padding: 20px;}
-	main #single .bloque-links a{margin: 0 0 10px 0;line-height: 38px;height: 38px;padding: 0 20px;}
+	main #single .bloque-links a{margin: 0 0 10px 0;line-height: 1.2;min-height: 38px;padding: 10px 20px;height: auto;}
 
 	main #single .block_multi_images{flex-wrap: wrap;}
 	main #single .block_multi_images img{width: calc(100% - 16px);}
 	main #single .block_multi_images.img-3-col img{width: calc(50% - 16px)}
 	main #single .block_text_image{flex-direction: column;}
-	main #single .block_text_image > div{width: 100%;}
+	main #single .block_text_image > div{width: 100%;justify-content: center;}
 	main #single .block_text_image .text_IT.invert{text-align: left;}
 	main #single .block_cards_news.card-3-col .card-news,
 	main #single .block_cards_news.card-4-col .card-news,

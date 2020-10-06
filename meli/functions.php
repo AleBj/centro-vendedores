@@ -1,5 +1,11 @@
 <?php
-
+	add_action('after_setup_theme', 'remove_admin_bar');
+ 
+	function remove_admin_bar() {
+	if (!current_user_can('administrator') && !is_admin()) {
+	  show_admin_bar(true);
+	}
+	}
 	/* establecer el limitador de caché a 'private' */
 	session_cache_limiter('private');
 	$cache_limiter = session_cache_limiter();
@@ -393,10 +399,14 @@
 	    );
 
 	    if( $the_query3->have_posts() ) :
+
+	    	$iN = 0;
 	        while( $the_query3->have_posts() ): $the_query3->the_post(); ?>
 				<?php if( $_POST['keyword'] ):?>
 				<div class="item">
-					<h4>Notas <a href="<?php bloginfo('url')?>/notas">Ver más</a></h4>
+					<?php if($iN == 0): ?>
+					<h4>Notas <a onclick='clickGoSearch()'>Ver más</a></h4>
+					<?php endif; ?>
 					<a href="<?php echo esc_url( get_permalink() ); ?>">
 						<?php the_title();?>	
 						
@@ -405,15 +415,15 @@
 					</a>
 				</div>
 				<?php array_push($post_tags, get_the_tags()); ?>
-				<?php endif; ?>
+				<?php endif; $iN++;?>
 
 	        <?php endwhile;
 
 	        wp_reset_postdata();  
 	    else:?>
-			<!-- <div class="item">
-				<h4>Novedades <a href="<?php bloginfo('url')?>/novedades">Ver más</a></h4>
-			</div> -->
+			<div class="item">
+				<h4>Notas</h4>
+			</div> 
 	    <?php endif;
 
 
@@ -436,7 +446,7 @@
 	        while( $the_query2->have_posts() ): $the_query2->the_post(); ?>
 				<?php if( $_POST['keyword'] ):?>
 	            <div class="item">
-					<h4>Novedades <a href="<?php bloginfo('url')?>/novedades">Ver más</a></h4>
+					<h4>Novedades <a onclick='clickGoSearch()'>Ver más</a></h4>
 					<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title();?></a>
 				</div>
 				<?php array_push($post_tags, get_the_tags()); ?>
@@ -447,9 +457,9 @@
 	        wp_reset_postdata();  
 	    
 	    else:?>
-			<!-- <div class="item">
-				<h4>Notas <a href="<?php bloginfo('url')?>/notas">Ver más</a></h4>
-			</div> -->
+			<div class="item">
+				<h4>Novedades </h4>
+			</div> 
 	    <?php endif;
 
 	    $the_query4 = new WP_Query( array( 'posts_per_page' => 1, 's' => esc_attr( $_POST['keyword'] ), 'post_type' => array('lp_course') ) );
@@ -458,7 +468,7 @@
 	        while( $the_query4->have_posts() ): $the_query4->the_post(); ?>
 				<?php if( $_POST['keyword'] ):?>
 	            <div class="item">
-					<h4>Cursos <a href="<?php bloginfo('url')?>/cursos">Ver más</a></h4>
+					<h4>Cursos <a onclick='clickGoSearch()'>Ver más</a></h4>
 					<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title();?></a>
 				</div>
 				<?php array_push($post_tags, get_the_tags()); ?>
@@ -468,9 +478,9 @@
 
 	        wp_reset_postdata();  
 	    else:?>
-			<!-- <div class="item">
-				<h4>Cursos <a href="<?php bloginfo('url')?>/cursos">Ver más</a></h4>
-			</div> -->
+			<div class="item">
+				<h4>Cursos</h4>
+			</div>
 	    <?php endif;?>
 		
 		<div class="tags">
@@ -841,7 +851,7 @@
 	    <?php endwhile;
 	        wp_reset_postdata();  
 	    else:?>
-			<div class="card"><h2>No hay novedades</h2></div>
+			<div class="empty-card"><h2>No existen novedades</h2></div>
 	    <?php endif;
 
 	    die();
@@ -932,7 +942,7 @@
 	    <?php endwhile;
 	        wp_reset_postdata();  
 	    else:?>
-			<div class="card"><div class="copy"><h2>No hay notas</h2></div></div>
+			<div class="empty-card"><div class="copy"><h2>No existen notas</h2></div></div>
 	    <?php endif;
 
 	    die();
@@ -1004,7 +1014,7 @@
 	    <?php endwhile;
 	        wp_reset_postdata();  
 	    else:?>
-			<div class="card">No hay notas</div>
+			<div class="empty-card">No existen cursos</div>
 	    <?php endif;
 
 	    die();

@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Notas
+Template Name: Notas-bckp
 */
 
 get_header();
@@ -29,11 +29,11 @@ $title = '<h1><strong>Notas</strong><br> Estas son las Notas</h1>';
 ?>
 <?php include('inc_hero.php') ?>
 <div id="filters">  
-    <div id="categories" class="wp tagsList">
-        <a href=".mercado-libre" class="ml bt" data-filter="mercado-libre">mercado libre</a>
-        <a href=".mercado-pago" class="mp bt" data-filter="mercado-pago">mercado pago</a>
-        <a href=".mercado-envios" class="me bt" data-filter="mercado-envios">mercado envíos</a>
-        <a href=".mercado-shops" class="ms bt" data-filter="mercado-shops">mercado shops</a>
+    <div id="categories" class="wp">
+        <a href="" class="ml bt" data-filter="mercado-libre">mercado libre</a>
+        <a href="" class="mp bt" data-filter="mercado-pago">mercado pago</a>
+        <a href="" class="me bt" data-filter="mercado-envios">mercado envíos</a>
+        <a href="" class="ms bt" data-filter="mercado-shops">mercado shops</a>
     </div>
 </div>
 <?php 
@@ -63,10 +63,10 @@ endwhile;
 <div id="tags">
     <div class="show-tags">Filtrar (<?=count($tagsName)?>) <i class="fa fa-angle-down"></i></div>
     
-    <div class="content tagsList">
+    <div class="content">
         <?php 
             foreach ($tagsName as $tg) {
-                echo '<a href=".'.$tg->slug.'" class="bt">'.$tg->name.'</a>';
+                echo '<a href="'.$tg->slug.'" class="bt">'.$tg->name.'</a>';
                 //print_r($tg->name);
             }
 
@@ -83,11 +83,9 @@ endwhile;
 <main id="interna">
 
     <!-- NOVEDADES -->
-    <div class="block_home notas mrg-b-0" style="opacity: 0">
+    <div class="block_home notas mrg-b-0">
         <h3 class="wp">Notas</h3>
-        <div class="gridList content">
-            <div class="grid-sizer"></div>
-
+        <div class="content">
             <?php $y =0; 
             while ( $the_query_novedades->have_posts() ) :
                 $y++;
@@ -106,7 +104,7 @@ endwhile;
                     $image = get_field('imagen_principal_nota'); 
                 ?>
 
-                <div class="card grid-item <?= ($y == 1) ? 'important' : '';?> <?= $ptg ?> <?=$cat[0]->slug;?>">
+                <div class="card <?= ($y == 1) ? 'important' : '';?> <?= $ptg ?> <?=$cat[0]->slug;?>">
                     <a href="<?php the_permalink()?>" class="img" style="background-image: url(<?= $image['sizes']['medium'] ?>"></a>
                     <div class="copy">
                         <?php 
@@ -132,93 +130,99 @@ endwhile;
                     </div>
                 </div>
             <?php endwhile; ?>
-            <!-- <p class="noExist" style="display: none;">No existen resultados para Notas.</p> -->
-
-       
+            <p class="noExist" style="display: none;">No existen resultados para Notas.</p>
         </div>
 
     </div>
 
 </main>
-<style>
-.gridList{padding: 0 !important;}
-.gridList:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-.gridList .grid-item, .gridList .grid-sizer{width: 33%;margin:10px 0;}
-.gridList .grid-item{float: left;}
-main .block_home.notas .card{transition: 0s;}
-</style>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 <script>
+(function($) {
 
 $(window).on('load', function(){
-    $('#filters .bt[data-filter="<?=$url?>"]').trigger('click');
-    $('.block_home.notas').delay(400).animate({'opacity':1}, 300)
-
-    var onlyUrl = window.location.href.replace(window.location.search,'');
-    window.history.pushState("object or string", "Title", onlyUrl );
-
+    $('#filters .bt[data-filter="<?=$url?>"]').trigger('click')
 })
 
+var $filters = $('#filters .bt'),
+    $boxes = $('.card');
 
-</script>
-<script>
-// init Isotope
-var $grid = $('.gridList').isotope({
-  itemSelector: '.grid-item',
-  percentPosition: true,
-  masonry: {
-    columnWidth: '.grid-sizer'
-  }
-});
+  $filters.on('click', function(e) {
+    $('.noExist').fadeOut(100);
+    e.preventDefault();
+    var $this = $(this);
 
+    var $filterCat = $this.attr('data-filter');
 
-
-// store filter for each group
-var filters = [];
-
-$('.tagsList').on( 'click', '.bt', function( event ) {
-  event.preventDefault();
-
-  // if($(this).hasClass('active')){
-  //   $(this).removeClass('active');
-  // }else{
-  //   $(this).addClass('active');
-  // }   
-
-  $('.tagsList .bt.active').each(function(){
-    filters += $(this).attr('href');
-  })
+    if ($this.hasClass('active')) {
+        
+      $filters.removeClass('active');
  
-  // combine filters
+      $boxes.removeClass('is-animated')
+        .fadeOut().finish().promise().done(function() {
+          $boxes.each(function(i) {
+            $(this).addClass('is-animated').delay((i++) * 200).fadeIn();
+          });
+        });
+    } else {
 
-  // set filter for Isotope
-  $grid.isotope({ filter: filters });
-  filters = '';
+      $filters.removeClass('active');
+      $this.addClass('active');
 
-});
+      $boxes.removeClass('is-animated')
+        .fadeOut().finish().promise().done(function() {
+          if(!$('.card').hasClass($filterCat)){
+            $('.noExist').fadeIn(300);
+          }
+          $boxes.filter('.card.' + $filterCat ).each(function(i) {
+            $(this).addClass('is-animated').delay((i++) * 200).fadeIn();
+          });
+        });
+    }
+
+  });
+
+})(jQuery);
+
+//TAGS
+(function($) {
+
+var $tag = $('#tags .bt'),
+    $boxes = $('.card');
+
+  $tag.on('click', function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    $('#filters .bt').removeClass('active');
+
+    var $filterCat = $this.attr('href');
+
+    if ($this.hasClass('active')) {
+        console.log('entra')
+      $tag.removeClass('active');
+ 
+      $boxes.removeClass('is-animated')
+        .fadeOut().finish().promise().done(function() {
+          $boxes.each(function(i) {
+            $(this).addClass('is-animated').delay((i++) * 200).fadeIn();
+          });
+        });
+    } else {
 
 
-$('#tags .tagsList .bt').on('click', function(e){
-    if($(this).hasClass('active')){
-        $(this).removeClass('active');
-    }else{
-        $(this).addClass('active');
-    }   
-})
+      $tag.removeClass('active');
+      $this.addClass('active');
 
-$('#categories.tagsList .bt').on('click', function(){
-    if($(this).hasClass('active')){
-        $(this).removeClass('active');
-    }else{
-        $('#categories.tagsList .bt').removeClass('active')
-        $(this).addClass('active');
-    }   
-})
+      $boxes.removeClass('is-animated')
+        .fadeOut().finish().promise().done(function() {
+          $boxes.filter('.card.' + $filterCat ).each(function(i) {
+            $(this).addClass('is-animated').delay((i++) * 200).fadeIn();
+          });
+        });
+    }
+
+  });
+
+})(jQuery);
 </script>
 
 <?php

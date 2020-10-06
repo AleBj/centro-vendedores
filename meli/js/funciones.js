@@ -4,9 +4,13 @@ $('#formSearch input').on('keyup', function(){
 })	
 $('#formSearch input').on('focusout', function(){
 	$('#formSearch input').val('');
-	$('#formSearch .list-search').slideUp(300, function(){
-		$('#formSearch').removeClass('open');
-	})
+	setTimeout(function(){
+	
+		$('#formSearch .list-search').slideUp(300, function(){
+			$('#formSearch').removeClass('open');
+		})
+
+	}, 300)
 });
 $('#burger').on('click', function(){
 	$('#burger').toggleClass('open');

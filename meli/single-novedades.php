@@ -45,6 +45,7 @@ function slugify($text)
 		<div class="content-small">
 			<h1><?php the_title(); ?></h1>
 			<p class="bajada"><?= get_the_content(); ?></p>
+			<small class="date"><?php $post_date = get_the_date( 'd M Y' ); echo $post_date; ?></small>
 		</div>
 		<!-- fixear -->
 		<div id="shared">
@@ -113,7 +114,7 @@ function slugify($text)
 		</div>
 		<!-- fixear -->
 		
-		<div class="image-ppal content-small">
+		<!-- <div class="image-ppal content-small">
 			<?php $image = get_field('imagen_principal_nota');
 			if(isset($image) && $image != ''):
 			?>
@@ -121,7 +122,7 @@ function slugify($text)
 			<img src="<?= $image['sizes']['large'] ?>" alt="<?php the_title(); ?>">
 
 			<?php endif; ?>
-		</div>
+		</div> -->
 		<?php 
 		// check if the flexible content field has rows of data
 		if( get_field('elementos_nota') ):

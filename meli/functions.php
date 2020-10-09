@@ -638,7 +638,7 @@
         echo '</div></div>';
 	        wp_reset_postdata();  
 	    else:?>
-			<div class="block_home novedades" style="display: block;">
+			<div class="block_home novedades">
 				<div class="noExist">No existen resultados para tu búsqueda.</div>
 			</div>
 	    <?php endif;

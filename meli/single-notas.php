@@ -99,10 +99,10 @@ function slugify($text)
 						  <li><a href="https://twitter.com/intent/tweet?source=<?=home_url( $wp->request )?>%2F&text=<?php the_title(); ?>:%20http%3A%2F%2Ftest-vendedores.mercadolibre.com.ar%2F" target="_blank" title="Tweet">
 						  	<i class="fa fa-twitter"></i></a>
 						  </li>
-						  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=<?=home_url( $wp->request )?>%2F&title=<?php the_title(); ?>&summary=<?= get_the_content(); ?>%2F" target="_blank" title="Share on LinkedIn">
+						  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=<?=home_url( $wp->request )?>%2F&title=<?php the_title(); ?>&summary=" target="_blank" title="Share on LinkedIn">
 						  	<i class="fa fa-linkedin"></i></a>
 						  </li>
-						  <li><a href="mailto:?subject=<?php the_title(); ?>&body=<?= get_the_content(); ?>:%20<?=home_url( $wp->request )?>%2F" target="_blank" title="Send email">
+						  <li><a href="mailto:?subject=<?php the_title(); ?>&body=:%20<?=home_url( $wp->request )?>%2F" target="_blank" title="Send email">
 						  	<i class="fa fa-envelope"></i></a>
 						  </li>
 						</ul>

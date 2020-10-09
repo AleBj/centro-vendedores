@@ -139,6 +139,8 @@ function fetch2(xxx){
     hash = hash.replace('%C3%B3', 'ó')
     hash = hash.replace('%C3%BA', 'ú')
     hash = hash.replace('%20', ' ')
+    hash = hash.replace('%20', ' ')
+    hash = hash.replace('%20', ' ')
     
     console.log(hash)
     if(hash){

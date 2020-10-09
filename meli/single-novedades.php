@@ -45,7 +45,7 @@ function slugify($text)
 		<div class="content-small">
 			<h1><?php the_title(); ?></h1>
 			<p class="bajada"><?= get_the_content(); ?></p>
-			<small class="date"><?php $post_date = get_the_date( 'd M Y' ); echo $post_date; ?></small>
+			<small class="date nov"><?php $post_date = get_the_date( 'd M Y' ); echo $post_date; ?></small>
 		</div>
 		<!-- fixear -->
 		<div id="shared">
@@ -286,9 +286,13 @@ function slugify($text)
 			        				$xcs = 1;
 			        			}else{
 			        				if($xcs == 0){
+			        					if($th['c'] != ''){
 			        					echo '<th><span>' . $th['c'] . '</span></th>';
+				        				}else{
+			        					echo '<th></th>';				        					
+				        				}
 			        				}else{
-			        					echo '<th colspan='.$nCol.'><span>' . $th['c'] . '</span></th>';
+			        					echo '<th colspan='.$nCol.'><span style="width:50%">' . $th['c'] . '</span></th>';
 			        					$xcs = 0;
 			        				}
 			        				
@@ -309,7 +313,7 @@ function slugify($text)
 		        		</table>
 		        		<div class="disclaimer">
 		        			<?php $disc = get_sub_field('texto_tabla'); 
-		        				echo strip_tags($disc, '<br> <em>')
+		        				echo strip_tags($disc, '<br> <em> <p>')
 		        			?>
 		        		</div>
 					</div>

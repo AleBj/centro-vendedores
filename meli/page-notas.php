@@ -117,8 +117,9 @@ endwhile;
                         <small class="<?=$cat[0]->slug;?>"><?=$cat[0]->name;?></small>
                         <h2><a href="<?php the_permalink()?>"><?php the_title(); ?></a></h2>
 
-                        <?php $content = get_the_content(); ?>
-                        <p><a href="<?php the_permalink()?>"><?= $content ?></a></p>
+                        <?php $content = get_the_content(); 
+                        ?>
+                        <p><a href="<?php the_permalink()?>"><?= strip_tags($content) ?></a></p>
 
                         <div class="tags">
                             <?php $tags = get_the_tags();

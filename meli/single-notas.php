@@ -281,7 +281,11 @@ function slugify($text)
 			        				$xcs = 1;
 			        			}else{
 			        				if($xcs == 0){
+			        					if($th['c'] != ''){
 			        					echo '<th><span>' . $th['c'] . '</span></th>';
+				        				}else{
+			        					echo '<th></th>';				        					
+				        				}
 			        				}else{
 			        					echo '<th colspan='.$nCol.'><span>' . $th['c'] . '</span></th>';
 			        					$xcs = 0;

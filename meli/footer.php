@@ -45,6 +45,21 @@
 		</div>
 	</div>
 </footer>
+
+<?php if( have_rows('disclaimer_cookies', 'option') ): ?>
+    <?php while( have_rows('disclaimer_cookies', 'option') ): the_row(); 
+
+	 $disc_txt = get_sub_field('texto_disclaimer');
+	 $disc_btn = get_sub_field('boton_disclaimer');
+    ?>    
+	<div id="disclaimer">
+		<?php echo $disc_txt ?>
+		<div class="btn"><?php echo $disc_btn ?></div>
+	</div>		
+    <?php endwhile; ?>
+<?php endif; ?>
+
+
 <script src="<?php bloginfo('url'); ?>/wp-content/themes/meli/js/jquery.flexslider-min.js?v=1"></script>
 <script src="<?php bloginfo('url'); ?>/wp-content/themes/meli/js/owl.carousel.min.js?v=1"></script>
 <script src="<?php bloginfo('url'); ?>/wp-content/themes/meli/js/funciones.js?v=1"></script>
@@ -53,6 +68,9 @@
 		$(this).toggleClass('open');
 		$('.links .contentLinks').slideToggle(400);
 		$("html, body").animate({ scrollTop: $(document).height() }, 1000);
+	});
+	$('#disclaimer .btn').on('click', function(){
+		$('#disclaimer').fadeOut(300);
 	})
 </script>
 </body>

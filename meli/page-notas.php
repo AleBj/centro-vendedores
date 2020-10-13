@@ -104,10 +104,11 @@ endwhile;
                     }
                     }
                     $image = get_field('imagen_principal_nota'); 
+                    //var_dump($image);
                 ?>
 
                 <div class="card grid-item <?= ($y == 1) ? 'important' : '';?> <?= $ptg ?> <?=$cat[0]->slug;?>">
-                    <a href="<?php the_permalink()?>" class="img" style="background-image: url(<?= $image['sizes']['medium'] ?>"></a>
+                    <a href="<?php the_permalink()?>" class="img lazybg" data-lazybg="<?= $image['sizes']['medium'] ?>" style=""></a>
                     <div class="copy">
                         <?php 
                             $gcat = get_object_taxonomies('notas');
@@ -220,7 +221,30 @@ $('#categories.tagsList .bt').on('click', function(){
     }   
 })
 </script>
+<script src="<?php bloginfo('url'); ?>/wp-content/themes/meli/js/intersection-observer.js"></script>
+<script>
+let lazyObjectObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                let lazyObject = entry.target;
+                if(!(lazyObject.dataset.lazybg == '')){
+                    bgsrc = lazyObject.dataset.lazybg;
+                    lazyObject.style.backgroundImage = 'url('+bgsrc+')';
+                    lazyObject.classList.remove("lazybg");
+                    lazyObject.dataset.lazybg = '';
+                    lazyObjectObserver.unobserve(lazyObject);
+                }
+            }
+        });
+    },{ rootMargin: "0px 0px 0px 0px" });
 
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyObjects = [].slice.call(document.querySelectorAll(".lazybg"));
+  lazyObjects.forEach(function(lazyObject) {
+        lazyObjectObserver.observe(lazyObject);
+  });
+});
+</script>
 <?php
 
 get_footer(); 

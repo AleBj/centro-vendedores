@@ -233,7 +233,7 @@ function cursos(x){
 				$i++;
 			    $the_query_notas->the_post(); 
 			    $image = get_field('imagen_principal_nota');
-			    var_dump($image);
+			    //var_dump($image);
 			    ?>
 
 			    <div class="card  <?= ($i == 1) ? 'important' : '';?>">

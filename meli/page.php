@@ -28,7 +28,7 @@ $course = LP_Global::course();
 
 				// If the page has WooCommerce shortcodes, make the inner sections wide
 				$content = get_the_content();
-
+				var_dump($content);
 
 				?>
 

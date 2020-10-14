@@ -547,7 +547,7 @@
 			    ) 
 	    	) 
 	    );
-	    $i++;
+	    $i = 0;
 	    if( $the_query3->have_posts() ) :
 		echo '<div class="block_home notas" style="display: block;"><div class="contentRes">';
 	        while( $the_query3->have_posts() ): 

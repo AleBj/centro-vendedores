@@ -236,7 +236,6 @@ function cursos(x){
 			    var_dump($image);
 			    ?>
 
-			    <!-- <a href="<?php the_permalink()?>" class="card <?= ($i == 1) ? 'important' : '';?>"> -->
 			    <div class="card  <?= ($i == 1) ? 'important' : '';?>">
 					<a href="<?php the_permalink()?>" class="img" style="background-image: url(<?= $image["sizes"]["large"] ?>);"></a>
 					<div class="copy">
@@ -261,7 +260,6 @@ function cursos(x){
 						</div>
 					</div>
 				</div>
-				<!-- </a> -->
 
 			<?php endwhile; ?>
 			

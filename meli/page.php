@@ -1,6 +1,7 @@
 <?php get_header(); 
 
 $course = LP_Global::course();
+
 ?>
 
 <main id="site-content">

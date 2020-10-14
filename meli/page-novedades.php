@@ -8,7 +8,9 @@ get_header();
 $url = explode("=", add_query_arg( $wp->query_vars, home_url() ));
 $url = $url[1];
 
-$url = $_GET['u'];
+if(isset($_GET['u'])){
+    $url = $_GET['u'];
+}
 ?>
 <?php
 $the_query_novedades = new WP_Query( array(

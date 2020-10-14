@@ -8,6 +8,12 @@ get_header();
 
 $course = LP_Global::course();
 
+$url = explode("=", add_query_arg( $wp->query_vars, home_url() ));
+$url = $url[1];
+
+if(isset($_GET['u'])){
+    $url = $_GET['u'];
+}
 
 $the_query_cursos = new WP_Query( array(
     'posts_per_page' => -1,

@@ -102,7 +102,7 @@ function slugify($text)
 						  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=<?=home_url( $wp->request )?>%2F&title=<?php the_title(); ?>%2F" target="_blank" title="Share on LinkedIn">
 						  	<i class="fa fa-linkedin"></i></a>
 						  </li>
-						  <li><a href="mailto:?subject=<?php the_title(); ?>&body=<?= strip_tag(get_the_content()); ?>:%20<?=home_url( $wp->request )?>%2F" target="_blank" title="Send email">
+						  <li><a href="mailto:?subject=<?php the_title(); ?>&body=Mirá esta nota: <?=home_url( $wp->request )?>%2F" target="_blank" title="Send email">
 						  	<i class="fa fa-envelope"></i></a>
 						  </li>
 						</ul>

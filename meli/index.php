@@ -233,11 +233,12 @@ function cursos(x){
 				$i++;
 			    $the_query_notas->the_post(); 
 			    $image = get_field('imagen_principal_nota');
+			    var_dump($image);
 			    ?>
 
 			    <!-- <a href="<?php the_permalink()?>" class="card <?= ($i == 1) ? 'important' : '';?>"> -->
 			    <div class="card  <?= ($i == 1) ? 'important' : '';?>">
-					<a href="<?php the_permalink()?>" class="img" style="background-image: url(<?= $image['sizes']['large'] ?>);"></a>
+					<a href="<?php the_permalink()?>" class="img" style="background-image: url(<?= $image["sizes"]["large"] ?>);"></a>
 					<div class="copy">
 						<?php 
 							$gcat = get_object_taxonomies('notas');

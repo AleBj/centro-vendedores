@@ -111,6 +111,12 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
 </head>
 <body <?php body_class(); ?>>
+<?php 
+$blog_id = get_current_blog_id();
+echo '<!--'; 
+echo $blog_id;
+echo '-->';
+?>
 
 <header>
 	<div class="wp">

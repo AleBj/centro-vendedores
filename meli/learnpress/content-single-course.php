@@ -82,6 +82,7 @@ do_action( 'learn-press/before-single-course' );
             ) ); ?>
             <div class="related-slider">
             <?php
+            /*
             while ( $the_query->have_posts() ) :
                 $the_query->the_post(); ?>
 
@@ -117,8 +118,8 @@ do_action( 'learn-press/before-single-course' );
 
 
             <?php
-            endwhile;
-            wp_reset_postdata();
+            endwhile; 
+            wp_reset_postdata(); */
             ?>
             </div>
         </div>

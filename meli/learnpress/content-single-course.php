@@ -53,7 +53,7 @@ do_action( 'learn-press/before-single-course' );
         <div class="lp-course-buttons">
             <?php
             $link = $course->get_item_links();
-            var_dump($link);
+            
             if ( $course->is_free() && !$course->is_required_enroll() ) { ?>
             <form action="<?php echo reset($link); ?>" ?>
                 <button type="submit" href=""><?php _e( 'Comenzar', 'sage' ) ?></button>

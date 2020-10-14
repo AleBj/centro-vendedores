@@ -1,6 +1,6 @@
 <?php get_header(); 
 
-//$course = LP_Global::course();
+$course = LP_Global::course();
 ?>
 
 <main id="site-content">
@@ -41,7 +41,7 @@
 						<?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
 
 
-						<!-- <div class="items">
+						<div class="items">
 							<div class="time"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-reloj.svg" alt="Reloj"> <?= conversorSegundosHoras($course->get_duration()) ?></div>
 							<div class="file"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-page.svg" alt="Page"> Sin evaluación</div>
 							<div class="lessons"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-book.svg" alt="Book"> 
@@ -54,7 +54,7 @@
 	                        echo $clases;
 	                        ?>
 	                         Lecciones</div>
-						</div> -->
+						</div>
 						<div class="courseCategory">
 							<div class="categories"><small class="<?=$cat[0]->slug;?>"><?=$cat[0]->name;?></small></div>
 					
@@ -66,12 +66,6 @@
 							</div>
 							<a href="" class="share"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/share.svg" alt="share"></a>
 						</div>
-
-						<?php if ( has_excerpt() ) : ?>
-
-							<p class="sans-excerpt"><?php echo wp_kses_post( get_the_excerpt() ); ?></p>
-
-						<?php endif; ?>
 
 				
 						</div>

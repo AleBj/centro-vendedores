@@ -1,11 +1,11 @@
 <?php get_header(); 
 
-$course = LP_Global::course();
+//$course = LP_Global::course();
 ?>
 
 <main id="site-content">
 
-		<!-- <?php 
+		<?php 
 		$gcat = get_object_taxonomies('lp_course');
 		$cat = wp_get_post_terms($post->ID, $taxonomy = $gcat[0]);
 		$tag = wp_get_post_terms($post->ID, $taxonomy = $gcat[1]);
@@ -17,7 +17,7 @@ $course = LP_Global::course();
 		  $category = $term->name;
 		  $categorySlug = $term->slug;
 		}
- 		?>	 -->	
+ 		?>		
 
 		<?php
 
@@ -26,14 +26,14 @@ $course = LP_Global::course();
 			while ( have_posts() ) : the_post();
 
 				// If the page has WooCommerce shortcodes, make the inner sections wide
-				//$content = get_the_content();
+				$content = get_the_content();
 
 
 				?>
 
 				<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 					
-					<!-- <div class="breadcrumbs"><a href="<?php bloginfo('url')?>/cursos">Cursos</a> <i class="fa fa-angle-right"></i> <a href="<?php bloginfo('url')?>/cursos/?u=<?=$categorySlug?>"><?= $category;  ?> </a> <i class="fa fa-angle-right"></i> <?php the_title(); ?></div>
+					<div class="breadcrumbs"><a href="<?php bloginfo('url')?>/cursos">Cursos</a> <i class="fa fa-angle-right"></i> <a href="<?php bloginfo('url')?>/cursos/?u=<?=$categorySlug?>"><?= $category;  ?> </a> <i class="fa fa-angle-right"></i> <?php the_title(); ?></div>
 
 						
 					<div class="wp-small">
@@ -41,7 +41,7 @@ $course = LP_Global::course();
 						<?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
 
 
-						<div class="items">
+						<!-- <div class="items">
 							<div class="time"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-reloj.svg" alt="Reloj"> <?= conversorSegundosHoras($course->get_duration()) ?></div>
 							<div class="file"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-page.svg" alt="Page"> Sin evaluación</div>
 							<div class="lessons"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-book.svg" alt="Book"> 
@@ -54,7 +54,7 @@ $course = LP_Global::course();
 	                        echo $clases;
 	                        ?>
 	                         Lecciones</div>
-						</div>
+						</div> -->
 						<div class="courseCategory">
 							<div class="categories"><small class="<?=$cat[0]->slug;?>"><?=$cat[0]->name;?></small></div>
 					
@@ -74,7 +74,7 @@ $course = LP_Global::course();
 						<?php endif; ?>
 
 				
-						</div> -->
+						</div>
 
 					<?php if ( has_post_thumbnail() ) : ?>
 
@@ -90,7 +90,7 @@ $course = LP_Global::course();
 							<div class="featured-content">
 
 								<?php
-								//the_content();
+								the_content();
 
 								wp_link_pages(); ?>
 							</div>
@@ -109,7 +109,7 @@ $course = LP_Global::course();
 		?>
 
 </main><!-- #site-content -->
-<!-- <?php 
+<?php 
 function conversorSegundosHoras($tiempo_en_segundos) {
     $horas = floor($tiempo_en_segundos / 3600);
     $minutos = floor(($tiempo_en_segundos - ($horas * 3600)) / 60);
@@ -130,5 +130,5 @@ function conversorSegundosHoras($tiempo_en_segundos) {
 
     return $hora_texto;
 }
-?> -->
+?>
 <?php get_footer(); ?>

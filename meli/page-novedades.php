@@ -91,7 +91,7 @@ endwhile;
         <h3 class="wp">Novedades</h3>
         <div class="gridList content">
             <div class="grid-sizer"></div>
-            <?php $y =0; 
+            <?php $y =1; 
             while ( $the_query_novedades->have_posts() ) :
                 $y++;
                 $the_query_novedades->the_post(); ?>
@@ -109,7 +109,7 @@ endwhile;
                 ?>
 
                 <a href="<?php the_permalink()?>" class="card grid-item <?=$cat[0]->slug;?> <?=$ptg?>">
-                    <?= ($y == 1) ? '<div class="ribbon"><span>New</span><div class="triangle"></div></div>' : '';?>                
+                    <?= ($y == 0) ? '<div class="ribbon"><span>New</span><div class="triangle"></div></div>' : '';?>                
 
                     <small><?php $post_date = get_the_date( 'd M Y' ); echo $post_date; ?></small>
                     <h2><?php the_title(); ?></h2>

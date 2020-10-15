@@ -191,7 +191,7 @@ function cursos(x){
 			    ),
 			) ); ?>
 			<?php
-			$y =0; 
+			$y =1; 
 			while ( $the_query_novedades->have_posts() ) :
 				$y++;
 			    $the_query_novedades->the_post(); ?>

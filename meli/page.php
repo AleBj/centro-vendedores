@@ -1,4 +1,4 @@
-<?php //get_header(); 
+<?php get_header('cursos'); 
 
 $course = LP_Global::course();
 

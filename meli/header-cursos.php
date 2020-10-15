@@ -1,3 +1,38 @@
+<?php 
+	global $wp;
+	$slug = add_query_arg( array(), $wp->request );
+
+	// error_reporting(E_ALL);
+	// ini_set('display_errors', '1');
+	$the_query_tags = new WP_Query( array(
+    'posts_per_page' => -1,
+    'post_type' => array('notas','novedades')
+	) ); 
+	$tagsName = [];
+	$arrayControl = [];
+
+	while ( $the_query_tags->have_posts() ) :
+
+	    $the_query_tags->the_post();
+	    $tag = get_the_tags();
+	    if($tag){
+	    
+	    foreach ($tag as $t) {
+	        $obj = new stdClass();
+	        $obj->name = $t->name;
+	        $obj->slug = $t->slug;
+
+	        if (!in_array($obj->name, $arrayControl)) {
+	            array_push($tagsName, $obj);
+	        }
+	        array_push($arrayControl, $obj->name);
+	    }
+
+	    }
+	  
+	endwhile;
+	wp_reset_postdata();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -30,7 +65,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/meli/fonts/fonts.css?v=1">
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/meli/style.css?v=1"/> 
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/meli/css/css.css?v=1">
-
+ 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
 </head>
 <body <?php body_class(); ?>>
@@ -45,7 +80,7 @@
 				<li><a href="<?php bloginfo('url') ?>/novedades" class="<?= ($slug == 'novedades') ? 'active' : '';  ?>">Novedades</a></li>
 				<li><a href="<?php bloginfo('url') ?>/notas" class="<?= ($slug == 'notas') ? 'active' : '';  ?>">Notas</a></li>
 				<li><a href="<?php bloginfo('url') ?>/cursos" class="<?= ($slug == 'cursos') ? 'active' : '';  ?>">Cursos</a></li>
-				<!-- <li>Etiquetas <i class="fa fa-angle-down"></i>
+				<li>Etiquetas <i class="fa fa-angle-down"></i>
 					<div class="submenu">
 						<?php 
 						foreach ($tagsName as $tag) {
@@ -53,7 +88,7 @@
 						}
 						?>
 					</div>
-				</li> -->
+				</li>
 			</ul>
 		</nav>
 		<a href="<?php bloginfo('url') ?>/buscar"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/lupa@3x.png" alt="Search :: Centro de vendedores" class="lupa_header"></a>

@@ -1023,7 +1023,7 @@ main#site-content .lp-course-buttons{margin-top: 40px;}
 main#site-content section.acced-course .lp-course-buttons{margin: 0;}
 main#site-content .lp-course-buttons button.lp-button,
 main#site-content section.acced-course button{font-size: 18px;font-weight: 500;color: var(--white);background-color: var(--blue);padding: 0 16px;line-height: 48px;border-radius: 24px;cursor: pointer;}
-main#site-content .related-course{background-color: var(--white);padding: 60px 0;margin-top: 60px;}
+main#site-content .related-course{background-color: var(--white);padding: 60px 0;margin-top: 60px;min-height: 200px;}
 main#site-content .related-course .container,main#site-content .learn-press-message{position: relative;max-width: 1240px;padding: 0 12px;margin-left: auto;margin-right: auto;}
 main#site-content .related-course .container .related-slider{display: flex;}
 main#site-content .related-course h4 {

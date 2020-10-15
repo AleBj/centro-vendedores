@@ -25,7 +25,9 @@ $the_query_cursos = new WP_Query( array(
         <a href=".mercado-libre" class="ml bt" data-filter="mercado-libre">mercado libre</a>
         <a href=".mercado-pago" class="mp bt" data-filter="mercado-pago">mercado pago</a>
         <a href=".mercado-envios" class="me bt" data-filter="mercado-envios">mercado envíos</a>
+        <?php if($blog_id != 5): ?>
         <a href=".mercado-shops" class="ms bt" data-filter="mercado-shops">mercado shops</a>
+        <?php endif; ?>               
     </div>
 </div>
 

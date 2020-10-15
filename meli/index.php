@@ -22,7 +22,9 @@ $course = LP_Global::course();
 		<a href="mercado-libre" class="ml">Mercado libre</a>
 		<a href="mercado-pago" class="mp">Mercado pago</a>
 		<a href="mercado-envios" class="me">Mercado envíos</a>
+        <?php if($blog_id != 5): ?>
 		<a href="mercado-shops" class="ms">Mercado shops</a>
+        <?php endif; ?>               
 	</div>
 </div>
 <script>

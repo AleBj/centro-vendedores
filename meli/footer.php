@@ -64,6 +64,12 @@
 <script src="<?php bloginfo('url'); ?>/wp-content/themes/meli/js/owl.carousel.min.js?v=1"></script>
 <script src="<?php bloginfo('url'); ?>/wp-content/themes/meli/js/funciones.js?v=1"></script>
 <script>
+	var x = getCookie('ppkcookie');
+	if (x) {
+		//console.log(x);
+		$('#disclaimer').hide()
+	}
+
 	$('.links .bt').on('click', function(){
 		$(this).toggleClass('open');
 		$('.links .contentLinks').slideToggle(400);
@@ -71,7 +77,11 @@
 	});
 	$('#disclaimer .btn').on('click', function(){
 		$('#disclaimer').fadeOut(300);
+		setCookie('ppkcookie','melicookie',7);
 	})
+
+
+
 </script>
 </body>
 </html>

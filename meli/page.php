@@ -1,4 +1,4 @@
-<?php get_header(); 
+<?php //get_header(); 
 
 $course = LP_Global::course();
 
@@ -125,4 +125,4 @@ function conversorSegundosHoras($tiempo_en_segundos) {
     return $hora_texto;
 }
 ?>
-<?php //get_footer(); ?>
+<?php get_footer(); ?>

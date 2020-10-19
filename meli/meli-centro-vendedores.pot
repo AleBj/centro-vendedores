@@ -1,0 +1,172 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MELI - Centro de vendedores\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-19 18:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.3.3; wp-5.4.1"
+
+#: page-novedades.php:29
+msgid " y avances de nuestro ecosistema"
+msgstr ""
+
+#. Author of the theme
+msgid "Alejandro Marsico"
+msgstr ""
+
+#. Name of the template
+msgid "Buscador"
+msgstr ""
+
+#: page-cursos.php:23
+msgid "Capacitá a tu equipo"
+msgstr ""
+
+#: footer.php:10
+msgid "COPYRIGHT © 1999-2020 MERCADOLIBRE S.R.L."
+msgstr ""
+
+#. Name of the template
+#: functions.php:471 functions.php:482 page-search.php:27 index.php:274
+#: header.php:130 header-cursos.php:82 footer.php:7 page.php:36
+msgid "Cursos"
+msgstr ""
+
+#: inc_hero.php:6
+msgid "Descubrí cómo podemos ayudarte a llegar más lejos"
+msgstr ""
+
+#: page-notas.php:29
+msgid "Descubrí herramientas"
+msgstr ""
+
+#: page-search.php:28 header.php:131 header-cursos.php:83
+msgid "Etiquetas"
+msgstr ""
+
+#: page-cursos.php:61 page-novedades.php:68 page-notas.php:67
+msgid "Filtrar"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://alejandromarsico.com.ar/"
+msgstr ""
+
+#. URI of the theme
+msgid "https://vendedores.mercadolibre.com.ar/;"
+msgstr ""
+
+#: functions.php:1028 page-cursos.php:131
+msgid "Lecciones"
+msgstr ""
+
+#: footer.php:13
+msgid "Mas información"
+msgstr ""
+
+#. Name of the theme
+msgid "MELI - Centro de vendedores"
+msgstr ""
+
+#: page-search.php:18 index.php:24 page-cursos.php:30 page-novedades.php:36
+#: page-notas.php:36
+msgid "Mercado envíos"
+msgstr ""
+
+#: page-search.php:16 index.php:22 page-cursos.php:28 page-novedades.php:34
+#: page-notas.php:34
+msgid "Mercado Libre"
+msgstr ""
+
+#: index.php:23 page-cursos.php:29 page-novedades.php:35 page-notas.php:35
+msgid "Mercado Pago"
+msgstr ""
+
+#: page-search.php:17
+msgid "Mercado pago"
+msgstr ""
+
+#: index.php:26 page-cursos.php:32 page-novedades.php:38 page-notas.php:38
+msgid "Mercado Shops"
+msgstr ""
+
+#: page-search.php:20
+msgid "Mercado shops"
+msgstr ""
+
+#: functions.php:1036
+msgid "No existen cursos"
+msgstr ""
+
+#: functions.php:964
+msgid "No existen notas"
+msgstr ""
+
+#: functions.php:873
+msgid "No existen novedades"
+msgstr ""
+
+#: page-novedades.php:29
+msgid "No te pierdas los lanzamientos"
+msgstr ""
+
+#. Name of the template
+#: functions.php:408 functions.php:425 single-notas.php:43 page-search.php:25
+#: index.php:218 header.php:129 header-cursos.php:81 footer.php:6
+#: page-notas.php:90
+msgid "Notas"
+msgstr ""
+
+#. Name of the template
+msgid "Notas-bckp"
+msgstr ""
+
+#. Name of the template
+#: functions.php:449 functions.php:461 page-search.php:26 index.php:177
+#: page-novedades.php:91 header.php:128 header-cursos.php:80 footer.php:5
+#: single-novedades.php:42
+msgid "Novedades"
+msgstr ""
+
+#. Name of the template
+msgid "Novedades-bckp"
+msgstr ""
+
+#: inc_hero.php:6
+msgid "Potenciemos juntos tus ventas."
+msgstr ""
+
+#: functions.php:1027 index.php:314
+msgid "Sin evaluación"
+msgstr ""
+
+#. Name of the template
+msgid "Tags"
+msgstr ""
+
+#. Description of the theme
+msgid ""
+"Todo lo que necesitás para vender exitosamente en Mercado Libre, en tu "
+"tienda online y en tu tienda física. Año 2020."
+msgstr ""
+
+#: index.php:177 index.php:218 index.php:274
+msgid "Ver más"
+msgstr ""
+
+#: page-cursos.php:23
+msgid "y llevá tu negocio al siguiente nivel"
+msgstr ""
+
+#: page-notas.php:29
+msgid "y soluciones para tu negocios"
+msgstr ""

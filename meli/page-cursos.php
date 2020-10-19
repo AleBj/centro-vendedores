@@ -20,7 +20,7 @@ $the_query_cursos = new WP_Query( array(
     'post_type' => 'lp_course'
 ) ); 
 
-$title = '<h1><strong>'. _e( 'Capacitá a tu equipo', 'meli-centro-vendedores' ).'</strong> '. _e( 'y llevá tu negocio al siguiente nivel', 'meli-centro-vendedores' ).'</h1>'; 
+$title = '<h1><strong>'. __( 'Capacitá a tu equipo', 'meli-centro-vendedores' ).'</strong> '. __( 'y llevá tu negocio al siguiente nivel', 'meli-centro-vendedores' ).'</h1>'; 
 ?>
 <?php include('inc_hero.php') ?>
 <div id="filters">  

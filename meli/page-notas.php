@@ -26,7 +26,7 @@ $the_query_novedades = new WP_Query( array(
     )
 ) ); 
 
-$title = '<h1><strong>'. _e( 'Descubrí herramientas', 'meli-centro-vendedores' ).'</strong> '. _e( 'y soluciones para tu negocios', 'meli-centro-vendedores' ).'</h1>'; 
+$title = '<h1><strong>'. __( 'Descubrí herramientas', 'meli-centro-vendedores' ).'</strong> '. __( 'y soluciones para tu negocios', 'meli-centro-vendedores' ).'</h1>'; 
 ?>
 <?php include('inc_hero.php') ?>
 <div id="filters">  

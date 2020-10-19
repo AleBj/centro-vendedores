@@ -26,7 +26,7 @@ $the_query_novedades = new WP_Query( array(
     )
 ) );
 
-$title = '<h1><strong>'. _e( 'No te pierdas los lanzamientos', 'meli-centro-vendedores' ).'</strong> '. _e( ' y avances de nuestro ecosistema<', 'meli-centro-vendedores' ).'</h1>'; 
+$title = '<h1><strong>'. __( 'No te pierdas los lanzamientos', 'meli-centro-vendedores' ).'</strong> '. __( ' y avances de nuestro ecosistema', 'meli-centro-vendedores' ).'</h1>'; 
 ?>
 <?php include('inc_hero.php') ?>
 <div id="filters">  

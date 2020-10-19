@@ -405,7 +405,7 @@
 				<?php if( $_POST['keyword'] ):?>
 				<div class="item">
 					<?php if($iN == 0): ?>
-					<h4>Notas <a onclick='clickGoSearch()'>Ver más</a></h4>
+					<h4><?php _e( 'Notas', 'meli-centro-vendedores' ); ?> <a onclick='clickGoSearch()'>Ver más</a></h4>
 					<?php endif; ?>
 					<a href="<?php echo esc_url( get_permalink() ); ?>">
 						<?php the_title();?>	
@@ -422,7 +422,7 @@
 	        wp_reset_postdata();  
 	    else:?>
 			<div class="item">
-				<h4>Notas</h4>
+				<h4><?php _e( 'Notas', 'meli-centro-vendedores' ); ?></h4>
 			</div> 
 	    <?php endif;
 
@@ -446,7 +446,7 @@
 	        while( $the_query2->have_posts() ): $the_query2->the_post(); ?>
 				<?php if( $_POST['keyword'] ):?>
 	            <div class="item">
-					<h4>Novedades <a onclick='clickGoSearch()'>Ver más</a></h4>
+					<h4><?php _e( 'Novedades', 'meli-centro-vendedores' ); ?> <a onclick='clickGoSearch()'>Ver más</a></h4>
 					<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title();?></a>
 				</div>
 				<?php array_push($post_tags, get_the_tags()); ?>
@@ -458,7 +458,7 @@
 	    
 	    else:?>
 			<div class="item">
-				<h4>Novedades </h4>
+				<h4><?php _e( 'Novedades', 'meli-centro-vendedores' ); ?> </h4>
 			</div> 
 	    <?php endif;
 
@@ -468,7 +468,7 @@
 	        while( $the_query4->have_posts() ): $the_query4->the_post(); ?>
 				<?php if( $_POST['keyword'] ):?>
 	            <div class="item">
-					<h4>Cursos <a onclick='clickGoSearch()'>Ver más</a></h4>
+					<h4><?php _e( 'Cursos', 'meli-centro-vendedores' ); ?> <a onclick='clickGoSearch()'>Ver más</a></h4>
 					<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title();?></a>
 				</div>
 				<?php array_push($post_tags, get_the_tags()); ?>
@@ -479,7 +479,7 @@
 	        wp_reset_postdata();  
 	    else:?>
 			<div class="item">
-				<h4>Cursos</h4>
+				<h4><?php _e( 'Cursos', 'meli-centro-vendedores' ); ?></h4>
 			</div>
 	    <?php endif;?>
 		
@@ -592,8 +592,15 @@
 
 	        wp_reset_postdata();  
 	    else:?>
-			<div class="block_home notas">
-				<div class="noExist">No existen resultados para tu búsqueda.</div>
+			<div class="block_home notas" style="display: block;">
+				<div class="noExist">Ups, no encontramos nada para "<?= $_POST['keyword'] ?>". <br><br>
+
+					Para volver a intentarlo podés:<br>
+					- Revisar si las palabras están bien escritas.<br>
+					- Intentar con menos palabras o frases más generales.<br>
+					- Dejarnos una sugerencia para crear contenido referido a tu búsqueda ;)
+
+				</div>
 			</div>
 	    <?php endif;
 
@@ -639,7 +646,13 @@
 	        wp_reset_postdata();  
 	    else:?>
 			<div class="block_home novedades">
-				<div class="noExist">No existen resultados para tu búsqueda.</div>
+				<div class="noExist">Ups, no encontramos nada para "<?= $_POST['keyword'] ?>".<br><br>
+
+					Para volver a intentarlo podés:<br>
+					- Revisar si las palabras están bien escritas.<br>
+					- Intentar con menos palabras o frases más generales.<br>
+					- Dejarnos una sugerencia para crear contenido referido a tu búsqueda ;)
+				</div>
 			</div>
 	    <?php endif;
 
@@ -684,7 +697,13 @@
 	        wp_reset_postdata();  
 	    else:?>
 			<div class="block_home cursos">
-				<div class="noExist">No existen resultados para tu búsqueda.</div>
+				<div class="noExist">Ups, no encontramos nada para "<?= $_POST['keyword'] ?>".<br><br>
+
+					Para volver a intentarlo podés:<br>
+					- Revisar si las palabras están bien escritas.<br>
+					- Intentar con menos palabras o frases más generales.<br>
+					- Dejarnos una sugerencia para crear contenido referido a tu búsqueda ;)
+				</div>
 			</div>
 	    <?php endif;?>
 		
@@ -851,7 +870,7 @@
 	    <?php endwhile;
 	        wp_reset_postdata();  
 	    else:?>
-			<div class="empty-card"><h2>No existen novedades</h2></div>
+			<div class="empty-card"><h2><?php _e( 'No existen novedades', 'meli-centro-vendedores' ); ?></h2></div>
 	    <?php endif;
 
 	    die();
@@ -942,7 +961,7 @@
 	    <?php endwhile;
 	        wp_reset_postdata();  
 	    else:?>
-			<div class="empty-card"><div class="copy"><h2>No existen notas</h2></div></div>
+			<div class="empty-card"><div class="copy"><h2><?php _e( 'No existen notas', 'meli-centro-vendedores' ); ?></h2></div></div>
 	    <?php endif;
 
 	    die();
@@ -1005,8 +1024,8 @@
 						</div>
                         <div class="items">
                             <div class="time"><img src="<?php bloginfo('template_url');?>/img/ico-reloj.svg" alt="Reloj"> 30 min.</div>
-                            <div class="file"><img src="<?php bloginfo('template_url');?>/img/ico-page.svg" alt="Page"> Sin evaluación</div>
-                            <div class="lessons"><img src="<?php bloginfo('template_url');?>/img/ico-book.svg" alt="Book"> 5 Lecciones</div>
+                            <div class="file"><img src="<?php bloginfo('template_url');?>/img/ico-page.svg" alt="Page"> <?php _e( 'Sin evaluación', 'meli-centro-vendedores' ); ?></div>
+                            <div class="lessons"><img src="<?php bloginfo('template_url');?>/img/ico-book.svg" alt="Book"> 5 <?php _e( 'Lecciones', 'meli-centro-vendedores' ); ?></div>
                         </div>
                     </div>
                 </a>
@@ -1014,7 +1033,7 @@
 	    <?php endwhile;
 	        wp_reset_postdata();  
 	    else:?>
-			<div class="empty-card">No existen cursos</div>
+			<div class="empty-card"><?php _e( 'No existen cursos', 'meli-centro-vendedores' ); ?></div>
 	    <?php endif;
 
 	    die();

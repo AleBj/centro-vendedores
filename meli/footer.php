@@ -2,15 +2,15 @@
 <footer>
 	<div class="wp navlink">
 		<ul>
-			<li><a href="<?php bloginfo('url') ?>/novedades">Novedades</a></li>
-			<li><a href="<?php bloginfo('url') ?>/notas">Notas</a></li>
-			<li><a href="<?php bloginfo('url') ?>/cursos">Cursos</a></li>
+			<li><a href="<?php bloginfo('url') ?>/novedades"><?php _e( 'Novedades', 'meli-centro-vendedores' ); ?></a></li>
+			<li><a href="<?php bloginfo('url') ?>/notas"><?php _e( 'Notas', 'meli-centro-vendedores' ); ?></a></li>
+			<li><a href="<?php bloginfo('url') ?>/cursos"><?php _e( 'Cursos', 'meli-centro-vendedores' ); ?></a></li>
 		</ul>
 		
-		<div class="copyright">COPYRIGHT © 1999-2020 MERCADOLIBRE S.R.L.</div>
+		<div class="copyright"><?php _e( 'COPYRIGHT © 1999-2020 MERCADOLIBRE S.R.L.', 'meli-centro-vendedores' ); ?></div>
 	</div>
 	<div class="links">
-		<div class="bt"> Mas información <i class="fa fa-angle-up"></i></div>
+		<div class="bt"> <?php _e( 'Mas información', 'meli-centro-vendedores' ); ?> <i class="fa fa-angle-up"></i></div>
 		<div class="contentLinks">
 		<div class="wp">
 			<?php

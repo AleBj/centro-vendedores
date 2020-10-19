@@ -39,7 +39,7 @@ function slugify($text)
 <main>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post();?>
 	
-	<div class="breadcrumbs"><a href="<?php bloginfo('url')?>/novedades">Novedades</a> <i class="fa fa-angle-right"></i> <a href="<?php bloginfo('url')?>/novedades/?u=<?=$categorySlug?>"><?= $category;  ?> </a> <i class="fa fa-angle-right"></i> <?php the_title(); ?></div>
+	<div class="breadcrumbs"><a href="<?php bloginfo('url')?>/novedades"><?php _e( 'Novedades', 'meli-centro-vendedores' ); ?></a> <i class="fa fa-angle-right"></i> <a href="<?php bloginfo('url')?>/novedades/?u=<?=$categorySlug?>"><?= $category;  ?> </a> <i class="fa fa-angle-right"></i> <?php the_title(); ?></div>
 	<div class="wp" id="single">
 
 		<div class="content-small">

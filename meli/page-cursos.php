@@ -18,19 +18,21 @@ if(isset($_GET['u'])){
 $the_query_cursos = new WP_Query( array(
     'posts_per_page' => -1,
     'post_type' => 'lp_course'
-) ); ?>
+) ); 
+
+$title = '<h1><strong>'. _e( 'Capacitá a tu equipo', 'meli-centro-vendedores' ).'</strong> '. _e( 'y llevá tu negocio al siguiente nivel', 'meli-centro-vendedores' ).'</h1>'; 
+?>
 <?php include('inc_hero.php') ?>
 <div id="filters">  
     <div id="categories" class="wp tagsList">
-        <a href=".mercado-libre" class="ml bt" data-filter="mercado-libre">mercado libre</a>
-        <a href=".mercado-pago" class="mp bt" data-filter="mercado-pago">mercado pago</a>
-        <a href=".mercado-envios" class="me bt" data-filter="mercado-envios">mercado envíos</a>
+        <a href=".mercado-libre" class="ml bt" data-filter="mercado-libre"><?php _e( 'Mercado Libre', 'meli-centro-vendedores' ); ?></a>
+        <a href=".mercado-pago" class="mp bt" data-filter="mercado-pago"><?php _e( 'Mercado Pago', 'meli-centro-vendedores' ); ?></a>
+        <a href=".mercado-envios" class="me bt" data-filter="mercado-envios"><?php _e( 'Mercado envíos', 'meli-centro-vendedores' ); ?></a>
         <?php if($blog_id != 5): ?>
-        <a href=".mercado-shops" class="ms bt" data-filter="mercado-shops">mercado shops</a>
+        <a href=".mercado-shops" class="ms bt" data-filter="mercado-shops"><?php _e( 'Mercado Shops', 'meli-centro-vendedores' ); ?></a>
         <?php endif; ?>               
     </div>
 </div>
-
 <?php 
 
 $tagsName = [];
@@ -56,7 +58,7 @@ while ( $the_query_cursos->have_posts() ) :
 endwhile;
 ?>
 <div id="tags">
-    <div class="show-tags">Filtrar (<?=count($tagsName)?>) <i class="fa fa-angle-down"></i></div>
+    <div class="show-tags"><?php _e( 'Filtrar', 'meli-centro-vendedores' ); ?> (<?=count($tagsName)?>) <i class="fa fa-angle-down"></i></div>
     
     <div class="content tagsList">
         <?php 
@@ -126,7 +128,7 @@ endwhile;
                         };
                         echo $clases;
                         ?>
-                         Lecciones</div>
+                         <?php _e( 'Lecciones', 'meli-centro-vendedores' ); ?></div>
 					</div>
 				</div>
 			</a>

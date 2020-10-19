@@ -19,11 +19,11 @@ $course = LP_Global::course();
 <?php include('inc_hero.php') ?>
 <div id="filters">	
 	<div id="categories" class="wp">
-		<a href="mercado-libre" class="ml">Mercado libre</a>
-		<a href="mercado-pago" class="mp">Mercado pago</a>
-		<a href="mercado-envios" class="me">Mercado envíos</a>
+		<a href="mercado-libre" class="ml"><?php _e( 'Mercado Libre', 'meli-centro-vendedores' ); ?></a>
+		<a href="mercado-pago" class="mp"><?php _e( 'Mercado Pago', 'meli-centro-vendedores' ); ?></a>
+		<a href="mercado-envios" class="me"><?php _e( 'Mercado envíos', 'meli-centro-vendedores' ); ?></a>
         <?php if($blog_id != 5): ?>
-		<a href="mercado-shops" class="ms">Mercado shops</a>
+		<a href="mercado-shops" class="ms"><?php _e( 'Mercado Shops', 'meli-centro-vendedores' ); ?></a>
         <?php endif; ?>               
 	</div>
 </div>
@@ -174,7 +174,7 @@ function cursos(x){
 
 	<!-- NOVEDADES -->
 	<div class="block_home novedades">
-		<h3 class="wp">Novedades <a href="<?php bloginfo('url')?>/novedades">Ver más</a></h3>
+		<h3 class="wp"><?php _e( 'Novedades', 'meli-centro-vendedores' ); ?> <a href="<?php bloginfo('url')?>/novedades"><?php _e( 'Ver más', 'meli-centro-vendedores' ); ?></a></h3>
 		
 		<div class="content">
 			<?php
@@ -215,7 +215,7 @@ function cursos(x){
 
 	<!-- NOTAS -->
 	<div class="block_home notas">
-		<h3 class="wp">Notas <a href="<?php bloginfo('url')?>/notas">Ver más</a></h3>
+		<h3 class="wp"><?php _e( 'Notas', 'meli-centro-vendedores' ); ?> <a href="<?php bloginfo('url')?>/notas"><?php _e( 'Ver más', 'meli-centro-vendedores' ); ?></a></h3>
 		<div class="content">
 			<?php
 			$the_query_notas = new WP_Query( array(
@@ -271,7 +271,7 @@ function cursos(x){
 
 	<!-- CURSOS -->
 	<div class="block_home cursos">
-		<h3 class="wp">Cursos <a href="<?php bloginfo('url')?>/cursos">Ver más</a></h3>
+		<h3 class="wp"><?php _e( 'Cursos', 'meli-centro-vendedores' ); ?> <a href="<?php bloginfo('url')?>/cursos"><?php _e( 'Ver más', 'meli-centro-vendedores' ); ?></a></h3>
 		
 		<div class="content">
 			<?php
@@ -311,7 +311,7 @@ function cursos(x){
 						</div>
 						<div class="items">
 							<div class="time"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-reloj.svg" alt="Reloj"> <?= conversorSegundosHoras($course->get_duration()) ?></div>
-							<div class="file"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-page.svg" alt="Page"> Sin evaluación</div>
+							<div class="file"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-page.svg" alt="Page"> <?php _e( 'Sin evaluación', 'meli-centro-vendedores' ); ?></div>
 							<div class="lessons"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-book.svg" alt="Book"> 
 	                        <?php
 	                        $curriculum = $course->get_curriculum();

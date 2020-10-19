@@ -3,10 +3,10 @@
 		<?php if($title): 
 			echo $title;
 		else: ?>
-			<h1><strong>Te ayudamos a crecer</strong> con todas las herramientas de Mercado Libre</h1>
+			<h1><strong><?php _e( 'Potenciemos juntos tus ventas.', 'meli-centro-vendedores'); ?></strong> <?php _e( 'Descubrí cómo podemos ayudarte a llegar más lejos', 'meli-centro-vendedores' ); ?></h1>
 		<?php endif; ?>
 		<form action="" id="formSearch" onsubmit="return prevent(event)">
-			<input type="text" name="search" id="search" placeholder="¿Qué estás buscando hoy?" onkeyup="fetch()">
+			<input type="text" name="search" id="search" placeholder="Buscar..." onkeyup="fetch()">
 			<button><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/lupa.svg" alt=""></button>
 			<div class="list-search" id="datafetch">
 				<!-- <div class="item">

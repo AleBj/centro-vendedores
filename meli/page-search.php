@@ -13,19 +13,19 @@ get_header();
             <input type="text" name="s" id="buscar" onkeyup="fetch()" placeholder="¿Qué estás buscando hoy?">
         </form>
         <div id="filterssearch">  
-            <a href="" class="ml bt" data-filter="mercado-libre">mercado libre</a>
-            <a href="" class="mp bt" data-filter="mercado-pago">mercado pago</a>
-            <a href="" class="me bt" data-filter="mercado-envios">mercado envíos</a>
+            <a href="" class="ml bt" data-filter="mercado-libre"><?php _e( 'Mercado Libre', 'meli-centro-vendedores' ); ?></a>
+            <a href="" class="mp bt" data-filter="mercado-pago"><?php _e( 'Mercado pago', 'meli-centro-vendedores' ); ?> </a>
+            <a href="" class="me bt" data-filter="mercado-envios"><?php _e( 'Mercado envíos', 'meli-centro-vendedores' ); ?> </a>
             <?php if($blog_id != 5): ?>
-            <a href="" class="ms bt" data-filter="mercado-shops">mercado shops</a>    
+            <a href="" class="ms bt" data-filter="mercado-shops"><?php _e( 'Mercado shops', 'meli-centro-vendedores' ); ?> </a>    
             <?php endif; ?>       
         </div>
         <div id="results">
             <div class="nav-result">
-                <div class="bt active" id="notas">Notas</div>
-                <div class="bt" id="novedades">Novedades</div>
-                <div class="bt" id="cursos">Cursos</div>
-                <div class="bt" id="etiquetas">Etiquetas</div>
+                <div class="bt active" id="notas"><?php _e( 'Notas', 'meli-centro-vendedores' ); ?></div>
+                <div class="bt" id="novedades"><?php _e( 'Novedades', 'meli-centro-vendedores' ); ?></div>
+                <div class="bt" id="cursos"><?php _e( 'Cursos', 'meli-centro-vendedores' ); ?></div>
+                <div class="bt" id="etiquetas"><?php _e( 'Etiquetas', 'meli-centro-vendedores' ); ?></div>
                 <i></i>
             </div>
             
@@ -72,7 +72,6 @@ function fetch(){
         type: 'post',
         data: { action: 'data_search', keyword: jQuery('#buscar').val() },
         success: function(data) {
-            // console.log(data);
             jQuery('#mainresult').html( data );
 
             var nove = $('.block_home.novedades .card').length

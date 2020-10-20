@@ -1019,7 +1019,7 @@ main#site-content section.single-course .bx_lessons li.section .course-item{marg
 main#site-content section.single-course .bx_lessons li.section .course-item .course-item-meta{padding-left: 10px;white-space: nowrap;}
 main#site-content section.single-course .curriculum-scrollable{overflow-y: scroll;max-height: 220px;padding-right: 30px;}
 main#site-content .learn-press-message.error{display: none;}
-main#site-content .lp-course-buttons{margin-top: 40px;}
+main#site-content .lp-course-buttons{margin-top: 0px;}
 main#site-content section.acced-course .lp-course-buttons{margin: 0;}
 main#site-content .lp-course-buttons button.lp-button,
 main#site-content section.acced-course button{font-size: 18px;font-weight: 500;color: var(--white);background-color: var(--blue);padding: 0 16px;line-height: 48px;border-radius: 24px;cursor: pointer;}
@@ -1110,14 +1110,16 @@ main#site-content .course-remaining-time{margin-bottom: 20px;color: var(--black-
 
 #course-item-content-header .toggle-content-item:before{content:"\F00D"!important}
 body.full-screen-content-item #course-item-content-header .toggle-content-item:before{content:"\F0C9"!important}
-#learn-press-content-item #course-item-content-header{background-color:#fee433}
+#learn-press-content-item #course-item-content-header{background-color:#3483FA}
 #learn-press-content-item #course-item-content-header .course-item-search{width:340px}
 #learn-press-content-item #course-item-content-header .course-item-search form input{background:#fff!important;padding:0 15px!important;width:325px}
 #learn-press-content-item #course-item-content-header .course-item-search form button{left:auto!important;right:20px!important}
 #learn-press-content-item #course-item-content-header .course-title{display:none}
 #learn-press-content-item #course-item-content-header a.toggle-content-item{border:none;float:left!important}
-#learn-press-content-item #course-item-content-header a.toggle-content-item:before{color:#ccb307;font-size:18px}
+#learn-press-content-item #course-item-content-header a.toggle-content-item:before{color:#2056a7;font-size:18px}
 #learn-press-content-item #course-item-content-header form button{background-color:transparent;border:none;cursor:pointer}
+#learn-press-content-item #course-item-content-header form button.lp-button{color:#fff;}
+.scrollbar-light>.scroll-element.scroll-y .scroll-bar{background-color: #333333;}
 #learn-press-content-item .scroll-wrapper{background-color:#f0f0f0}
 #learn-press-content-item .scroll-wrapper .content-item-wrap{color:rgba(0,0,0,.84);font-size:17px;font-style:normal;font-weight:300;letter-spacing:.01rem;line-height:1.9;margin-top:40px!important}
 #learn-press-content-item .scroll-wrapper .content-item-wrap iframe{height:400px;width:100%}
@@ -1126,8 +1128,11 @@ body.full-screen-content-item #course-item-content-header .toggle-content-item:b
 #learn-press-content-item .scroll-wrapper .content-item-wrap h3{font-size:1rem;font-weight:500}
 #learn-press-content-item .scroll-wrapper .content-item-wrap h4{font-size:.9rem;font-weight:500}
 #learn-press-content-item .scroll-wrapper .content-item-wrap h5{font-size:.8rem;font-weight:500}
-#learn-press-content-item .scroll-wrapper .content-item-wrap p{color:rgba(0,0,0,.84);font-size:17px;font-style:normal;font-weight:300;letter-spacing:.01rem;line-height:1.9}
+#learn-press-content-item .scroll-wrapper .content-item-wrap p{color:rgba(0,0,0,.84);font-size:17px;font-style:normal;font-weight:300;letter-spacing:.01rem;line-height:1.9;margin:10px 0;}
+#learn-press-content-item .scroll-wrapper .content-item-wrap ul,
+#learn-press-content-item .scroll-wrapper .content-item-wrap ol{list-style-position:inside;list-style-type: disc;margin: 10px 0;}
 #learn-press-content-item .scroll-wrapper .content-item-wrap a{color:#3483fa}
+.course-curriculum ul.curriculum-sections .section-header{border-bottom: none;}
 .course-item-nav .prev span, .course-item-nav .next span{font-weight: 300;text-transform: uppercase;font-size: 14px;}
 #learn-press-content-item .scroll-wrapper .next,#learn-press-content-item .scroll-wrapper .prev{color:#2a2a2a;font-weight:300}
 #learn-press-content-item .scroll-wrapper .next a,#learn-press-content-item .scroll-wrapper .prev a{color:#3483fa}

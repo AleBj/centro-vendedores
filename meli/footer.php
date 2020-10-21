@@ -10,7 +10,7 @@
 		<div class="copyright"><?php _e( 'COPYRIGHT © 1999-2020 MERCADOLIBRE S.R.L.', 'meli-centro-vendedores' ); ?></div>
 	</div>
 	<div class="links">
-		<div class="bt"> <?php _e( 'Mas información', 'meli-centro-vendedores' ); ?> <i class="fa fa-angle-up"></i></div>
+		<div class="bt"> <?php _e( 'Más información', 'meli-centro-vendedores' ); ?> <i class="fa fa-angle-up"></i></div>
 		<div class="contentLinks">
 		<div class="wp">
 			<?php

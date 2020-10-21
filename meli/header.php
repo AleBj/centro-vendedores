@@ -76,6 +76,7 @@
 	<meta property="og:image:secure_url" content="<?php bloginfo('url'); ?>/wp-content/themes/meli/bienvenido_img-1.jpg" />
 	<meta property="og:image:width" content="1600" />
 	<meta property="og:image:height" content="459" />
+	<meta name="theme-color" content="#ffffff" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:description" content="Todo lo que necesitás para vender exitosamente en Mercado Libre, en tu tienda online y en tu tienda física." />
 	<meta name="twitter:title" content="Centro de vendedores" />

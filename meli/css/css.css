@@ -1173,7 +1173,7 @@ body.full-screen-content-item #course-item-content-header .toggle-content-item:b
 	/*NOTAS*/
 	main #shared .wp-fixear .wp-indice{right: 16px;left: auto;}
 	main #shared .wp-fixear.fix{top: 56px;}
-	main #shared .wp-fixear .wp-indice .listindice{left: auto;right: 0}
+	main #shared .wp-fixear .wp-indice .listindice{left: auto;right: 0;z-index: 6}
 	main #single .block-mids-large.invert .text{padding-left: 0}
 }
 @media (max-width:770px) {
@@ -1276,7 +1276,7 @@ body.full-screen-content-item #course-item-content-header .toggle-content-item:b
 	main #single .block_cards_news .card-news .head-card-news{height: 60px;padding: 0 24px;}
 
 	main#site-content .wp-small, main#site-content #learn-press-course, main#site-content section.acced-course{padding-top: 20px;}
-	main#site-content h1{font-size: 24px;}
+	main#site-content h1{font-size: 24px;margin-top: 24px;}
 	main#site-content .categories small{font-size: 12px;font-weight: 500;max-width: 145px;}
 	main#site-content .categories{margin: 14px 0 0;}
 	main#site-content .featured-media{min-width: 100%;max-width: 100%;margin-top: 22px;padding-top: 22px;border-top:1px solid var(--black-25);}

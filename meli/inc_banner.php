@@ -13,7 +13,7 @@
 		
 
 			<?php if( $link ): ?>
-				<a href="<?php echo $link; ?>" class="wp-banner">
+				<a href="<?php echo $link; ?>" class="wp-banner" target="_blank">
 			<?php endif; ?>
 
 				<img src="<?php echo $image['url']; ?>" alt="<?php echo $titulo ?>" />

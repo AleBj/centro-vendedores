@@ -18,7 +18,7 @@ $the_query_novedades = new WP_Query( array(
         array(
             'taxonomy' => 'novedades_categories',
             'field'    => 'term_id',
-            'terms'    => array( 68 ),
+            'terms'    => 'OCULTAS',
             'operator' => 'NOT IN',
         ),
     )

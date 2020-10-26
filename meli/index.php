@@ -15,6 +15,12 @@
 
 get_header();
 $course = LP_Global::course();
+
+if(isset($_GET['u'])){
+	$url = $_GET['u'];
+}else{
+	$url = 'nada';
+}
 ?>
 <?php include('inc_hero.php') ?>
 <div id="filters">	
@@ -184,8 +190,8 @@ function cursos(x){
 			    'tax_query' => array(
 			        array(
 			            'taxonomy' => 'novedades_categories',
-			            'field'    => 'term_id',
-			            'terms'    => array( 68 ),
+			            'field'    => 'slug',
+			            'terms'    => 'oculta',
 			            'operator' => 'NOT IN',
 			        ),
 			    ),
@@ -224,8 +230,8 @@ function cursos(x){
 			    'tax_query' => array(
 			        array(
 			            'taxonomy' => 'notas_categories',
-			            'field'    => 'term_id',
-			            'terms'    => array( 69 ),
+			            'field'    => 'slug',
+			            'terms'    => 'oculta',
 			            'operator' => 'NOT IN',
 			        ),
 			    ),
@@ -340,6 +346,11 @@ function cursos(x){
 	</div>
 
 </main>
+<script>
+$(window).on('load', function(){
+    $('#categories a.<?=$url?>').trigger('click')
+})
+</script>
 <?php 
 function conversorSegundosHoras($tiempo_en_segundos) {
     $horas = floor($tiempo_en_segundos / 3600);

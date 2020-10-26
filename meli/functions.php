@@ -961,7 +961,7 @@
 	    <?php endwhile;
 	        wp_reset_postdata();  
 	    else:?>
-			<div class="empty-card"><div class="copy"><h2><?php _e( 'No hay Notas disponibles', 'meli-centro-vendedores' ); ?></h2></div></div>
+			<div class="empty-card"><h2><?php _e( 'No hay Notas disponibles', 'meli-centro-vendedores' ); ?></h2></div>
 	    <?php endif;
 
 	    die();
@@ -1033,7 +1033,7 @@
 	    <?php endwhile;
 	        wp_reset_postdata();  
 	    else:?>
-			<div class="empty-card"><?php _e( 'No hay Cursos disponibles', 'meli-centro-vendedores' ); ?></div>
+			<div class="empty-card"><h2><?php _e( 'No hay Cursos disponibles', 'meli-centro-vendedores' ); ?></h2></div>
 	    <?php endif;
 
 	    die();

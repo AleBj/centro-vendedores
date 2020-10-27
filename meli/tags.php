@@ -17,22 +17,22 @@ $url = $_GET['t'];
     
     <div class="wp" id="search">
         <form action="" method="post">
-        	<label for="s" style="font-size:12px;">ETIQUETA</label>
+        	<label for="s" style="font-size:12px;"><?php _e( 'Etiquetas', 'meli-centro-vendedores' ); ?></label>
             <input type="text" name="s" id="buscar" placeholder="¿Qué estás buscando hoy?" value="<?php echo str_replace("-", " ", $url); ?>" readonly>
         </form>
         <div id="filterssearch">  
-            <a href="" class="ml bt" data-filter="mercado-libre">mercado libre</a>
-            <a href="" class="mp bt" data-filter="mercado-pago">mercado pago</a>
-            <a href="" class="me bt" data-filter="mercado-envios">mercado envíos</a>
+            <a href="" class="ml bt" data-filter="mercado-libre"><?php _e( 'Mercado Libre', 'meli-centro-vendedores' ); ?></a>
+            <a href="" class="mp bt" data-filter="mercado-pago"><?php _e( 'Mercado Pago', 'meli-centro-vendedores' ); ?></a>
+            <a href="" class="me bt" data-filter="mercado-envios"><?php _e( 'Mercado envíos', 'meli-centro-vendedores' ); ?></a>
             <?php if($blog_id != 5): ?>
-            <a href="" class="ms bt" data-filter="mercado-shops">mercado shops</a>   
+            <a href="" class="ms bt" data-filter="mercado-shops"><?php _e( 'Mercado Shops', 'meli-centro-vendedores' ); ?></a>   
             <?php endif; ?>               
         </div>
         <div id="results">
             <div class="nav-result">
-                <div class="bt active" id="notas">Notas</div>
-                <div class="bt" id="novedades">Novedades</div>
-                <div class="bt" id="cursos">Cursos</div>
+                <div class="bt active" id="notas"><?php _e( 'Notas', 'meli-centro-vendedores' ); ?></div>
+                <div class="bt" id="novedades"><?php _e( 'Novedades', 'meli-centro-vendedores' ); ?></div>
+                <div class="bt" id="cursos"><?php _e( 'Cursos', 'meli-centro-vendedores' ); ?></div>
                 <i></i>
             </div>
             

@@ -39,8 +39,13 @@ $('#categories a').on('click', function(e){
 	var h = $(this).attr('href');
 	if ($(this).hasClass('active')) {
 		$('#categories a').removeClass('active');
-	    h = 'all'
+	    h = 'all';
+		var onlyUrl = window.location.href.replace(window.location.search,'');
+    	window.history.pushState("object or string", "Title", onlyUrl );
 	}else{
+		var cls = $(this).attr('class');
+		var onlyUrl = window.location.href.replace(window.location.search,'');
+    	window.history.pushState("object or string", "Title", onlyUrl+'?u='+cls );
 		$('#categories a').removeClass('active');
 		$(this).addClass('active');
 	}

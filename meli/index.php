@@ -215,7 +215,7 @@ function cursos(x){
 				?>
 
 				<a href="<?php the_permalink()?>" class="card <?=$cat[0]->slug;?>">
-					<?= ($y == 1) ? '<div class="ribbon"><span>New</span><div class="triangle"></div></div>' : '';?>				
+					<?= ($y == 0) ? '<div class="ribbon"><span>New</span><div class="triangle"></div></div>' : '';?>				
 
 					<small><?php $post_date = get_the_date( 'd M Y' ); echo $post_date; ?></small>
 					<h2><?php the_title(); ?></h2>

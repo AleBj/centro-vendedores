@@ -386,6 +386,7 @@
 	    	array( 
 	    		'posts_per_page' => 3, 
 	    		's' => esc_attr( $_POST['keyword'] ), 
+	    		'post_status' => array('public'),
 	    		'post_type' => array('notas'),
 			    'tax_query' => array(
 			        array(
@@ -431,6 +432,7 @@
 	    array( 
 	    	'posts_per_page' => 1, 
 		    's' => esc_attr( $_POST['keyword'] ), 
+	    	'post_status' => array('public'),
 		    'post_type' => array('novedades') ,
 		    'tax_query' => array(
 		        array(
@@ -462,7 +464,7 @@
 			</div> 
 	    <?php endif;
 
-	    $the_query4 = new WP_Query( array( 'posts_per_page' => 1, 's' => esc_attr( $_POST['keyword'] ), 'post_type' => array('lp_course') ) );
+	    $the_query4 = new WP_Query( array( 'posts_per_page' => 1, 's' => esc_attr( $_POST['keyword'] ),'post_status' => array('public'), 'post_type' => array('lp_course') ) );
 
 	    if( $the_query4->have_posts() ) :
 	        while( $the_query4->have_posts() ): $the_query4->the_post(); ?>
@@ -536,12 +538,13 @@
 	    	array( 
 	    		'posts_per_page' => -1, 
 	    		's' => esc_attr( $_POST['keyword'] ), 
+	    		'post_status' => array('publish'),
 	    		'post_type' => array('notas'),
 			    'tax_query' => array(
 			        array(
 			            'taxonomy' => 'notas_categories',
-			            'field'    => 'term_id',
-			            'terms'    => array( 69 ),
+			            'field'    => 'slug',
+			            'terms'    => 'oculta',
 			            'operator' => 'NOT IN',
 			        ),
 			    ) 
@@ -608,12 +611,13 @@
 	    	array( 
 	    		'posts_per_page' => -1, 
 	    		's' => esc_attr( $_POST['keyword'] ), 
+	    		'post_status' => array('publish'),
 	    		'post_type' => array('novedades'),
 			    'tax_query' => array(
 			        array(
 			            'taxonomy' => 'novedades_categories',
-			            'field'    => 'term_id',
-			            'terms'    => array( 68 ),
+			            'field'    => 'slug',
+			            'terms'    => 'oculta',
 			            'operator' => 'NOT IN',
 			        ),
 			    ) 
@@ -656,7 +660,7 @@
 			</div>
 	    <?php endif;
 
-	    $the_query4 = new WP_Query( array( 'posts_per_page' => -1, 's' => esc_attr( $_POST['keyword'] ), 'post_type' => array('lp_course') ) );
+	    $the_query4 = new WP_Query( array( 'posts_per_page' => -1, 's' => esc_attr( $_POST['keyword'] ), 'post_status' => array('publish'), 'post_type' => array('lp_course') ) );
 
 	    if( $the_query4->have_posts() ) :
 		echo '<div class="block_home cursos"><div class="contentRes">';
@@ -732,6 +736,7 @@
 		    $the_queryAlert = new WP_Query( 
 		    	array( 
 		    	'post_type' => array('alertas'),
+	    		'post_status' => array('publish'),
 		    	'posts_per_page' => 1,
 			    'tax_query' => array(
 			        array(
@@ -747,6 +752,7 @@
 		    $the_queryAlert = new WP_Query( 
 		    	array( 
 		    	'post_type' => array('alertas'),
+	    		'post_status' => array('publish'),
 		    	'posts_per_page' => 3, 
 		    	'tax_query' => array(
         			//'relation' => 'AND',
@@ -814,12 +820,13 @@
 		    $the_query2 = new WP_Query( 
 		    	array( 
 		    	'post_type' => array('novedades'),
+	    		'post_status' => array('publish'),
 		    	'posts_per_page' => 3,
 			    'tax_query' => array(
 			        array(
 			            'taxonomy' => 'novedades_categories',
-			            'field'    => 'term_id',
-			            'terms'    => array( 68 ),
+			            'field'    => 'slug',
+			            'terms'    => 'oculta',
 			            'operator' => 'NOT IN',
 			        ),
 			    ) 
@@ -829,6 +836,7 @@
 		    $the_query2 = new WP_Query( 
 		    	array( 
 		    	'post_type' => array('novedades'),
+	    		'post_status' => array('publish'),
 		    	'posts_per_page' => 3, 
 		    	'tax_query' => array(
         			'relation' => 'AND',
@@ -839,8 +847,8 @@
 	                ),
 			        array(
 			            'taxonomy' => 'novedades_categories',
-			            'field'    => 'term_id',
-			            'terms'    => array( 68 ),
+			            'field'    => 'slug',
+			            'terms'    => 'oculta',
 			            'operator' => 'NOT IN',
 			        )
 
@@ -887,12 +895,13 @@
 		    $the_query3 = new WP_Query( 
 		    	array( 
 		    	'post_type' => array('notas'),
+	    		'post_status' => array('publish'),
 		    	'posts_per_page' => 5,
 			    'tax_query' => array(
 			        array(
 			            'taxonomy' => 'notas_categories',
-			            'field'    => 'term_id',
-			            'terms'    => array( 69 ),
+			            'field'    => 'slug',
+			            'terms'    => 'oculta',
 			            'operator' => 'NOT IN',
 			        ),
 			    ) 
@@ -902,6 +911,7 @@
 		    $the_query3 = new WP_Query( 
 		    	array( 
 		    	'post_type' => array('notas'),
+	    		'post_status' => array('publish'),
 		    	'posts_per_page' => 5, 
 		    	'tax_query' => array(
         			'relation' => 'AND',
@@ -912,8 +922,8 @@
 	                ),
 			        array(
 			            'taxonomy' => 'notas_categories',
-			            'field'    => 'term_id',
-			            'terms'    => array( 69 ),
+			            'field'    => 'slug',
+			            'terms'    => 'oculta',
 			            'operator' => 'NOT IN',
 			        )
 	            ),
@@ -978,6 +988,7 @@
 		    $the_query4 = new WP_Query( 
 		    	array( 
 		    	'post_type' => array('lp_course'),
+	    		'post_status' => array('publish'),
 		    	'posts_per_page' => 2
 		    ) );
 			# code...
@@ -985,6 +996,7 @@
 		    $the_query4 = new WP_Query( 
 		    	array( 
 		    	'post_type' => array('lp_course'),
+	    		'post_status' => array('publish'),
 		    	'posts_per_page' => 2, 
 		    	'tax_query' => array(
 	                array (

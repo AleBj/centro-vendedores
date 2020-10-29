@@ -9,31 +9,6 @@
 			<input type="text" name="search" id="search" placeholder="Buscar..." onkeyup="fetch()">
 			<button><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/lupa.svg" alt=""></button>
 			<div class="list-search" id="datafetch">
-				<!-- <div class="item">
-					<h4>Novedades <a href="">Ver más</a></h4>
-					<a href="#">
-						Nuevas retenciones de IVA y Ganancias sobre los cobros con medios de pago electrónicos
-					</a>
-				</div>
-				<div class="item">
-					<h4>Notas <a href="">Ver más</a></h4>
-					<a href="#">
-						Nuevas retenciones de IVA y Ganancias sobre los cobros con medios de pago electrónicos					
-						<div class="img" style="background-image: url(<?php bloginfo('url'); ?>/wp-content/themes/meli/img/retorno_head-768x512.jpg)"></div>
-					</a>
-				</div>
-				<div class="item">
-					<h4>Cursos <a href="">Ver más</a></h4>
-					<a href="#">
-						Nuevas retenciones de IVA y Ganancias sobre los cobros con medios de pago electrónicos		
-					</a>
-				</div>
-				<div class="tags">
-					<strong>tags:</strong>
-					<a href="">Impuestos</a>
-					<a href="">Cobro online</a>
-					<a href="">Cobro presencial</a>
-				</div> -->
 			</div>
 		</form>
 	</div>

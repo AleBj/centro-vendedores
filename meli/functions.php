@@ -596,12 +596,12 @@
 	        wp_reset_postdata();  
 	    else:?>
 			<div class="block_home notas" style="display: block;">
-				<div class="noExist">Ups, no encontramos nada para "<?= $_POST['keyword'] ?>". <br><br>
+				<div class="noExist"><?php _e( 'Ups, no encontramos nada para', 'meli-centro-vendedores' ); ?> "<?= $_POST['keyword'] ?>". <br><br>
 
-					Para volver a intentarlo podés:<br>
-					- Revisar si las palabras están bien escritas.<br>
-					- Intentar con menos palabras o frases más generales.<br>
-					- Dejarnos una sugerencia para crear contenido referido a tu búsqueda ;)
+					<?php _e( 'Para volver a intentarlo podés:', 'meli-centro-vendedores' ); ?><br>
+					- <?php _e( 'Revisar si las palabras están bien escritas.', 'meli-centro-vendedores' ); ?><br>
+					- <?php _e( 'Intentar con menos palabras o frases más generales.', 'meli-centro-vendedores' ); ?><br>
+					- <?php _e( 'Dejarnos una sugerencia para crear contenido referido a tu búsqueda', 'meli-centro-vendedores' ); ?> ;)
 
 				</div>
 			</div>
@@ -650,12 +650,13 @@
 	        wp_reset_postdata();  
 	    else:?>
 			<div class="block_home novedades">
-				<div class="noExist">Ups, no encontramos nada para "<?= $_POST['keyword'] ?>".<br><br>
+				<div class="noExist"><?php _e( 'Ups, no encontramos nada para', 'meli-centro-vendedores' ); ?> "<?= $_POST['keyword'] ?>". <br><br>
 
-					Para volver a intentarlo podés:<br>
-					- Revisar si las palabras están bien escritas.<br>
-					- Intentar con menos palabras o frases más generales.<br>
-					- Dejarnos una sugerencia para crear contenido referido a tu búsqueda ;)
+					<?php _e( 'Para volver a intentarlo podés:', 'meli-centro-vendedores' ); ?><br>
+					- <?php _e( 'Revisar si las palabras están bien escritas.', 'meli-centro-vendedores' ); ?><br>
+					- <?php _e( 'Intentar con menos palabras o frases más generales.', 'meli-centro-vendedores' ); ?><br>
+					- <?php _e( 'Dejarnos una sugerencia para crear contenido referido a tu búsqueda', 'meli-centro-vendedores' ); ?> ;)
+
 				</div>
 			</div>
 	    <?php endif;
@@ -701,12 +702,13 @@
 	        wp_reset_postdata();  
 	    else:?>
 			<div class="block_home cursos">
-				<div class="noExist">Ups, no encontramos nada para "<?= $_POST['keyword'] ?>".<br><br>
+				<div class="noExist"><?php _e( 'Ups, no encontramos nada para', 'meli-centro-vendedores' ); ?> "<?= $_POST['keyword'] ?>". <br><br>
 
-					Para volver a intentarlo podés:<br>
-					- Revisar si las palabras están bien escritas.<br>
-					- Intentar con menos palabras o frases más generales.<br>
-					- Dejarnos una sugerencia para crear contenido referido a tu búsqueda ;)
+					<?php _e( 'Para volver a intentarlo podés:', 'meli-centro-vendedores' ); ?><br>
+					- <?php _e( 'Revisar si las palabras están bien escritas.', 'meli-centro-vendedores' ); ?><br>
+					- <?php _e( 'Intentar con menos palabras o frases más generales.', 'meli-centro-vendedores' ); ?><br>
+					- <?php _e( 'Dejarnos una sugerencia para crear contenido referido a tu búsqueda', 'meli-centro-vendedores' ); ?> ;)
+
 				</div>
 			</div>
 	    <?php endif;?>

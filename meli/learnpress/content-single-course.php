@@ -56,7 +56,7 @@ do_action( 'learn-press/before-single-course' );
             
             if ( $course->is_free() && !$course->is_required_enroll() ) { ?>
             <form action="<?php echo reset($link); ?>" ?>
-                <button type="submit" href=""><?php _e( 'Comenzar', 'sage' ) ?></button>
+                <button type="submit" href=""><?php _e( 'Comenzar', 'meli-centro-vendedores' ) ?></button>
             </form>
             <?php } ?>
         </div>
@@ -67,7 +67,7 @@ do_action( 'learn-press/before-single-course' );
 <?php if (!empty($tags)): ?>
     <section class="related-course">
         <div class="container">
-        <h4><?php _e( 'Te puede interesar', 'sage' ) ?></h4>
+        <h4><?php _e( 'Te puede interesar', 'meli-centro-vendedores' ) ?></h4>
         <?php
             $the_query = new WP_Query( array(
                 'post_type' => 'lp_course',
@@ -102,7 +102,7 @@ do_action( 'learn-press/before-single-course' );
                         </div>
                         <div class="items">
                             <div class="time"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-reloj.svg" alt="Reloj"><?= conversorSegundosHoras($course->get_duration()) ?></div>
-                            <div class="file"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-page.svg" alt="Page"> Sin evaluación</div>
+                            <div class="file"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-page.svg" alt="Page"> <?php _e( 'Sin evaluación', 'meli-centro-vendedores' ); ?></div>
                             <div class="lessons"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-book.svg" alt="Book"><?php
                             $curriculum = $course->get_curriculum();
                             $clases = 0;
@@ -111,7 +111,7 @@ do_action( 'learn-press/before-single-course' );
                             };
                             echo $clases;
                             ?>
-                             Lecciones</div>
+                             <?php _e( 'Lecciones', 'meli-centro-vendedores' ); ?></div>
                         </div>
                     </div>
                 </a>

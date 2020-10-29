@@ -10,7 +10,7 @@ get_header();
     
     <div class="wp" id="search">
         <form action="" method="post" id="formEnviar">
-            <input type="text" name="s" id="buscar" onkeyup="fetch()" placeholder="¿Qué estás buscando hoy?">
+            <input type="text" name="s" id="buscar" onkeyup="fetch()" placeholder="<?php _e( '¿Qué estás buscando hoy?', 'meli-centro-vendedores' ); ?>">
         </form>
         <div id="filterssearch">  
             <a href="" class="ml bt" data-filter="mercado-libre"><?php _e( 'Mercado Libre', 'meli-centro-vendedores' ); ?></a>

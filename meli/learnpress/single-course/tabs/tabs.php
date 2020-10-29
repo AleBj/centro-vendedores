@@ -53,7 +53,7 @@ $course = LP_Global::course();
 <section class="single-course">
         <div class="bx_description">
             <div class="descripcion">
-                <h3><?php _e( 'Descripción', 'sage' ) ?></h3>
+                <h3><?php _e( 'Descripción', 'meli-centro-vendedores' ) ?></h3>
                 <div class="the-content">
                     <?php echo wp_trim_words( get_the_content(), 60, '...' ); ?>
                 </div>
@@ -61,7 +61,7 @@ $course = LP_Global::course();
         </div>
         <div class="bx_lessons">
             <div class="modulos">
-                <h3><?php _e( 'Lecciones', 'sage' ) ?></h3>
+                <h3><?php _e( 'Lecciones', 'meli-centro-vendedores' ) ?></h3>
                 <div class="curriculum-scrollable">
                     <?php if ( $curriculum = $course->get_curriculum() ) { ?>
                     <ul class="curriculum-sections">
@@ -70,25 +70,25 @@ $course = LP_Global::course();
 						} ?>
                     </ul>
                     <?php } else { ?>
-                    <?php echo apply_filters( 'learn_press_course_curriculum_empty', __( 'Curriculum is empty', 'sage' ) ); ?>
+                    <?php echo apply_filters( 'learn_press_course_curriculum_empty', __( 'Curriculum is empty', 'meli-centro-vendedores' ) ); ?>
                     <?php } ?>
                 </div>
             </div>
         </div>
         <!-- <div class="col-md-12 col-lg-4 mb-4">
             <div class="resumen">
-                <h3><?php _e( 'Resumen', 'sage' ) ?></h3>
+                <h3><?php _e( 'Resumen', 'meli-centro-vendedores' ) ?></h3>
                 <ul>
                     <li>
-                        <div class="left-side"> <img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-book.svg" alt="Book">  <?php _e( 'Lecciones', 'sage' ) ?>:</div>
+                        <div class="left-side"> <img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-book.svg" alt="Book">  <?php _e( 'Lecciones', 'meli-centro-vendedores' ) ?>:</div>
                         <div class="right-side"><?php echo $clases; ?></div>
                     </li>
                     <li> 
-                        <div class="left-side"> <img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-reloj.svg" alt="Reloj"><?php _e( 'Duración', 'sage' ) ?>:</div>
+                        <div class="left-side"> <img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-reloj.svg" alt="Reloj"><?php _e( 'Duración', 'meli-centro-vendedores' ) ?>:</div>
                         <div class="right-side"> <?= conversorSegundosHoras($course->get_duration()) ?></div>
                     </li>
                     <li> 
-                        <div class="left-side"> <img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-page.svg" alt="Page"><?php _e( 'Evaluación', 'sage' ) ?>:</div>
+                        <div class="left-side"> <img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-page.svg" alt="Page"><?php _e( 'Evaluación', 'meli-centro-vendedores' ) ?>:</div>
                         <div class="right-side">Sin evaluación</div>
                     </li>
                 </ul>

@@ -688,8 +688,8 @@
 								</div>
                                 <div class="items">
                                     <div class="time"><img src="<?php bloginfo('template_url');?>/img/ico-reloj.svg" alt="Reloj"> 30 min.</div>
-                                    <div class="file"><img src="<?php bloginfo('template_url');?>/img/ico-page.svg" alt="Page"> Sin evaluación</div>
-                                    <div class="lessons"><img src="<?php bloginfo('template_url');?>/img/ico-book.svg" alt="Book"> 5 Lecciones</div>
+                                    <div class="file"><img src="<?php bloginfo('template_url');?>/img/ico-page.svg" alt="Page"> <?php _e( 'Sin evaluación', 'meli-centro-vendedores' ); ?></div>
+                                    <div class="lessons"><img src="<?php bloginfo('template_url');?>/img/ico-book.svg" alt="Book"> 5 <?php _e( 'Lecciones', 'meli-centro-vendedores' ); ?></div>
                                 </div>
                             </div>
                         </a>

@@ -334,7 +334,7 @@ function cursos(x){
 	                        };
 	                        echo $clases;
 	                        ?>
-	                         Lecciones</div>
+	                         <?php _e( 'Lecciones', 'meli-centro-vendedores' ); ?></div>
 						</div>
 					</div>
 				</a>

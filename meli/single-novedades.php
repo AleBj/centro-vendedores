@@ -429,7 +429,7 @@ function slugify($text)
 	<!-- RELACIONADOS -->
 	<div id="related" class="block_home notas">
 		<div class="wp">
-			<h3>te puede interesar</h3>
+			<h3><?php _e( 'Te puede interesar', 'meli-centro-vendedores' ) ?></h3>
 		</div>
 		<div class="content">
 			

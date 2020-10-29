@@ -43,7 +43,7 @@ $course = LP_Global::course();
 
 						<div class="items">
 							<div class="time"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-reloj.svg" alt="Reloj"> <?= conversorSegundosHoras($course->get_duration()) ?></div>
-							<div class="file"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-page.svg" alt="Page"> Sin evaluación</div>
+							<div class="file"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-page.svg" alt="Page"> <?php _e( 'Sin evaluación', 'meli-centro-vendedores' ); ?></div>
 							<div class="lessons"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/ico-book.svg" alt="Book"> 
 	                        <?php
 	                        $curriculum = $course->get_curriculum();
@@ -53,7 +53,7 @@ $course = LP_Global::course();
 	                        };
 	                        echo $clases;
 	                        ?>
-	                         Lecciones</div>
+	                         <?php _e( 'Lecciones', 'meli-centro-vendedores' ); ?></div>
 						</div>
 						<div class="courseCategory">
 							<div class="categories"><small class="<?=$cat[0]->slug;?>"><?=$cat[0]->name;?></small></div>

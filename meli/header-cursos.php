@@ -69,10 +69,22 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
 </head>
 <body <?php body_class(); ?>>
+<?php 
+$blog_id = get_current_blog_id();
+echo '<!--'; 
+echo $blog_id;
+echo '-->';
+?>
 
 <header>
 	<div class="wp">
-		<a href="<?php bloginfo('url') ?>/"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/logo-meli.svg" alt="Centro de Vendedores" class="logo"></a>
+		<a href="<?php bloginfo('url') ?>/">
+			<?php if($blog_id == 6): ?>
+			<img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/logo-meli_pt.svg" alt="Centro de Vendedores" class="logo">
+				<?php else: ?>
+			<img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/logo-meli.svg" alt="Centro de Vendedores" class="logo">
+			<?php endif ?>
+		</a>
 		
 		<div class="right">
 		<nav>

@@ -507,9 +507,11 @@ function slugify($text)
 		                		<p><a href="<?php echo esc_url( get_permalink() ); ?>"><?= $content ?></a></p>
 		                        <div class="tags">
 		                        	<?php $tags = get_the_tags();
+		                        	if(is_array($tags) || is_object($tags)):
 		                            foreach ($tags as $tg) {?>
 		                                <a href="<?=get_bloginfo('url')?>/tags/?t=<?= $tg->slug?>"><?= $tg->name ?></a>
-		                            <?php } ?>
+		                            <?php } 
+		                        	endif; ?>
 		                        </div>
 		                    </div>
 		                </div>

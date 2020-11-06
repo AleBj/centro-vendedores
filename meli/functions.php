@@ -561,8 +561,10 @@
                 $cat = wp_get_post_terms(get_the_ID(), $taxonomy = $gcat[1]);
                 $ptag = get_the_tags();
                 $ptg = '';
+                if(is_array($ptag) || is_object($ptag)){
                 foreach ($ptag as $pt) {
                     $ptg .= $pt->slug.' ';
+                }
                 }
                 $image = get_field('imagen_principal_nota');						
 	        	?>
@@ -579,9 +581,11 @@
                         		<p><?= $content ?></p>
                                 <div class="tags">
                                 	<?php $tags = get_the_tags();
+                                	if(is_array($tags) || is_object($tags)){
 		                            foreach ($tags as $tg) {?>
 		                                <span><?= $tg->name ?></span>
-		                            <?php } ?>
+		                            <?php } 
+		                        	} ?>
                                 </div>
                             </div>
                         </a>

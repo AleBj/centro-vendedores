@@ -536,7 +536,7 @@
 
 	    $the_query3 = new WP_Query( 
 	    	array( 
-	    		'posts_per_page' => 16, 
+	    		'posts_per_page' => -1, 
 	    		's' => esc_attr( $_POST['keyword'] ), 
 	    		'post_status' => array('publish'),
 	    		'post_type' => array('notas'),
@@ -613,7 +613,7 @@
 
 	    $the_query2 = new WP_Query( 
 	    	array( 
-	    		'posts_per_page' => 16, 
+	    		'posts_per_page' => -1, 
 	    		's' => esc_attr( $_POST['keyword'] ), 
 	    		'post_status' => array('publish'),
 	    		'post_type' => array('novedades'),
@@ -665,7 +665,7 @@
 			</div>
 	    <?php endif;
 
-	    $the_query4 = new WP_Query( array( 'posts_per_page' => 16, 's' => esc_attr( $_POST['keyword'] ), 'post_status' => array('publish'), 'post_type' => array('lp_course') ) );
+	    $the_query4 = new WP_Query( array( 'posts_per_page' => -1, 's' => esc_attr( $_POST['keyword'] ), 'post_status' => array('publish'), 'post_type' => array('lp_course') ) );
 
 	    if( $the_query4->have_posts() ) :
 		echo '<div class="block_home cursos"><div class="contentRes">';

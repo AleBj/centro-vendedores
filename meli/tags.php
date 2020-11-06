@@ -44,7 +44,7 @@ $url = $_GET['t'];
 
 					$argus = array(
 						'post_type' => array('novedades'),
-						'posts_per_page' => 5, 
+						'posts_per_page' => -1, 
 					   	'tax_query' => array(
 					        array (
 					            'taxonomy' => 'post_tag',
@@ -94,7 +94,7 @@ $url = $_GET['t'];
 				<?php
 				$args = array(
 					'post_type' => array('notas'),
-					'posts_per_page' => 5, 
+					'posts_per_page' => -1, 
 				   	'tax_query' => array(
 				        array (
 				            'taxonomy' => 'post_tag',
@@ -162,7 +162,7 @@ $url = $_GET['t'];
 
 					$argu = array(
 						'post_type' => array('lp_course'),
-						'posts_per_page' => 5, 
+						'posts_per_page' => -1, 
 					   	'tax_query' => array(
 					        array (
 					            'taxonomy' => 'course_tag',

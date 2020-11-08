@@ -386,7 +386,7 @@
 	    	array( 
 	    		'posts_per_page' => 3, 
 	    		's' => esc_attr( $_POST['keyword'] ), 
-	    		'post_status' => array('public'),
+	    		'post_status' => array('publish'),
 	    		'post_type' => array('notas'),
 			    'tax_query' => array(
 			        array(
@@ -432,7 +432,7 @@
 	    array( 
 	    	'posts_per_page' => 1, 
 		    's' => esc_attr( $_POST['keyword'] ), 
-	    	'post_status' => array('public'),
+	    	'post_status' => array('publish'),
 		    'post_type' => array('novedades') ,
 		    'tax_query' => array(
 		        array(
@@ -464,7 +464,7 @@
 			</div> 
 	    <?php endif;
 
-	    $the_query4 = new WP_Query( array( 'posts_per_page' => 1, 's' => esc_attr( $_POST['keyword'] ),'post_status' => array('public'), 'post_type' => array('lp_course') ) );
+	    $the_query4 = new WP_Query( array( 'posts_per_page' => 1, 's' => esc_attr( $_POST['keyword'] ),'post_status' => array('publish'), 'post_type' => array('lp_course') ) );
 
 	    if( $the_query4->have_posts() ) :
 	        while( $the_query4->have_posts() ): $the_query4->the_post(); ?>

@@ -390,10 +390,10 @@
 	    		'post_type' => array('notas'),
 			    'tax_query' => array(
 			        array(
-			            'taxonomy' => 'notas_categories',
-			            'field'    => 'term_id',
-			            'terms'    => array( 69 ),
-			            'operator' => 'NOT IN',
+			            'taxonomy' => 'notas_categories', 
+			            'field'    => 'slug',
+		            	'terms'    => 'oculta',
+		            	'operator' => 'NOT IN',
 			        ),
 			    ) 
 	    	) 
@@ -437,8 +437,8 @@
 		    'tax_query' => array(
 		        array(
 		            'taxonomy' => 'novedades_categories',
-		            'field'    => 'term_id',
-		            'terms'    => array( 68 ),
+		            'field'    => 'slug',
+		            'terms'    => 'oculta',
 		            'operator' => 'NOT IN',
 		        ),
 		    )

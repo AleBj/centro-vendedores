@@ -745,12 +745,19 @@
 	    		'post_status' => array('publish'),
 		    	'posts_per_page' => 1,
 			    'tax_query' => array(
+			    	'relation' => 'AND',
 			        array(
 			            'taxonomy' => 'alertas_categories',
 			            'field'    => 'slug',
 			            'terms'    => 'general',
 			            'operator' => 'IN',
 			        ),
+			        array(
+			            'taxonomy' => 'alertas_categories',
+			            'field'    => 'slug',
+			            'terms'    => 'interna',
+			            'operator' => 'NOT IN',
+			        )
 			    ) 
 		    ) );
 			# code...
@@ -761,12 +768,18 @@
 	    		'post_status' => array('publish'),
 		    	'posts_per_page' => 3, 
 		    	'tax_query' => array(
-        			//'relation' => 'AND',
+        			'relation' => 'AND',
 	                array (
 	                    'taxonomy' => 'alertas_categories',
 	                    'field' => 'slug',
 	                    'terms' => $_POST['keyword'],
-	                )
+	                ),
+			        array(
+			            'taxonomy' => 'alertas_categories',
+			            'field'    => 'slug',
+			            'terms'    => 'interna',
+			            'operator' => 'NOT IN',
+			        )
 	            ),
 		    ) );
 
@@ -783,27 +796,68 @@
 				$content = strip_tags(get_the_content(), '<i> <em> <strong>');
 				$icon = get_field('icono_alert');
 				$btn = get_field('botones_alert');
+				if( have_rows('apariencia_alert') ): ?>
+			    <?php while( have_rows('apariencia_alert') ): the_row(); 
 
-				(!$btn && !$icon) ? $elem = 'center' : $elem = 'no-center';
-			?>
+			        // Get sub field values.
+			        $size = get_sub_field('tamano_alert');
+			        $color = get_sub_field('color_alert');
 
-			<div class="alert <?php foreach ($cat as  $value) { echo $value->slug .' ';	} ?><?=$elem?> hiddenbx">
-				<?= ($icon) ? '<img src="'.$icon['url'].'" alt="'.get_the_title().'" class="icon" />' : '';  ?>
-				<p><?= $content  ?></p>
-				<?php if( have_rows('botones_alert') ):?>
-					<div class="btnsAlert">
-					<?php
+			        ?>
+			        
+			    <?php endwhile;
+			endif; ?>
+			<div class="alert <?php foreach ($cat as  $value) { echo $value->slug .' ';	} ?><?=$size?> <?=$color?> hiddenbx">
+				<?php if($size == 'small'): ?>
+				<div class="left">
+					<?= ($icon) ? 
+						'<img src="'.$icon['url'].'" alt="'.get_the_title().'" class="icon" />' : 
+						'<img src="'. get_bloginfo('url').'/wp-content/themes/meli/img/alerta-desktop.svg" alt="Alertas" class="icon" />';  
+					?>
+					<p><?= $content; ?></p>
+				</div>
+				<div class="btnsAlert">
+				<?php if( have_rows('botones_alert') ):
+
 				    while ( have_rows('botones_alert') ) : the_row();
 
 				        ?>
 				        <a href="<?= the_sub_field('url_btn_alert') ?>" target="<?= the_sub_field('target_btn_alert') ?>"> <?= the_sub_field('cta_btn_alert') ?></a>
-				        <?php
-				        
+				        <?php				        
 
-				    endwhile;?>
-					</div>
-				    <?php
+				    endwhile;
 				endif; ?>
+				</div>
+				<?php else: ?>
+					<div class="left">
+						<?= ($icon) ? 
+							'<img src="'.$icon['url'].'" alt="'.get_the_title().'" class="icon" />' : 
+							'<img src="'. get_bloginfo('url').'/wp-content/themes/meli/img/alerta-desktop.svg" alt="Alertas" class="icon" />';  
+						?>
+						<div class="texto">
+							<p><?= $content; ?></p>
+							<div class="btnsAlert">
+							<?php if( have_rows('botones_alert') ):
+
+							    while ( have_rows('botones_alert') ) : the_row();
+
+							        ?>
+							        <a href="<?= the_sub_field('url_btn_alert') ?>" target="<?= the_sub_field('target_btn_alert') ?>"> <?= the_sub_field('cta_btn_alert') ?></a>
+							        <?php				        
+
+							    endwhile;
+							endif; ?>
+							</div>
+						</div>
+					</div>
+					<div class="vermas" id="AlertVerMas">ver más <i class="fa fa-angle-down"></i></div>
+					<script>
+						$('#AlertVerMas').on('click', function(){
+							$('.alert .texto, #AlertVerMas').toggleClass('open')
+						})
+					</script>
+				<?php endif; ?>					
+
 			</div>
 
 	    <?php endwhile;

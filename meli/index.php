@@ -25,11 +25,11 @@ if(isset($_GET['u'])){
 <?php include('inc_hero.php') ?>
 <div id="filters">	
 	<div id="categories" class="wp">
-		<a href="mercado-libre" class="ml"><?php _e( 'Mercado Libre', 'meli-centro-vendedores' ); ?></a>
-		<a href="mercado-pago" class="mp"><?php _e( 'Mercado Pago', 'meli-centro-vendedores' ); ?></a>
-		<a href="mercado-envios" class="me"><?php _e( 'Mercado envíos', 'meli-centro-vendedores' ); ?></a>
+		<a href="mercado-libre" class="ml mercado-libre" data-rel="mercado-libre"><?php _e( 'Mercado Libre', 'meli-centro-vendedores' ); ?></a>
+		<a href="mercado-pago" class="mp mercado-pago" data-rel="mercado-pago"><?php _e( 'Mercado Pago', 'meli-centro-vendedores' ); ?></a>
+		<a href="mercado-envios" class="me mercado-envios" data-rel="mercado-envios"><?php _e( 'Mercado envíos', 'meli-centro-vendedores' ); ?></a>
         <?php if($blog_id != 5): ?>
-		<a href="mercado-shops" class="ms"><?php _e( 'Mercado Shops', 'meli-centro-vendedores' ); ?></a>
+		<a href="mercado-shops" class="ms mercado-shops" data-rel="mercado-shops"><?php _e( 'Mercado Shops', 'meli-centro-vendedores' ); ?></a>
         <?php endif; ?>               
 	</div>
 </div>
@@ -43,11 +43,26 @@ $('#categories a').on('click', function(e){
 
 		var onlyUrl = window.location.href.replace(window.location.search,'');
     	window.history.pushState("object or string", "Title", onlyUrl );
+
+    	var link = '<?= get_bloginfo('url'); ?>'; 
+
+    	$('.block_home.novedades h3 a').attr('href',link+'/novedades')
+    	$('.block_home.notas h3 a').attr('href',link+'/notas')
+    	$('.block_home.cursos h3 a').attr('href',link+'/cursos')
 	}else{
-		var cls = $(this).attr('class');
+		var cls = $(this).data('rel');
+		var param = '?u='+cls;
 		var onlyUrl = window.location.href.replace(window.location.search,'');
-    	window.history.pushState("object or string", "Title", onlyUrl+'?u='+cls );
+    	window.history.pushState("object or string", "Title", onlyUrl+param );
+
+    	var linkNov = $('.block_home.novedades h3 a').attr('href');
+    	var linkNot = $('.block_home.notas h3 a').attr('href');
+    	var linkCur = $('.block_home.cursos h3 a').attr('href');
     	
+    	$('.block_home.novedades h3 a').attr('href',linkNov+param)
+    	$('.block_home.notas h3 a').attr('href',linkNot+param)
+    	$('.block_home.cursos h3 a').attr('href',linkCur+param)
+
 		$('#categories a').removeClass('active');
 		$(this).addClass('active');
 	}
@@ -142,12 +157,19 @@ function cursos(x){
 		    	'post_type' => array('alertas'),
 		    	'posts_per_page' => 1,
 			    'tax_query' => array(
+			    	'relation' => 'AND',
 			        array(
 			            'taxonomy' => 'alertas_categories',
 			            'field'    => 'slug',
 			            'terms'    => 'general',
 			            'operator' => 'IN',
 			        ),
+			        array(
+			            'taxonomy' => 'alertas_categories',
+			            'field'    => 'slug',
+			            'terms'    => 'interna',
+			            'operator' => 'NOT IN',
+			        )
 			    ) 
 		    ) );
 			while( $the_queryAlert->have_posts() ):
@@ -160,27 +182,70 @@ function cursos(x){
 				$icon = get_field('icono_alert');
 				$btn = get_field('botones_alert');
 
-				(!$btn && !$icon) ? $elem = 'center' : $elem = 'no-center';
-			?>
+				if( have_rows('apariencia_alert') ): ?>
+			    <?php while( have_rows('apariencia_alert') ): the_row(); 
+
+			        // Get sub field values.
+			        $size = get_sub_field('tamano_alert');
+			        $color = get_sub_field('color_alert');
+
+			        ?>
+			        
+			    <?php endwhile;
+			endif; ?>
 			<div class="wp">
-			<div class="alert <?php foreach ($cat as  $value) { echo $value->slug .' ';	} ?><?=$elem?>">
-				<?= ($icon) ? '<img src="'.$icon['url'].'" alt="'.get_the_title().'" class="icon" />' : '';  ?>
-				<p><?= $content  ?></p>
-				<?php if( have_rows('botones_alert') ):?>
-					<div class="btnsAlert">
-					<?php
-				    while ( have_rows('botones_alert') ) : the_row();
-
-				        ?>
-				        <a href="<?= the_sub_field('url_btn_alert') ?>" target="<?= the_sub_field('target_btn_alert') ?>"> <?= the_sub_field('cta_btn_alert') ?></a>
-				        <?php
-				        
-
-				    endwhile;?>
+				<div class="alert <?php foreach ($cat as  $value) { echo $value->slug .' ';	} ?><?=$size?> <?=$color?>">
+					<?php if($size == 'small'): ?>
+					<div class="left">
+						<?= ($icon) ? 
+							'<img src="'.$icon['url'].'" alt="'.get_the_title().'" class="icon" />' : 
+							'<img src="'. get_bloginfo('url').'/wp-content/themes/meli/img/alerta-desktop.svg" alt="Alertas" class="icon" />';  
+						?>
+						<p><?= $content; ?></p>
 					</div>
-				    <?php
-				endif; ?>
-			</div>
+					<div class="btnsAlert">
+					<?php if( have_rows('botones_alert') ):
+
+					    while ( have_rows('botones_alert') ) : the_row();
+
+					        ?>
+					        <a href="<?= the_sub_field('url_btn_alert') ?>" target="<?= the_sub_field('target_btn_alert') ?>"> <?= the_sub_field('cta_btn_alert') ?></a>
+					        <?php				        
+
+					    endwhile;
+					endif; ?>
+					</div>
+					<?php else: ?>
+						<div class="left">
+							<?= ($icon) ? 
+								'<img src="'.$icon['url'].'" alt="'.get_the_title().'" class="icon" />' : 
+								'<img src="'. get_bloginfo('url').'/wp-content/themes/meli/img/alerta-desktop.svg" alt="Alertas" class="icon" />';  
+							?>
+							<div class="texto">
+								<p><?= $content; ?></p>
+								<div class="btnsAlert">
+								<?php if( have_rows('botones_alert') ):
+
+								    while ( have_rows('botones_alert') ) : the_row();
+
+								        ?>
+								        <a href="<?= the_sub_field('url_btn_alert') ?>" target="<?= the_sub_field('target_btn_alert') ?>"> <?= the_sub_field('cta_btn_alert') ?></a>
+								        <?php				        
+
+								    endwhile;
+								endif; ?>
+								</div>
+							</div>
+						</div>
+						<div class="vermas" id="AlertVerMas">ver más <i class="fa fa-angle-down"></i></div>
+						<script>
+							$('#AlertVerMas').on('click', function(){
+								$('.alert .texto, #AlertVerMas').toggleClass('open')
+							})
+						</script>
+					<?php endif; ?>					
+
+				</div>
 			</div>
 	    <?php endwhile; ?>
 	</div>

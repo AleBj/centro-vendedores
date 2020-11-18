@@ -444,6 +444,7 @@ main .block_home.cursos .card:after{
 }
 
 main .block_home.alertas {margin-bottom: 0;position: relative;top:-30px;}
+main .block_home.alertas.contenidos{top:0;padding-top: 20px;}
 main .block_home.alertas .alert{
 	width: 100%;
 	min-height: 88px;
@@ -458,17 +459,34 @@ main .block_home.alertas .alert{
 	font-size: 18px;
 	transition: ease-out 0.3s;
 }
+main .block_home.alertas .alert .left{display: flex;align-items: flex-start;}
 /*main .block_home.alertas .alert.mercado-pago{background:var(--m-pago);}
 main .block_home.alertas .alert.mercado-libre{background:var(--m-libre);}
 main .block_home.alertas .alert.mercado-shops{background:var(--m-shop);}
 main .block_home.alertas .alert.mercado-envios{background:var(--m-envios);}*/
 main .block_home.alertas .alert.center{text-align: center;}
-main .block_home.alertas .alert img.icon{max-width: 70px;margin-right: 32px;}
-main .block_home.alertas .alert p{width: 100%;}
-main .block_home.alertas .alert .btnsAlert{display: flex;align-items: center;flex-direction: column;color: var(--blue);font-size: 16px;margin-left: 32px;}
-main .block_home.alertas .alert .btnsAlert a{margin: 5px 0}
-main .block_home.alertas .alert .btnsAlert a:first-child{background-color: var(--blue);color: var(--white);padding: 8px 15px;border-radius: 20px;white-space: nowrap;}
+main .block_home.alertas .alert img.icon{max-width: 63px;margin-right: 32px;}
+main .block_home.alertas .alert p{max-width: 780px;margin: 10px 0;font-size: 16px;line-height: 1.4;overflow: hidden;}
+main .block_home.alertas .alert .btnsAlert{display: flex;align-items: center;color: var(--blue);font-size: 16px;margin-left: 32px;}
+main .block_home.alertas .alert .btnsAlert a{margin: 5px 0;white-space: nowrap;}
+main .block_home.alertas .alert .btnsAlert a:last-child{margin-left: 16px;}
+main .block_home.alertas .alert .btnsAlert a:first-child{background-color: var(--blue);color: var(--white);padding: 8px 18px;border-radius: 20px;white-space: nowrap;margin-left: 0;}
 main .block_home.alertas .loading{margin-bottom: 20px;margin-left: -8px}
+main .block_home.alertas .alert .vermas{color: var(--blue);font-size: 16px;cursor:pointer;align-self: flex-start;margin-top: 22px;}
+main .block_home.alertas .alert .vermas i{margin-left: 8px}
+main .block_home.alertas .alert.large .texto{overflow: hidden;max-height: 54px}
+main .block_home.alertas .alert.large .btnsAlert{margin-left: 0;}
+main .block_home.alertas .alert .texto.open{max-height: none;}
+main .block_home.alertas .alert .vermas.open i{transform: scale(-1) translateY(-2px);}
+main .block_home.alertas .alert.red{background-color: #F23D4F;color:#fff;}
+main .block_home.alertas .alert.orange{background-color: #FF7733;color:#fff;}
+main .block_home.alertas .alert.red .vermas,
+main .block_home.alertas .alert.orange .vermas,
+main .block_home.alertas .alert.red .btnsAlert a,
+main .block_home.alertas .alert.orange .btnsAlert a{color: var(--white);}
+main .block_home.alertas .alert.red .btnsAlert a:first-child{background-color:#D12440}
+main .block_home.alertas .alert.orange .btnsAlert a:first-child{background-color:#E6540B}
+
 
 @media (min-width: 1100px) {
 	main .block_home.cursos .card:hover:after{
@@ -1220,10 +1238,13 @@ body.full-screen-content-item #course-item-content-header .toggle-content-item:b
 	footer .navlink .copyright{margin: 22px 0;}
 	footer .links .contentLinks .wp{flex-direction: column;}
 
-	main .block_home.alertas .alert{flex-direction: column;}
-	main .block_home.alertas .alert img.icon{margin-right: 0px;margin-bottom: 20px}
+	main .block_home.alertas{padding-top: 16px;top: -24px;}
+	main .block_home.alertas.contenidos{top: 24px;}
+	main .block_home.alertas .alert{padding: 10px 16px;}
+	main .block_home.alertas .alert, main .block_home.alertas .alert .left{flex-direction: column;}
+	main .block_home.alertas .alert img.icon{margin-right: 0px;width: 40px;}
 	main .block_home.alertas .alert .btnsAlert{margin-left: 0px;margin-top: 20px}
-	main .block_home.alertas .alert p{text-align: center;}
+	main .block_home.alertas .alert .vermas{align-self: flex-end;margin-bottom: 10px}
 
 	main#interna .block_home .card{min-width: calc(100% - 16px);width: calc(100% - 16px);margin:8px;}
 	#tags .show-tags{position: static;display: flex;height: 32px;align-items: center;justify-content: center;font-size: 12px;}

@@ -46,9 +46,14 @@ if(isset($_GET['u'])){
     // echo $fechaActual;
     ?>
     <!-- Webinars -->
-    <div class="block_home novedades mrg-b-0" style="opacity: 0">
-        <h3 class="wp"><?php echo $monthNameActual ?></h3>
-        <div class="gridList content">
+    <div class="block_home novedades webinars mrg-b-0" style="opacity: 0">
+        <div class="wp tagsList">
+            Seleccioná el nivel de webinar que querés: 
+            <a href=".principiante" class="bt">Principiante</a>
+            <a href=".avanzado" class="bt">Avanzado</a>
+        </div>
+        <h3 class="wp dif"><?php echo $monthNameActual ?></h3>
+        <div class="gridList content mrg-b-web">
             <div class="grid-sizer"></div>
             <?php
             $the_query_webinar = new WP_Query( array(
@@ -92,9 +97,13 @@ if(isset($_GET['u'])){
                     }
                 ?>
 
-                <div class="card grid-item <?=$cat[0]->slug;?> <?=$ptg?>">          
-
-                    <small><?php $date = get_field('fecha_webinar'); echo date('d/m', strtotime($date)); echo '<br> '. date('H:i', strtotime($date))  ?></small>
+                <div class="card grid-item <?=$cat[0]->slug;?> <?=$ptg?>"> 
+                    <div class="tags"><span><?= $ptag[0]->name ?> </span></div>      
+                    <small>
+                        <img src="<?=get_bloginfo('template_url')?>/img/ico-calendar.svg" alt="">
+                        <?php $date = get_field('fecha_webinar'); 
+                        echo date('d/m', strtotime($date)) .' '. date('H:i', strtotime($date))  ?>Hs
+                    </small>
                     <h2><?php the_title(); ?></h2>
                     <p>
                         <?php 
@@ -103,12 +112,12 @@ if(isset($_GET['u'])){
                         
                         ?>
                     </p>
-                    <a href="<?= get_field('link_webinar'); ?>">Registrarme</a>
+                    <a href="<?= get_field('link_webinar'); ?>" target="_blank"><?php _e( 'Registrarme', 'meli-centro-vendedores' ); ?></a>
                 </div>
             <?php endwhile; ?>
         </div>
 
-        <h3 class="wp"><?php echo $monthNameProx ?></h3>
+        <h3 class="wp dif"><?php echo $monthNameProx ?></h3>
         <div class="gridList content">
             <div class="grid-sizer"></div>
             <?php
@@ -153,9 +162,13 @@ if(isset($_GET['u'])){
                     }
                 ?>
 
-                <div class="card grid-item <?=$cat[0]->slug;?> <?=$ptg?>">          
-
-                    <small><?php $date = get_field('fecha_webinar'); echo date('d/m', strtotime($date)); echo '<br> '. date('H:i', strtotime($date))  ?></small>
+                <div class="card grid-item <?=$cat[0]->slug;?> <?=$ptg?>">    
+                    <div class="tags"><span><?= $ptag[0]->name ?> </span></div>      
+                    <small>
+                        <img src="<?=get_bloginfo('template_url')?>/img/ico-calendar.svg" alt="">
+                        <?php $date = get_field('fecha_webinar'); 
+                        echo date('d/m', strtotime($date)) .' '. date('H:i', strtotime($date))  ?>Hs
+                    </small>
                     <h2><?php the_title(); ?></h2>
                     <p>
                         <?php 
@@ -164,14 +177,78 @@ if(isset($_GET['u'])){
                         
                         ?>
                     </p>
-                    <a href="<?= get_field('link_webinar'); ?>">Registrarme</a>
+                    <a href="<?= get_field('link_webinar'); ?>" target="_blank"><?php _e( 'Registrarme', 'meli-centro-vendedores' ); ?></a>
                 </div>
             <?php endwhile; ?>
         </div>
 
     </div>
+    <div id="related" class="block_home novedades webinars anteriores">
+        <div class="wp" style="padding: 0">
+            <h3 class="wp"><?php _e( 'Webinars anteriores', 'meli-centro-vendedores' ); ?> <a href="<?=get_bloginfo('url');?>/webinars-anteriores">Ver todos</a></h3>
+            <div class="content" style="padding: 0">
+                <?php
+                $the_query_webinar_ant = new WP_Query( array(
+                    'posts_per_page' => 4,
+                    'post_type' => 'webinars',
+                    'meta_key'  => 'fecha_webinar',
+                    'orderby'   => 'meta_value',
+                    'order'     => 'ASC',
+                    'meta_query' => array(
+                        array(
+                            'key' => 'fecha_webinar',
+                            'value' => date('Y-m-d H:i:s'),
+                            'compare' => '<',
+                            'type' => 'DATE'
+
+                        )
+                    )
+                ) );
+
+                ?>
+                <?php
+
+                while ( $the_query_webinar_ant->have_posts() ) :
+                    $the_query_webinar_ant->the_post(); ?>
+                    
+                    <?php 
+                        $gcat = get_object_taxonomies('webinars');
+                        $cat = wp_get_post_terms($post->ID, $taxonomy = $gcat[1]);
+                        $ptag = get_the_tags();
+                        $ptg = '';
+                        if($ptag){
+                        foreach ($ptag as $pt) {
+                            $ptg .= $pt->slug.' ';
+                        }
+                        }
+                    ?>
+
+                    <div class="card grid-item <?=$cat[0]->slug;?> <?=$ptg?>"> 
+                        <div class="tags"><span><?= $ptag[0]->name ?> </span></div>        
+                        <small>
+                            <img src="<?=get_bloginfo('template_url')?>/img/ico-calendar.svg" alt="">
+                            <?php $date = get_field('fecha_webinar'); 
+                            echo date('d/m', strtotime($date)) .' '. date('H:i', strtotime($date))  ?>Hs
+                        </small>
+                        <h2><?php the_title(); ?></h2>
+                        <p>
+                            <?php 
+                            $content = get_the_content(); 
+                            echo substr(strip_tags($content,'<em> <strong> <i>'), 0, 160);
+                            
+                            ?>
+                        </p>
+                        <a href="<?= get_field('link_webinar'); ?>" target="_blank"><?php _e( 'Ver webinar', 'meli-centro-vendedores' ); ?></a>
+                    </div>
+                <?php endwhile; ?>
+            </div>
+
+
+        </div>
+    </div>
 
 </main>
+
 <style>
 .gridList{padding: 0 !important;}
 .gridList:after {
@@ -179,7 +256,7 @@ if(isset($_GET['u'])){
   display: block;
   clear: both;
 }
-.gridList .grid-item, .gridList .grid-sizer{width: 25%;margin:10px 0;}
+.gridList .grid-item, .gridList .grid-sizer{width: 25%;margin:16px 0;}
 .gridList .grid-item{float: left;}
 main .block_home.notas .card{transition: 0s;}
 </style>
@@ -235,10 +312,11 @@ $('.tagsList').on( 'click', '.bt', function( event ) {
 });
 
 
-$('#tags .tagsList .bt').on('click', function(e){
+$('.tagsList .bt').on('click', function(e){
     if($(this).hasClass('active')){
         $(this).removeClass('active');
     }else{
+        $('.tagsList .bt').removeClass('active')
         $(this).addClass('active');
     }   
 })

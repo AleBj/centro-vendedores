@@ -68,18 +68,18 @@
 	<!-- <link rel="canonical" href="https://vendedores.mercadolibre.com.ar/" /> -->
 	<meta property="og:locale" content="es_ES" />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Centro de vendedores" />
-	<meta property="og:description" content="Todo lo que necesitás para vender exitosamente en Mercado Libre, en tu tienda online y en tu tienda física." />
+	<meta property="og:title" content="<?php _e( 'Centro de vendedores', 'meli-centro-vendedores' ); ?>" />
+	<meta property="og:description" content="<?php _e( 'Todo lo que necesitás para vender exitosamente en Mercado Libre, en tu tienda online y en tu tienda física.', 'meli-centro-vendedores' ); ?>" />
 	<!-- <meta property="og:url" content="https://vendedores.mercadolibre.com.ar/" /> -->
-	<meta property="og:site_name" content="Centro de vendedores Argentina" />
+	<meta property="og:site_name" content="<?php _e( 'Centro de vendedores', 'meli-centro-vendedores' ); ?>" />
 	<meta property="og:image" content="<?php bloginfo('url'); ?>/wp-content/themes/meli/bienvenido_img-1.jpg" />
 	<meta property="og:image:secure_url" content="<?php bloginfo('url'); ?>/wp-content/themes/meli/bienvenido_img-1.jpg" />
 	<meta property="og:image:width" content="1600" />
 	<meta property="og:image:height" content="459" />
 	<meta name="theme-color" content="#ffffff" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:description" content="Todo lo que necesitás para vender exitosamente en Mercado Libre, en tu tienda online y en tu tienda física." />
-	<meta name="twitter:title" content="Centro de vendedores" />
+	<meta name="twitter:description" content="<?php _e( 'Todo lo que necesitás para vender exitosamente en Mercado Libre, en tu tienda online y en tu tienda física.', 'meli-centro-vendedores' ); ?>" />
+	<meta name="twitter:title" content="<?php _e( 'Centro de vendedores', 'meli-centro-vendedores' ); ?>" />
 	<meta name="twitter:image" content="<?php bloginfo('url'); ?>/wp-content/themes/meli/bienvenido_img-1.jpg" />
 
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/meli/css/reset.css?v=1"/>
@@ -134,6 +134,7 @@ echo '-->';
 			<ul> 
 				<li><a href="<?php bloginfo('url') ?>/novedades" class="<?= ($slug == 'novedades') ? 'active' : '';  ?>"><?php _e( 'Novedades', 'meli-centro-vendedores' ); ?></a></li>
 				<li><a href="<?php bloginfo('url') ?>/notas" class="<?= ($slug == 'notas') ? 'active' : '';  ?>"><?php _e( 'Notas', 'meli-centro-vendedores' ); ?></a></li>
+				<li><a href="<?php bloginfo('url') ?>/webinars" class="<?= ($slug == 'webinars' || $slug == 'webinars-anteriores') ? 'active' : '';  ?>"><?php _e( 'Webinars', 'meli-centro-vendedores' ); ?></a></li>
 				<li><a href="<?php bloginfo('url') ?>/cursos" class="<?= ($slug == 'cursos') ? 'active' : '';  ?>"><?php _e( 'Cursos', 'meli-centro-vendedores' ); ?></a></li>
 				<li><?php _e( 'Etiquetas', 'meli-centro-vendedores' ); ?> <i class="fa fa-angle-down"></i>
 					<div class="submenu">

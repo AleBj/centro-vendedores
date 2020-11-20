@@ -229,11 +229,13 @@ header .right ul li a.active{font-weight: 500}
 	white-space: nowrap;
 	position: relative;
 }
+main .block_home.webinars .tagsList a.active,
 #tags .content a.active{
 	color: var(--blue);
 	background-color: var(--blue-light);
 	border-color: var(--blue);
 }
+main .block_home.webinars .tagsList a.active:before,
 #tags .content a.active:before{
 	content: "\f00d";
 	font: normal normal normal 9px/1.3 FontAwesome;
@@ -247,6 +249,7 @@ header .right ul li a.active{font-weight: 500}
 }
 
 @media (min-width: 1100px) {
+	main .block_home.webinars .tagsList a:hover,
 	#tags .content a:hover{
 		color: var(--blue);
 		background-color: var(--blue-light);
@@ -318,6 +321,44 @@ main .block_home.novedades .card.mercado-envios:after{background:var(--m-envios)
 		box-shadow: var(--box-shadow-over);
 	}
 }
+/*webinars*/
+#header.webinars{height: 160px;}
+main .block_home.webinars .mrg-b-web{margin-bottom: 66px;}
+main .block_home.webinars h3.dif{font-size: 32px;text-transform: capitalize;font-weight: 500}
+main .block_home.webinars .card{
+	padding: 30px;
+	width: calc(25% - 16px);
+	margin:16px 8px;
+	height: 256px;
+	overflow: hidden;
+	position: relative;
+}
+main .block_home.webinars .card .tags{position: absolute;right: 24px;top: 22px;}
+main .block_home.webinars .card small{display: flex;align-items: center;font-size: 14px;}
+main .block_home.webinars .card small img{margin-right: 8px;margin-top: -2px;}
+main .block_home.webinars .card h2{margin-bottom: 12px;height: 46px;overflow: hidden;}
+main .block_home.webinars .card p{
+  font-size: 14px;
+  line-height: 1.3;
+  opacity: .8;
+  height: 70px;
+  overflow: hidden;
+}
+main .block_home.webinars .card a{
+	display: inline-block;
+	color: #fff;
+	font-size: 12px;
+	padding: 6px 10px;
+	background-color: var(--blue);
+	margin-top: 20px;
+	border-radius: 14px;
+}
+main .block_home.webinars.anteriores .card p,
+main .block_home.webinars.anteriores .card small,
+main .block_home.webinars.anteriores .card h2{opacity: 0.5}
+main .block_home.webinars .tagsList{opacity: .8;margin-bottom: 30px;}
+main .block_home.webinars .tagsList a.bt{position: relative;}
+
 /*notas*/
 main .block_home.notas .loading{height: 352px;}
 main .block_home.notas .card{	
@@ -344,6 +385,8 @@ main .block_home.notas .card .copy small.mercado-livre{background:var(--m-libre)
 main .block_home.notas .card .copy small.mercado-shops{background:var(--m-shop);}
 main .block_home.notas .card .copy small.mercado-envios{background:var(--m-envios);}
 main .block_home.notas .card .copy p{font-size: 14px;color: var(--black-80);line-height: 1.5;max-height: 130px;height: 0;overflow: hidden;margin: 16px 0;transition: ease-out 0.3s}
+main .block_home.webinars .tagsList a.bt,
+main .block_home.webinars .card .tags span,
 main .block_home.notas .card .tags a,
 main .block_home.notas .card .tags span{
 	font-weight: 300;
@@ -378,6 +421,7 @@ main .block_home.notas .card .tags span{
 		box-shadow: var(--box-shadow-over);
 	}
 	main .block_home.notas .card:hover p{height: 120px}
+	main .block_home.webinars .tagsList a:hover,
 	main .block_home.notas .card .tags a:hover{
 		color: var(--blue);
     	background-color: var(--blue-light);
@@ -963,7 +1007,7 @@ main #filterssearch a.ms.active{border-color:var(--m-shop);background-color: var
 	main #filterssearch a.ms:hover{border-color:var(--m-shop);background-color: var(--m-shop);}
 }
 
-main#interna{min-height: calc(100vh - 550px;)}
+main#interna{min-height: calc(100vh - 550px)}
 main#interna .is-animated {
   animation: .6s zoom-in;
 }
@@ -1223,6 +1267,10 @@ body.full-screen-content-item #course-item-content-header .toggle-content-item:b
 	main:not(#interna) .block_home .content{flex-wrap: nowrap;overflow-x: scroll;}
 	main .block_home.novedades .card, main .block_home.cursos .card, main .block_home.notas .card .copy{padding: 20px;}
 	main .block_home.novedades .card{height: 140px;}
+	#header.webinars{height: 100px;}
+	main .block_home.webinars .mrg-b-web {margin-bottom: 40px;}
+	main .block_home.webinars h3.dif{font-size: 26px;}
+	main .block_home.webinars .card, main .block_home.webinars .card p{height: auto;}
 	main .block_home.novedades .card small{font-size: 10px;margin-bottom: 10px;}
 	main .block_home .card h2{font-size: 16px;}
 	main .block_home.notas .card .copy small, main .block_home.cursos .card .copy small{font-size: 10px;}

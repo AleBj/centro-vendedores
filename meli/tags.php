@@ -78,7 +78,7 @@ $url = $_GET['t'];
                     	$('.bt#novedades').removeClass('hay')
                     </script>
 				<?php
-					echo '<div class="noExist">No existen resultados para tu búsqueda.</div>';
+					echo '<div class="noExist">' . __( "Ups, no encontramos nada para", "meli-centro-vendedores" ) .' '. str_replace("-", " ", $url).'</div>';
 					endif; 
 				wp_reset_postdata();
 				endif; 
@@ -148,7 +148,7 @@ $url = $_GET['t'];
                     	$('.bt#notas').removeClass('hay')
                     </script>
 				<?php
-				echo '<div class="noExist">No existen resultados para tu búsqueda.</div>';
+					echo '<div class="noExist">' . __( "Ups, no encontramos nada para", "meli-centro-vendedores" ) .' '. str_replace("-", " ", $url).'</div>';
 				endif;
 				wp_reset_postdata();
 				endif; 
@@ -225,7 +225,7 @@ $url = $_GET['t'];
                     	$('.bt#cursos').removeClass('hay')
                     </script>
 				<?php
-					echo '<div class="noExist">No existen resultados para tu búsqueda.</div>';
+					echo '<div class="noExist">' . __( "Ups, no encontramos nada para", "meli-centro-vendedores" ) .' '. str_replace("-", " ", $url).'</div>';
 					endif; 
 				wp_reset_postdata();
 				endif; 

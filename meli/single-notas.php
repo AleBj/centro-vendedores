@@ -56,8 +56,15 @@ function slugify($text)
 				$appear = get_field('apariencia_alert', $al->ID);
 				
 				$size = $appear['tamano_alert'];
-        		$color = $appear['color_alert'];
+        		$color = $appear['color_alert'];        		
 
+				$fecha = get_field('fecha_alert', $al->ID);
+				$today = date('Y-m-d');
+        		
+        		$dateAlert1 = new DateTime($fecha);
+				$dateAlert2 = new DateTime($today);
+
+				if($dateAlert1>$dateAlert2):
 
 			?>
 			<div class="wp">
@@ -68,7 +75,8 @@ function slugify($text)
 							'<img src="'.$icon['url'].'" alt="'.get_the_title().'" class="icon" />' : 
 							'<img src="'. get_bloginfo('url').'/wp-content/themes/meli/img/alerta-desktop.svg" alt="Alertas" class="icon" />';  
 						?>
-						<p><?= $content; ?></p>
+
+						<p><?= substr($content, 0, 200) ?></p>
 					</div>
 					<div class="btnsAlert">
 					<?php if( have_rows('botones_alert') ):
@@ -114,7 +122,7 @@ function slugify($text)
 
 				</div>
 			</div>
-	    <?php endforeach; ?>
+	    <?php endif; endforeach; ?>
 	</div> 
 	<?php endif;?>
 

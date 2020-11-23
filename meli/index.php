@@ -164,13 +164,22 @@ function cursos(x){
 			            'terms'    => 'general',
 			            'operator' => 'IN',
 			        ),
-			        array(
-			            'taxonomy' => 'alertas_categories',
-			            'field'    => 'slug',
-			            'terms'    => 'interna',
-			            'operator' => 'NOT IN',
-			        )
-			    ) 
+			        // array(
+			        //     'taxonomy' => 'alertas_categories',
+			        //     'field'    => 'slug',
+			        //     'terms'    => 'interna',
+			        //     'operator' => 'NOT IN',
+			        // )
+			    ),
+	            'meta_query' => array(
+                    array(
+                        'key' => 'fecha_alert',
+                        'value' => date('Y-m-d'),
+                        'compare' => '>=',
+                        'type' => 'DATE'
+
+                    )
+                )
 		    ) );
 			while( $the_queryAlert->have_posts() ):
                 $the_queryAlert->the_post(); 
@@ -184,14 +193,11 @@ function cursos(x){
 
 				if( have_rows('apariencia_alert') ): ?>
 			    <?php while( have_rows('apariencia_alert') ): the_row(); 
-
 			        // Get sub field values.
 			        $size = get_sub_field('tamano_alert');
 			        $color = get_sub_field('color_alert');
-
-			        ?>
-			        
-			    <?php endwhile;
+			    endwhile;
+        		
 			endif; ?>
 			<div class="wp">
 				<div class="alert <?php foreach ($cat as  $value) { echo $value->slug .' ';	} ?><?=$size?> <?=$color?>">
@@ -201,7 +207,7 @@ function cursos(x){
 							'<img src="'.$icon['url'].'" alt="'.get_the_title().'" class="icon" />' : 
 							'<img src="'. get_bloginfo('url').'/wp-content/themes/meli/img/alerta-desktop.svg" alt="Alertas" class="icon" />';  
 						?>
-						<p><?= $content; ?></p>
+						<p><?= substr($content, 0, 200) ?></p>
 					</div>
 					<div class="btnsAlert">
 					<?php if( have_rows('botones_alert') ):

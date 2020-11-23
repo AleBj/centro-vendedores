@@ -751,14 +751,23 @@
 			            'field'    => 'slug',
 			            'terms'    => 'general',
 			            'operator' => 'IN',
-			        ),
-			        array(
-			            'taxonomy' => 'alertas_categories',
-			            'field'    => 'slug',
-			            'terms'    => 'interna',
-			            'operator' => 'NOT IN',
 			        )
-			    ) 
+			        // array(
+			        //     'taxonomy' => 'alertas_categories',
+			        //     'field'    => 'slug',
+			        //     'terms'    => 'interna',
+			        //     'operator' => 'NOT IN',
+			        // )
+			    ),
+	            'meta_query' => array(
+                    array(
+                        'key' => 'fecha_alert',
+                        'value' => date('Y-m-d'),
+                        'compare' => '>=',
+                        'type' => 'DATE'
+
+                    )
+                )
 		    ) );
 			# code...
 		}else{
@@ -774,13 +783,22 @@
 	                    'field' => 'slug',
 	                    'terms' => $_POST['keyword'],
 	                ),
-			        array(
-			            'taxonomy' => 'alertas_categories',
-			            'field'    => 'slug',
-			            'terms'    => 'interna',
-			            'operator' => 'NOT IN',
-			        )
+			        // array(
+			        //     'taxonomy' => 'alertas_categories',
+			        //     'field'    => 'slug',
+			        //     'terms'    => 'interna',
+			        //     'operator' => 'NOT IN',
+			        // )
 	            ),
+	            'meta_query' => array(
+                    array(
+                        'key' => 'fecha_alert',
+                        'value' => date('Y-m-d'),
+                        'compare' => '>=',
+                        'type' => 'DATE'
+
+                    )
+                )
 		    ) );
 
 		}
@@ -809,18 +827,18 @@
 			endif; ?>
 			<div class="alert <?php foreach ($cat as  $value) { echo $value->slug .' ';	} ?><?=$size?> <?=$color?> hiddenbx">
 				<?php if($size == 'small'): ?>
+
 				<div class="left">
 					<?= ($icon) ? 
 						'<img src="'.$icon['url'].'" alt="'.get_the_title().'" class="icon" />' : 
 						'<img src="'. get_bloginfo('url').'/wp-content/themes/meli/img/alerta-desktop.svg" alt="Alertas" class="icon" />';  
 					?>
-					<p><?= $content; ?></p>
+					<p><?= substr($content, 0, 200) ?></p>
 				</div>
 				<div class="btnsAlert">
 				<?php if( have_rows('botones_alert') ):
 
 				    while ( have_rows('botones_alert') ) : the_row();
-
 				        ?>
 				        <a href="<?= the_sub_field('url_btn_alert') ?>" target="<?= the_sub_field('target_btn_alert') ?>"> <?= the_sub_field('cta_btn_alert') ?></a>
 				        <?php				        
@@ -840,7 +858,6 @@
 							<?php if( have_rows('botones_alert') ):
 
 							    while ( have_rows('botones_alert') ) : the_row();
-
 							        ?>
 							        <a href="<?= the_sub_field('url_btn_alert') ?>" target="<?= the_sub_field('target_btn_alert') ?>"> <?= the_sub_field('cta_btn_alert') ?></a>
 							        <?php				        

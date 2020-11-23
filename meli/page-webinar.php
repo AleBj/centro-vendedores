@@ -98,7 +98,9 @@ if(isset($_GET['u'])){
                 ?>
 
                 <div class="card grid-item <?=$cat[0]->slug;?> <?=$ptg?>"> 
+                    <?php if($ptag[0] != ''): ?>
                     <div class="tags"><span><?= $ptag[0]->name ?> </span></div>      
+                    <?php endif; ?>
                     <small>
                         <img src="<?=get_bloginfo('template_url')?>/img/ico-calendar.svg" alt="">
                         <?php $date = get_field('fecha_webinar'); 
@@ -224,7 +226,9 @@ if(isset($_GET['u'])){
                     ?>
 
                     <div class="card grid-item <?=$cat[0]->slug;?> <?=$ptg?>"> 
-                        <div class="tags"><span><?= $ptag[0]->name ?> </span></div>        
+                        <?php if($ptag[0] != ''): ?>
+                        <div class="tags"><span><?= $ptag[0]->name ?> </span></div>      
+                        <?php endif; ?>      
                         <small>
                             <img src="<?=get_bloginfo('template_url')?>/img/ico-calendar.svg" alt="">
                             <?php $date = get_field('fecha_webinar'); 
@@ -312,20 +316,20 @@ $('.tagsList').on( 'click', '.bt', function( event ) {
 });
 
 
-$('.tagsList .bt').on('click', function(e){
+// $('.tagsList .bt').on('click', function(e){
+//     if($(this).hasClass('active')){
+//         $(this).removeClass('active');
+//     }else{
+//         $('.tagsList .bt').removeClass('active')
+//         $(this).addClass('active');
+//     }   
+// })
+
+$('.tagsList .bt').on('click', function(){
     if($(this).hasClass('active')){
         $(this).removeClass('active');
     }else{
         $('.tagsList .bt').removeClass('active')
-        $(this).addClass('active');
-    }   
-})
-
-$('#categories.tagsList .bt').on('click', function(){
-    if($(this).hasClass('active')){
-        $(this).removeClass('active');
-    }else{
-        $('#categories.tagsList .bt').removeClass('active')
         $(this).addClass('active');
     }   
 })

@@ -38,7 +38,89 @@ function slugify($text)
 
 <main>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post();?>
-	
+
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post();?>
+
+	<?php 
+	if( have_rows('alertas_nota') ):
+		$alert = get_field('alertas_nota');
+	 ?>
+	<div class="block_home alertas contenidos">
+		<?php 
+			
+			foreach( $alert as $al):
+				
+				$content = strip_tags($al->post_content, '<i> <em> <strong>');
+				$icon = get_field('icono_alert', $al->ID);
+				$btn = get_field('botones_alert', $al->ID);
+
+				$appear = get_field('apariencia_alert', $al->ID);
+				
+				$size = $appear['tamano_alert'];
+        		$color = $appear['color_alert'];
+
+        		$fecha = get_field('fecha_alert');
+
+			?>
+			<div class="wp">
+				<div class="alert <?=$size?> <?=$color?>">
+					<?php if($size == 'small'): ?>
+					<div class="left">
+						<?= ($icon) ? 
+							'<img src="'.$icon['url'].'" alt="'.get_the_title().'" class="icon" />' : 
+							'<img src="'. get_bloginfo('url').'/wp-content/themes/meli/img/alerta-desktop.svg" alt="Alertas" class="icon" />';  
+						?>
+						<p><?= substr($content, 0, 200) ?></p>
+					</div>
+					<div class="btnsAlert">
+					<?php if( have_rows('botones_alert') ):
+
+					    while ( have_rows('botones_alert') ) : the_row();
+
+					        ?>
+					        <a href="<?= the_sub_field('url_btn_alert') ?>" target="<?= the_sub_field('target_btn_alert') ?>"> <?= the_sub_field('cta_btn_alert') ?></a>
+					        <?php				        
+
+					    endwhile;
+					endif; ?>
+					</div>
+					<?php else: ?>
+						<div class="left">
+							<?= ($icon) ? 
+								'<img src="'.$icon['url'].'" alt="'.get_the_title().'" class="icon" />' : 
+								'<img src="'. get_bloginfo('url').'/wp-content/themes/meli/img/alerta-desktop.svg" alt="Alertas" class="icon" />';  
+							?>
+							<div class="texto">
+								<p><?= $content; ?></p>
+								<div class="btnsAlert">
+								<?php if( have_rows('botones_alert', $al->ID) ):
+
+								    while ( have_rows('botones_alert', $al->ID) ) : the_row();
+
+								        ?>
+								        <a href="<?= the_sub_field('url_btn_alert', $al->ID) ?>" target="<?= the_sub_field('target_btn_alert', $al->ID) ?>"> <?= the_sub_field('cta_btn_alert', $al->ID) ?></a>
+								        <?php				        
+
+								    endwhile;
+								endif; ?>
+								</div>
+							</div>
+						</div>
+						<div class="vermas" id="AlertVerMas">ver más <i class="fa fa-angle-down"></i></div>
+						<script>
+							$('#AlertVerMas').on('click', function(){
+								$('.alert .texto, #AlertVerMas').toggleClass('open')
+							})
+						</script>
+					<?php endif; ?>					
+
+				</div>
+			</div>
+	    <?php endforeach; ?>
+	</div> 
+	<?php endif;?>
+
+	<!-- NOVEDADES -->
 	<div class="breadcrumbs"><a href="<?php bloginfo('url')?>/novedades"><?php _e( 'Novedades', 'meli-centro-vendedores' ); ?></a> <i class="fa fa-angle-right"></i> <a href="<?php bloginfo('url')?>/novedades/?u=<?=$categorySlug?>"><?= $category;  ?> </a> <i class="fa fa-angle-right"></i> <?php the_title(); ?></div>
 	<div class="wp" id="single">
 

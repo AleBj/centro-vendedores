@@ -115,7 +115,7 @@ if(isset($_GET['u'])){
                         
                         ?>
                     </p>
-                    <a href="<?= get_field('link_webinar'); ?>" target="_blank"><?php _e( 'Registrarme', 'meli-centro-vendedores' ); ?></a>
+                    <a href="<?= get_field('link_webinar'); ?>" target="_blank"><?php _e( 'Ver webinar', 'meli-centro-vendedores' ); ?></a>
                 </div>
             <?php endwhile; ?>
         </div>

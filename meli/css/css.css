@@ -343,6 +343,7 @@ main .block_home.webinars .card p{
   opacity: .8;
   height: 70px;
   overflow: hidden;
+  color: #333;
 }
 main .block_home.webinars .card a{
 	display: inline-block;
@@ -358,7 +359,8 @@ main .block_home.webinars.anteriores .card small,
 main .block_home.webinars.anteriores .card h2{opacity: 0.5}
 main .block_home.webinars .tagsList{opacity: .8;margin-bottom: 30px;}
 main .block_home.webinars .tagsList a.bt{position: relative;}
-
+main .block_home.webinars .tagsList a.volverAtras{color: var(--blue);float: right;margin: 12px 0 0;}
+main .block_home.webinars .tagsList a.volverAtras:hover{background-color: transparent;}
 /*notas*/
 main .block_home.notas .loading{height: 352px;}
 main .block_home.notas .card{	

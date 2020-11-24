@@ -52,6 +52,8 @@ if(isset($_GET['u'])){
             Seleccioná el nivel de webinar que querés: 
             <a href=".principiante" class="bt">Principiante</a>
             <a href=".avanzado" class="bt">Avanzado</a>
+
+            <a href="<?=get_bloginfo('url')?>/webinars" class="volverAtras">Volver a webinars actuales</a>
         </div>
         <h3 class="wp dif"><?php _e( 'Webinars anteriores', 'meli-centro-vendedores' ); ?></h3>
         <div class="gridList content">

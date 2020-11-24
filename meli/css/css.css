@@ -356,7 +356,8 @@ main .block_home.webinars .card a{
 }
 main .block_home.webinars.anteriores .card p,
 main .block_home.webinars.anteriores .card small,
-main .block_home.webinars.anteriores .card h2{opacity: 0.5}
+main .block_home.webinars.anteriores .card h2,
+main .block_home.webinars.anteriores .card .tags{opacity: 0.5}
 main .block_home.webinars .tagsList{opacity: .8;margin-bottom: 30px;}
 main .block_home.webinars .tagsList a.bt{position: relative;}
 main .block_home.webinars .tagsList a.volverAtras{color: var(--blue);float: right;margin: 12px 0 0;}

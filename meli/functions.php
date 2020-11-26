@@ -37,6 +37,17 @@
 	}
 	add_filter('upload_mimes', 'dmc_add_svg_mime_types');
 
+	// upload_max_filesize
+	function filter_site_upload_size_limit( $size ) {
+    // Set the upload size limit to 60 MB for users lacking the 'manage_options' capability.
+    if ( ! current_user_can( 'manage_options' ) ) {
+	        // 60 MB.
+	        $size = 50 * 1024 * 1024;
+	    }
+	    return $size;
+	}
+	add_filter( 'upload_size_limit', 'filter_site_upload_size_limit', 50 );
+
 	/**
 	 * WIDGETS
 	 *

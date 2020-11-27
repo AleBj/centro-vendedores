@@ -64,7 +64,7 @@
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/meli/css/font-awesome.min.css?v=1"/>
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/meli/fonts/fonts.css?v=1">
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/meli/style.css?v=1"/> 
-	<link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/meli/css/css.css?v=1">
+	<link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/meli/css/css.css?v=<?php echo date('s'); ?>">
  
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
 </head>

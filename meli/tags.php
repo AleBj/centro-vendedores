@@ -26,7 +26,8 @@ $url = $_GET['t'];
             <a href="" class="me bt" data-filter="mercado-envios"><?php _e( 'Mercado envíos', 'meli-centro-vendedores' ); ?></a>
             <?php if($blog_id != 5): ?>
             <a href="" class="ms bt" data-filter="mercado-shops"><?php _e( 'Mercado Shops', 'meli-centro-vendedores' ); ?></a>   
-            <?php endif; ?>               
+            <?php endif; ?>    
+        	<a href="" class="ma bt" data-filter="mercado-ads"><?php _e( 'Mercado Ads', 'meli-centro-vendedores' ); ?></a>            
         </div>
         <div id="results">
             <div class="nav-result">

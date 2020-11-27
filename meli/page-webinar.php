@@ -20,7 +20,8 @@ if(isset($_GET['u'])){
         <a href=".mercado-envios" class="me bt" data-filter="mercado-envios"><?php _e( 'Mercado envíos', 'meli-centro-vendedores' ); ?></a>
         <?php if($blog_id != 5): ?>
         <a href=".mercado-shops" class="ms bt" data-filter="mercado-shops"><?php _e( 'Mercado Shops', 'meli-centro-vendedores' ); ?></a>
-        <?php endif; ?>               
+        <?php endif; ?>         
+        <a href=".mercado-ads" class="ma bt" data-filter="mercado-ads"><?php _e( 'Mercado Ads', 'meli-centro-vendedores' ); ?></a>        
     </div>
 </div>
 

@@ -30,7 +30,8 @@ if(isset($_GET['u'])){
 		<a href="mercado-envios" class="me mercado-envios" data-rel="mercado-envios"><?php _e( 'Mercado envíos', 'meli-centro-vendedores' ); ?></a>
         <?php if($blog_id != 5): ?>
 		<a href="mercado-shops" class="ms mercado-shops" data-rel="mercado-shops"><?php _e( 'Mercado Shops', 'meli-centro-vendedores' ); ?></a>
-        <?php endif; ?>               
+        <?php endif; ?>         
+		<a href="mercado-ads" class="ma mercado-ads" data-rel="mercado-ads"><?php _e( 'Mercado Ads', 'meli-centro-vendedores' ); ?></a>      
 	</div>
 </div>
 <script>

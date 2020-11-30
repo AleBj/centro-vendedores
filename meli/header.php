@@ -118,6 +118,12 @@ echo '<!--';
 echo $blog_id;
 echo '-->';
 ?>
+<?php 
+$date = date('d/m/Y H:s:i');
+echo '<!--'; 
+echo $date;
+echo '-->';
+?>
 <header>
 	<div class="wp">
 		<a href="<?php bloginfo('url') ?>/">

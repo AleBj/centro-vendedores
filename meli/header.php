@@ -139,7 +139,7 @@ echo '-->';
 			<ul> 
 				<li><a href="<?php bloginfo('url') ?>/novedades" class="<?= ($slug == 'novedades') ? 'active' : '';  ?>"><?php _e( 'Novedades', 'meli-centro-vendedores' ); ?></a></li>
 				<li><a href="<?php bloginfo('url') ?>/notas" class="<?= ($slug == 'notas') ? 'active' : '';  ?>"><?php _e( 'Notas', 'meli-centro-vendedores' ); ?></a></li>
-				<!-- <li><a href="<?php bloginfo('url') ?>/webinars" class="<?= ($slug == 'webinars' || $slug == 'webinars-anteriores') ? 'active' : '';  ?>"><?php _e( 'Webinars', 'meli-centro-vendedores' ); ?></a></li> -->
+				<li><a href="<?php bloginfo('url') ?>/webinars" class="<?= ($slug == 'webinars' || $slug == 'webinars-anteriores') ? 'active' : '';  ?>"><?php _e( 'Webinars', 'meli-centro-vendedores' ); ?></a></li>
 				<li><a href="<?php bloginfo('url') ?>/cursos" class="<?= ($slug == 'cursos') ? 'active' : '';  ?>"><?php _e( 'Cursos', 'meli-centro-vendedores' ); ?></a></li>
 				<li><?php _e( 'Etiquetas', 'meli-centro-vendedores' ); ?> <i class="fa fa-angle-down"></i>
 					<div class="submenu">

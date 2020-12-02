@@ -49,14 +49,11 @@ if(isset($_GET['u'])){
     <!-- Webinars -->
     <div class="block_home novedades webinars mrg-b-0" style="opacity: 0">
         <div class="wp tagsList">
-            Seleccioná el nivel de webinar que querés: 
+            <?php _e( 'Seleccioná el nivel de webinar que querés hacer:', 'meli-centro-vendedores'); ?>
             <a href=".principiante" class="bt">Principiante</a>
-            <a href=".avanzado" class="bt">Avanzado</a>
+            <a href=".avanzado" class="bt"><?php _e( 'Avanzado', 'meli-centro-vendedores'); ?></a>
         </div>
-        <h3 class="wp dif"><?php echo $monthNameActual ?></h3>
-        <div class="gridList content mrg-b-web">
-            <div class="grid-sizer"></div>
-            <?php
+        <?php
             $the_query_webinar = new WP_Query( array(
                 'posts_per_page' => -1,
                 'post_type' => 'webinars',
@@ -80,9 +77,14 @@ if(isset($_GET['u'])){
                 )
             ) );
 
-            ?>
+            if ($the_query_webinar->have_posts()) :
+        ?>
+        <h3 class="wp dif"><?php _e( $monthNameActual, 'meli-centro-vendedores'); ?></h3>
+        <?php endif; ?>
+        <div class="gridList content mrg-b-web">
+            <div class="grid-sizer"></div>
+            
             <?php
-
             while ( $the_query_webinar->have_posts() ) :
                 $the_query_webinar->the_post(); ?>
                 
@@ -120,38 +122,43 @@ if(isset($_GET['u'])){
             <?php endwhile; ?>
         </div>
 
-        <h3 class="wp dif"><?php echo $monthNameProx ?></h3>
+        <?php
+        $the_query_webinar_nx = new WP_Query( array(
+            'posts_per_page' => -1,
+            'post_type' => 'webinars',
+            'meta_key'  => 'fecha_webinar',
+            'orderby'   => 'meta_value',
+            'order'     => 'ASC',
+            'meta_query' => array(
+                'relation' => 'AND',
+                array(
+                    'key'    => 'mes_webinar',
+                    'value'    => $monthProx,
+                    'compare' => 'IN',
+                ),
+                array(
+                    'key' => 'fecha_webinar',
+                    'value' => date('Y-m-d H:i:s'),
+                    'compare' => '>=',
+                    'type' => 'DATE'
+
+                )
+            )
+        ) );
+
+        if ($the_query_webinar_nx->have_posts()) :
+        
+        ?>
+
+        <h3 class="wp dif"><?php _e( $monthNameProx, 'meli-centro-vendedores'); ?></h3>
+        <?php endif ?>
         <div class="gridList content">
             <div class="grid-sizer"></div>
-            <?php
-            $the_query_webinar = new WP_Query( array(
-                'posts_per_page' => -1,
-                'post_type' => 'webinars',
-                'meta_key'  => 'fecha_webinar',
-                'orderby'   => 'meta_value',
-                'order'     => 'ASC',
-                'meta_query' => array(
-                    'relation' => 'AND',
-                    array(
-                        'key'    => 'mes_webinar',
-                        'value'    => $monthProx,
-                        'compare' => 'IN',
-                    ),
-                    array(
-                        'key' => 'fecha_webinar',
-                        'value' => date('Y-m-d H:i:s'),
-                        'compare' => '>=',
-                        'type' => 'DATE'
-
-                    )
-                )
-            ) );
-
-            ?>
+            
             <?php
 
-            while ( $the_query_webinar->have_posts() ) :
-                $the_query_webinar->the_post(); ?>
+            while ( $the_query_webinar_nx->have_posts() ) :
+                $the_query_webinar_nx->the_post(); ?>
                 
                 <?php 
                     $gcat = get_object_taxonomies('webinars');

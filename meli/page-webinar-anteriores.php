@@ -50,11 +50,11 @@ if(isset($_GET['u'])){
     <!-- Webinars -->
     <div class="block_home novedades webinars anteriores mrg-b-0" style="opacity: 0">
         <div class="wp tagsList">
-            Seleccioná el nivel de webinar que querés: 
+            <?php _e( 'Seleccioná el nivel de webinar que querés hacer:', 'meli-centro-vendedores'); ?>
             <a href=".principiante" class="bt">Principiante</a>
-            <a href=".avanzado" class="bt">Avanzado</a>
+            <a href=".avanzado" class="bt"><?php _e( 'Avanzado', 'meli-centro-vendedores'); ?></a>
 
-            <a href="<?=get_bloginfo('url')?>/webinars" class="volverAtras">Volver a webinars actuales</a>
+            <a href="<?=get_bloginfo('url')?>/webinars" class="volverAtras"><?php _e( 'Volver a webinars actuales', 'meli-centro-vendedores'); ?></a>
         </div>
         <h3 class="wp dif"><?php _e( 'Webinars anteriores', 'meli-centro-vendedores' ); ?></h3>
         <div class="gridList content">

@@ -75,13 +75,12 @@ function slugify($text)
 							'<img src="'.$icon['url'].'" alt="'.get_the_title().'" class="icon" />' : 
 							'<img src="'. get_bloginfo('url').'/wp-content/themes/meli/img/alerta-desktop.svg" alt="Alertas" class="icon" />';  
 						?>
-
-						<p><?= substr($content, 0, 200) ?></p>
+						<p><?= substr($content, 0, 196) ?></p>
 					</div>
 					<div class="btnsAlert">
-					<?php if( have_rows('botones_alert') ):
+					<?php if( have_rows('botones_alert', $al->ID) ):
 
-					    while ( have_rows('botones_alert') ) : the_row();
+					    while ( have_rows('botones_alert', $al->ID) ) : the_row();
 
 					        ?>
 					        <a href="<?= the_sub_field('url_btn_alert') ?>" target="<?= the_sub_field('target_btn_alert') ?>"> <?= the_sub_field('cta_btn_alert') ?></a>

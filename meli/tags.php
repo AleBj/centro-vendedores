@@ -51,6 +51,12 @@ $url = $_GET['t'];
 					            'taxonomy' => 'post_tag',
 					            'field' => 'slug',
 					            'terms' => $url,
+					        ),
+					        array(
+					            'taxonomy' => 'notas_categories', 
+					            'field'    => 'slug',
+				            	'terms'    => 'oculta',
+				            	'operator' => 'NOT IN',
 					        )
 					    ),
 					);
@@ -101,7 +107,13 @@ $url = $_GET['t'];
 				            'taxonomy' => 'post_tag',
 				            'field' => 'slug',
 				            'terms' => $url,
-				        )
+				        ),
+				        array(
+				            'taxonomy' => 'notas_categories', 
+				            'field'    => 'slug',
+			            	'terms'    => 'oculta',
+			            	'operator' => 'NOT IN',
+				        )			     
 				    ),
 				);
 				 
@@ -169,6 +181,12 @@ $url = $_GET['t'];
 					            'taxonomy' => 'course_tag',
 					            'field' => 'slug',
 					            'terms' => $url,
+					        ),
+					        array(
+					            'taxonomy' => 'notas_categories', 
+					            'field'    => 'slug',
+				            	'terms'    => 'oculta',
+				            	'operator' => 'NOT IN',
 					        )
 					    ),
 					);

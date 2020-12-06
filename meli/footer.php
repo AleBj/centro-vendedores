@@ -80,6 +80,23 @@
 		setCookie('ppkcookie','melicookie',7);
 	})
 
+	$('.owl-carousel').owlCarousel({
+	    loop:false,
+	    margin:16,
+	    autoWidth:true,
+	    nav:true,
+	    responsive:{
+	        0:{
+	            items:3,	            
+	        },
+	        600:{
+	            items:4
+	        },
+	        1000:{
+	            items:6
+	        }
+	    }
+	})
 
 
 </script>

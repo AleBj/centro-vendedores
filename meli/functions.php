@@ -191,13 +191,13 @@
             'icon_url' => 'dashicons-editor-ol',
             'position' => 9
         ));
-        // acf_add_options_page(array(
-        //     'page_title' => 'Submenú',
-        //     'menu_title' => 'Submenú',
-        //     'menu_slug' => 'submenu',
-        //     'icon_url' => 'dashicons-tagcloud',
-        //     'position' => 9
-        // )); 
+        acf_add_options_page(array(
+            'page_title' => 'Submenú',
+            'menu_title' => 'Submenú',
+            'menu_slug' => 'submenu',
+            'icon_url' => 'dashicons-tagcloud',
+            'position' => 9
+        )); 
 
     }
 

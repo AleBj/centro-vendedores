@@ -34,9 +34,52 @@ if(isset($_GET['u'])){
 		<a href="mercado-ads" class="ma mercado-ads" data-rel="mercado-ads"><?php _e( 'Mercado Ads', 'meli-centro-vendedores' ); ?></a>      
 	</div>
 </div>
+<div id="submenu">
+	<?php
+	if( have_rows('submenu_sb', 'option') ):
+	 	// loop through the rows of data
+	    while ( have_rows('submenu_sb', 'option') ) : the_row(); 
+	    	$headerCol = get_sub_field('categoria_sb');
+	    ?>
+		<div class="wp <?= $headerCol->slug ?>">
+			<div class="owl-carousel">
+			<?php
+    		if( have_rows('link_sb') ):
+			 	// loop through the rows of data
+			    while ( have_rows('link_sb') ) : the_row(); 
+			    	$tag = get_sub_field('tag_sb');
+			    	$icono = get_sub_field('icono_sb');
+			    ?>
+			    <div class="item">
+					<a href="<?= get_bloginfo('url').'/tags/?t='?><?= $tag->slug ?>">
+						<div class="image">
+					    	<img src="<?= $icono['url'] ?>" alt="<?= $tag->name ?>">
+					    </div>
+					    <?= $tag->name ?>
+					</a>
+				</div>
+				
+			<?php    
+				endwhile;
+
+			endif; ?>
+
+
+			</div>
+		</div>
+
+	<?php    
+		endwhile;
+
+	endif; ?>
+
+</div>
 <script>
 $('#categories a').on('click', function(e){
 	e.preventDefault();
+	
+	$('#submenu .wp').slideUp(100);
+
 	var h = $(this).attr('href');
 	if ($(this).hasClass('active')) {
 		$('#categories a').removeClass('active');
@@ -50,6 +93,8 @@ $('#categories a').on('click', function(e){
     	$('.block_home.novedades h3 a').attr('href',link+'/novedades')
     	$('.block_home.notas h3 a').attr('href',link+'/notas')
     	$('.block_home.cursos h3 a').attr('href',link+'/cursos')
+
+		// Submenú
 	}else{
 		var cls = $(this).data('rel');
 		var param = '?u='+cls;
@@ -66,6 +111,9 @@ $('#categories a').on('click', function(e){
 
 		$('#categories a').removeClass('active');
 		$(this).addClass('active');
+
+		// Submenú
+		$('#submenu .wp.'+h).slideDown(300);
 	}
 	//console.log(h);
 	novedades(h);

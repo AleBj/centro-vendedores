@@ -79,8 +79,10 @@ endwhile;
 </div>
 <script>    
     $('#tags .show-tags').on('click', function(){
+        $('#submenu .wp').slideUp(100);
         $(this).toggleClass('open')
         $('#tags .content').slideToggle(500);   
+
     })
 </script>
 <div id="submenu">
@@ -278,6 +280,7 @@ $('#categories.tagsList .bt').on('click', function(){
         // Submenú
         $('#submenu .wp'+h).slideDown(300);
     }   
+    $('#tags .content').slideUp(100);   
 })
 </script>
 <script src="<?php bloginfo('url'); ?>/wp-content/themes/meli/js/intersection-observer.js"></script>

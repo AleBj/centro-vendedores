@@ -80,10 +80,52 @@ endwhile;
 </div>
 <script>    
     $('#tags .show-tags').on('click', function(){
+        $('#submenu .wp').slideUp(100);
         $(this).toggleClass('open')
         $('#tags .content').slideToggle(500);   
+
     })
 </script>
+<div id="submenu">
+    <?php
+    if( have_rows('submenu_sb', 'option') ):
+        // loop through the rows of data
+        while ( have_rows('submenu_sb', 'option') ) : the_row(); 
+            $headerCol = get_sub_field('categoria_sb');
+        ?>
+        <div class="wp <?= $headerCol->slug ?>">
+            <div class="owl-carousel tagsList">
+            <?php
+            if( have_rows('link_sb') ):
+                // loop through the rows of data
+                while ( have_rows('link_sb') ) : the_row(); 
+                    $tag = get_sub_field('tag_sb');
+                    $icono = get_sub_field('icono_sb');
+                ?>
+                <div class="item">
+                    <a href=".<?= $tag->slug ?>" class="bt">
+                        <div class="image">
+                            <img src="<?= $icono['url'] ?>" alt="<?= $tag->name ?>">
+                        </div>
+                        <?= $tag->name ?>
+                    </a>
+                </div>
+                
+            <?php    
+                endwhile;
+
+            endif; ?>
+
+
+            </div>
+        </div>
+
+    <?php    
+        endwhile;
+
+    endif; ?>
+
+</div>
 
 <main id="interna">
 
@@ -191,14 +233,28 @@ $('#tags .tagsList .bt').on('click', function(e){
         $(this).addClass('active');
     }   
 })
+$('#submenu .tagsList .bt').on('click', function(e){
+    if($(this).hasClass('active')){
+        $(this).removeClass('active');
+    }else{
+        $(this).addClass('active');
+    }   
+})
 
 $('#categories.tagsList .bt').on('click', function(){
+    
+    $('#submenu .wp').slideUp(100);
+    var h = $(this).attr('href');
+
     if($(this).hasClass('active')){
         $(this).removeClass('active');
     }else{
         $('#categories.tagsList .bt').removeClass('active')
         $(this).addClass('active');
+        // Submenú
+        $('#submenu .wp'+h).slideDown(300);
     }   
+    $('#tags .content').slideUp(100);   
 })
 </script>
 

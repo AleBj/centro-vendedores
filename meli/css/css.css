@@ -252,22 +252,22 @@ main .block_home.webinars .tagsList a.active:before,
 }
 /*SUBMENU*/
 #submenu{background-color: var(--white);box-shadow: var(--box-shadow);position: relative;}
-#submenu .wp{padding: 24px 16px 0;display: none;}
+#submenu .wp{padding: 24px 16px 0;display: none;max-height: 172px;overflow: hidden;}
 #submenu .wp .item{
   font-size: 16px;
   line-height: 1.75;
   text-align: center;
   color: var(--black);
   position: relative;
-  min-width: 200px;
+  min-width: 180px;
 }
 #submenu .wp .item a{display: block;}
 #submenu .wp .item .image{height: 80px;margin-bottom: 20px;display: flex;align-items: center;justify-content: center;width: 100%;}
 #submenu .wp .item img{max-width: 80px;max-height: 80px;display: block;}
-#submenu .owl-nav{height:0;position: absolute;top: 50%;width: 100%;transform: translateY(-50%);display: flex;align-items: center;justify-content: space-between;font-size: 34px;color: var(--blue);}
-#submenu .owl-nav button.disabled{opacity: .2}
-#submenu .wp .item a.active{color: var(--blue);}
-#submenu .wp .item a.active:after{
+#submenu .owl-nav{height:0;position: absolute;top: 40%;width: 100%;transform: translateY(-50%);display: flex;align-items: center;justify-content: space-between;font-size: 34px;color: var(--blue);}
+#submenu .owl-nav button.disabled{opacity: 0}
+#submenu .wp .item a.active:after,
+#submenu .wp .item a:hover:after{
 	content: '';
 	background-color: var(--blue);
 	width: 100%;
@@ -278,6 +278,15 @@ main .block_home.webinars .tagsList a.active:before,
 	position: absolute;
 }
 #submenu .owl-carousel .owl-stage-outer{padding-bottom: 20px;}
+
+#submenu .wp.mercado-libre .item a.active,
+#submenu .wp.mercado-libre .item a:hover{color: var(--blue);}
+
+#submenu .wp.mercado-libre .item a.active:after{background-color: var(--m-libre);}
+#submenu .wp.mercado-pago .item a.active:after{background-color: var(--m-pago);}
+#submenu .wp.mercado-envios .item a.active:after{background-color: var(--m-envios);}
+#submenu .wp.mercado-shops .item a.active:after{background-color: var(--m-shop);}
+#submenu .wp.mercado-ads .item a.active:after{background-color: var(--m-ads);}
 
 @media (min-width: 1100px) {
 	main .block_home.webinars .tagsList a:hover,

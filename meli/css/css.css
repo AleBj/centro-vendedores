@@ -279,8 +279,8 @@ main .block_home.webinars .tagsList a.active:before,
 }
 #submenu .owl-carousel .owl-stage-outer{padding-bottom: 20px;}
 
-#submenu .wp.mercado-libre .item a.active,
-#submenu .wp.mercado-libre .item a:hover{color: var(--blue);}
+#submenu .wp .item a.active,
+#submenu .wp .item a:hover{color: var(--blue);}
 
 #submenu .wp.mercado-libre .item a.active:after{background-color: var(--m-libre);}
 #submenu .wp.mercado-pago .item a.active:after{background-color: var(--m-pago);}

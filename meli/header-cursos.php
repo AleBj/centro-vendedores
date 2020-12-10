@@ -46,17 +46,18 @@
 	<!-- <link rel="canonical" href="https://vendedores.mercadolibre.com.ar/" /> -->
 	<meta property="og:locale" content="es_ES" />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Centro de vendedores" />
-	<meta property="og:description" content="Todo lo que necesitás para vender exitosamente en Mercado Libre, en tu tienda online y en tu tienda física." />
+	<meta property="og:title" content="<?php _e( 'Centro de vendedores', 'meli-centro-vendedores' ); ?>" />
+	<meta property="og:description" content="<?php _e( 'Todo lo que necesitás para vender exitosamente en Mercado Libre, en tu tienda online y en tu tienda física.', 'meli-centro-vendedores' ); ?>" />
 	<!-- <meta property="og:url" content="https://vendedores.mercadolibre.com.ar/" /> -->
-	<meta property="og:site_name" content="Centro de vendedores Argentina" />
+	<meta property="og:site_name" content="<?php _e( 'Centro de vendedores', 'meli-centro-vendedores' ); ?>" />
 	<meta property="og:image" content="<?php bloginfo('url'); ?>/wp-content/themes/meli/bienvenido_img-1.jpg" />
 	<meta property="og:image:secure_url" content="<?php bloginfo('url'); ?>/wp-content/themes/meli/bienvenido_img-1.jpg" />
 	<meta property="og:image:width" content="1600" />
 	<meta property="og:image:height" content="459" />
+	<meta name="theme-color" content="#ffffff" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:description" content="Todo lo que necesitás para vender exitosamente en Mercado Libre, en tu tienda online y en tu tienda física." />
-	<meta name="twitter:title" content="Centro de vendedores" />
+	<meta name="twitter:description" content="<?php _e( 'Todo lo que necesitás para vender exitosamente en Mercado Libre, en tu tienda online y en tu tienda física.', 'meli-centro-vendedores' ); ?>" />
+	<meta name="twitter:title" content="<?php _e( 'Centro de vendedores', 'meli-centro-vendedores' ); ?>" />
 	<meta name="twitter:image" content="<?php bloginfo('url'); ?>/wp-content/themes/meli/bienvenido_img-1.jpg" />
 
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/meli/css/reset.css?v=1"/>

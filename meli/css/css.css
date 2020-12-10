@@ -278,14 +278,14 @@ main .block_home.webinars .tagsList a.active:before,
 	position: absolute;
 }
 #submenu .owl-carousel .owl-stage-outer{padding-bottom: 20px;}
-/*
-#submenu .wp .item a.active,
+
+/*#submenu .wp .item a.active,
 #submenu .wp .item a:hover{color: var(--blue);}*/
-#submenu .wp.mercado-libre .item a:hover{color: var(--m-libre);}
-#submenu .wp.mercado-pago .item a:hover{color: var(--m-pago);}
-#submenu .wp.mercado-envios .item a:hover{color: var(--m-envios);}
-#submenu .wp.mercado-shops .item a:hover{color: var(--m-shop);}
-#submenu .wp.mercado-ads .item a:hover{color: var(--m-ads);}
+#submenu .wp.mercado-libre .item a:hover:after{background-color: var(--m-libre);}
+#submenu .wp.mercado-pago .item a:hover:after{background-color: var(--m-pago);}
+#submenu .wp.mercado-envios .item a:hover:after{background-color: var(--m-envios);}
+#submenu .wp.mercado-shops .item a:hover:after{background-color: var(--m-shop);}
+#submenu .wp.mercado-ads .item a:hover:after{background-color: var(--m-ads);}
 
 #submenu .wp.mercado-libre .item a.active:after{background-color: var(--m-libre);}
 #submenu .wp.mercado-pago .item a.active:after{background-color: var(--m-pago);}

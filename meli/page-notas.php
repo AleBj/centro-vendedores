@@ -64,27 +64,6 @@ while ( $the_query_novedades->have_posts() ) :
 endwhile;
     
 ?>
-<div id="tags">
-    <div class="show-tags"><?php _e( 'Filtrar', 'meli-centro-vendedores' ); ?> (<?=count($tagsName)?>) <i class="fa fa-angle-down"></i></div>
-    
-    <div class="content tagsList">
-        <?php 
-            foreach ($tagsName as $tg) {
-                echo '<a href=".'.$tg->slug.'" class="bt">'.$tg->name.'</a>';
-                //print_r($tg->name);
-            }
-
-        ?>
-    </div>
-</div>
-<script>    
-    $('#tags .show-tags').on('click', function(){
-        $('#submenu .wp').slideUp(100);
-        $(this).toggleClass('open')
-        $('#tags .content').slideToggle(500);   
-
-    })
-</script>
 <div id="submenu">
     <?php
     if( have_rows('submenu_sb', 'option') ):
@@ -125,6 +104,26 @@ endwhile;
     endif; ?>
 
 </div>
+<div id="tags">
+    <div class="show-tags"><?php _e( 'Más Filtros', 'meli-centro-vendedores' ); ?> <!-- (<?=count($tagsName)?>) --> <i class="fa fa-angle-down"></i></div>
+    
+    <div class="content tagsList">
+        <?php 
+            foreach ($tagsName as $tg) {
+                echo '<a href=".'.$tg->slug.'" class="bt">'.$tg->name.'</a>';
+                //print_r($tg->name);
+            }
+
+        ?>
+    </div>
+</div>
+<script>    
+    $('#tags .show-tags').on('click', function(){
+        $('#submenu .wp').toggleClass('open');
+        $(this).toggleClass('open')
+        $('#tags .content').slideToggle(500);   
+    })
+</script>
 
 <main id="interna">
 
@@ -269,7 +268,9 @@ $('#submenu .tagsList .bt').on('click', function(e){
 
 $('#categories.tagsList .bt').on('click', function(){
     
-    $('#submenu .wp').slideUp(100);
+    $('#submenu .wp').slideUp(300);
+
+    $('#tags').slideUp(300); 
     var h = $(this).attr('href');
 
     if($(this).hasClass('active')){
@@ -278,9 +279,9 @@ $('#categories.tagsList .bt').on('click', function(){
         $('#categories.tagsList .bt').removeClass('active')
         $(this).addClass('active');
         // Submenú
-        $('#submenu .wp'+h).slideDown(300);
-    }   
-    $('#tags .content').slideUp(100);   
+        $('#submenu .wp'+h).slideDown(400);
+        $('#tags').slideDown(300); 
+    }     
 })
 </script>
 <script src="<?php bloginfo('url'); ?>/wp-content/themes/meli/js/intersection-observer.js"></script>

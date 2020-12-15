@@ -18,7 +18,7 @@ $url = $_GET['t'];
     <div class="wp" id="search">
         <form action="" method="post">
         	<label for="s" style="font-size:12px;"><?php _e( 'Etiquetas', 'meli-centro-vendedores' ); ?></label>
-            <input type="text" name="s" id="buscar" placeholder="¿Qué estás buscando hoy?" value="<?php echo str_replace("-", " ", $url); ?>" readonly>
+            <input type="text" name="s" id="buscar" placeholder="¿Qué estás buscando hoy?" value="<?php echo str_replace("-", " ", $url); ?>" readonly style="text-transform: capitalize;">
         </form>
         <div id="filterssearch">  
             <a href="" class="ml bt" data-filter="mercado-libre"><?php _e( 'Mercado Libre', 'meli-centro-vendedores' ); ?></a>

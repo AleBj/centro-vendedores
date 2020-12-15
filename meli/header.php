@@ -109,7 +109,8 @@
 	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 	</script>
  
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
+    <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>  -->
+    <script src="<?php bloginfo('url'); ?>/wp-content/themes/meli/js/jquery-3.2.1.min.js"></script>
 </head>
 <body <?php body_class(); ?>>
 <?php 

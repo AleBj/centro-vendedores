@@ -105,7 +105,6 @@ endwhile;
 
 </div>
 <div id="tags">
-    <div class="show-tags"><?php _e( 'Más Filtros', 'meli-centro-vendedores' ); ?> <!-- (<?=count($tagsName)?>) --> <i class="fa fa-angle-down"></i></div>
     
     <div class="content tagsList">
         <?php 
@@ -116,6 +115,8 @@ endwhile;
 
         ?>
     </div>
+
+    <div class="show-tags"><span><?php _e( 'Más Filtros', 'meli-centro-vendedores' ); ?></span> <!-- (<?=count($tagsName)?>) --> <i class="fa fa-angle-down"></i></div>
 </div>
 <script>    
     $('#tags .show-tags').on('click', function(){
@@ -259,11 +260,14 @@ $('#tags .tagsList .bt').on('click', function(e){
     }   
 })
 $('#submenu .tagsList .bt').on('click', function(e){
+
     if($(this).hasClass('active')){
         $(this).removeClass('active');
     }else{
+        $('#submenu .tagsList .bt').removeClass('active');
         $(this).addClass('active');
-    }   
+    }
+     
 })
 
 $('#categories.tagsList .bt').on('click', function(){

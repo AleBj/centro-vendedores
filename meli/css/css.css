@@ -215,6 +215,8 @@ header .right ul li a.active{font-weight: 500}
 }
 #tags .show-tags i{margin-left: 5px;}
 #tags .show-tags.open i{transform: scale(-1);}
+#tags .show-tags.open span{font-size: 0;}
+#tags .show-tags.open:before{content: 'Menos Filtros'}
 #tags .content{max-width: 900px;padding: 28px 20px;position: relative;margin: auto;align-items: center;justify-content: center;flex-wrap: wrap;display: none;text-align: center;}
 #tags .content a{
 	font-weight: 300;
@@ -567,7 +569,7 @@ main .block_home.alertas .alert.mercado-envios{background:var(--m-envios);}*/
 main .block_home.alertas .alert.center{text-align: center;}
 main .block_home.alertas .alert img.icon{max-width: 63px;margin-right: 32px;}
 main .block_home.alertas .alert p{max-width: 780px;margin: 10px 0;font-size: 16px;line-height: 1.4;overflow: hidden;}
-main .block_home.alertas .alert .btnsAlert{display: flex;align-items: center;color: var(--blue);font-size: 16px;margin-left: 32px;}
+main .block_home.alertas .alert .btnsAlert{display: flex;align-items: center;color: var(--blue);font-size: 16px;margin-left: 32px;width: 100%;}
 main .block_home.alertas .alert .btnsAlert a{margin: 5px 0;white-space: nowrap;}
 main .block_home.alertas .alert .btnsAlert a:last-child{margin-left: 16px;}
 main .block_home.alertas .alert .btnsAlert a:first-child{background-color: var(--blue);color: var(--white);padding: 8px 18px;border-radius: 20px;white-space: nowrap;margin-left: 0;}

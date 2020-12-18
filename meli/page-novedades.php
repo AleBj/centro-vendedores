@@ -233,13 +233,15 @@ $('#tags .tagsList .bt').on('click', function(e){
     }   
 })
 $('#submenu .tagsList .bt').on('click', function(e){
+
     if($(this).hasClass('active')){
         $(this).removeClass('active');
     }else{
+        $('#submenu .tagsList .bt').removeClass('active');
         $(this).addClass('active');
-    }   
+    }
+     
 })
-
 
 $('#categories.tagsList .bt').on('click', function(){
     

@@ -262,7 +262,7 @@ main .block_home.webinars .tagsList a.active:before,
   text-align: center;
   color: var(--black);
   position: relative;
-  min-width: 180px;
+  min-width: 184px;
 }
 #submenu .wp .item a{display: block;}
 #submenu .wp .item .image{height: 80px;margin-bottom: 20px;display: flex;align-items: center;justify-content: center;width: 100%;overflow: hidden;transition: ease-out .3s;}

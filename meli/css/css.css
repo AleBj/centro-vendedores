@@ -1373,6 +1373,7 @@ body.full-screen-content-item #course-item-content-header .toggle-content-item:b
 	  	padding:16px 8px;
 	  	overflow: hidden;
 	  	min-width: 130px;
+	  	height: 100%;
 	}
 	#submenu .wp .item .image{margin-bottom: 10px;}
 	#submenu .wp .item a{white-space: normal;line-height: 1.2;}

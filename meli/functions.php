@@ -793,13 +793,14 @@
 		    	array( 
 		    	'post_type' => array('alertas'),
 	    		'post_status' => array('publish'),
-		    	'posts_per_page' => 3, 
+		    	'posts_per_page' => 1, 
 		    	'tax_query' => array(
         			'relation' => 'AND',
 	                array (
 	                    'taxonomy' => 'alertas_categories',
 	                    'field' => 'slug',
 	                    'terms' => $_POST['keyword'],
+			            'operator' => 'IN',
 	                ),
 			        // array(
 			        //     'taxonomy' => 'alertas_categories',

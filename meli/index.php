@@ -129,7 +129,7 @@ function alertas(x){
         type: 'post',
         data: { action: 'act_alerts', keyword: x },
         success: function(data) {
-        	// console.log(data);
+        	 console.log(data);
             $('.block_home.alertas .wp').html( data );
             setTimeout(function(){           	
 	            $('.block_home.alertas .alert').each(function(i) {
@@ -200,6 +200,7 @@ function cursos(x){
 <main>
 	
 	<div class="block_home alertas">
+			<div class="wp">
 		<?php 
 			$the_queryAlert = new WP_Query( 
 		    	array( 
@@ -248,7 +249,6 @@ function cursos(x){
 			    endwhile;
         		
 			endif; ?>
-			<div class="wp">
 				<div class="alert <?php foreach ($cat as  $value) { echo $value->slug .' ';	} ?><?=$size?> <?=$color?>">
 					<?php if($size == 'small'): ?>
 					<div class="left">
@@ -301,8 +301,8 @@ function cursos(x){
 					<?php endif; ?>					
 
 				</div>
-			</div>
 	    <?php endwhile; ?>
+			</div>
 	</div>
 
 	<!-- NOVEDADES -->

@@ -253,6 +253,7 @@ main .block_home.webinars .tagsList a.active:before,
 	text-indent: 1px;
 }
 /*SUBMENU*/
+#submenu .owl-carousel .owl-stage{display: flex;}
 #submenu .owl-dots{display: none;}
 #submenu{background-color: var(--white);box-shadow: var(--box-shadow);position: relative;z-index: 1;}
 #submenu .wp{padding: 24px 16px 0;display: none;max-height: 172px;overflow: hidden;}
@@ -264,7 +265,7 @@ main .block_home.webinars .tagsList a.active:before,
   position: relative;
   min-width: 184px;
 }
-#submenu .wp .item a{display: block;}
+#submenu .wp .item a{display: block;white-space: nowrap;}
 #submenu .wp .item .image{height: 80px;margin-bottom: 20px;display: flex;align-items: center;justify-content: center;width: 100%;overflow: hidden;transition: ease-out .3s;}
 #submenu .wp .item img{max-width: 80px;max-height: 80px;display: block;}
 @media (min-width: 1024px){
@@ -286,7 +287,8 @@ main .block_home.webinars .tagsList a.active:before,
 }
 #submenu .owl-carousel .owl-stage-outer{padding-bottom: 20px;}
 
-/**/#submenu .wp .item a.active,
+/**/
+#submenu .wp .item a.active,
 #submenu .wp .item a:hover{color: var(--blue);}
 #submenu .wp.mercado-libre .item a:hover:after{background-color: var(--m-libre);}
 #submenu .wp.mercado-pago .item a:hover:after{background-color: var(--m-pago);}
@@ -1362,7 +1364,7 @@ body.full-screen-content-item #course-item-content-header .toggle-content-item:b
 	#tags .content{padding: 20px;padding-top: 10px;}
 
 	#submenu{background-color: rgba(0, 0, 0, 0.1);}
-	#submenu .wp{padding: 10px 16px 1px;}
+	#submenu .wp{padding: 10px 16px 1px;max-height: 197px;}
 	#submenu .wp .item{ 
 		font-size: 13px;
 		border-radius: 12px;
@@ -1373,6 +1375,7 @@ body.full-screen-content-item #course-item-content-header .toggle-content-item:b
 	  	min-width: 130px;
 	}
 	#submenu .wp .item .image{margin-bottom: 10px;}
+	#submenu .wp .item a{white-space: normal;line-height: 1.2;}
 	#submenu .wp .item a.active:after{bottom: 0;}
 	#submenu .wp .item img{max-width: 60px;max-height: 60px;}
 	#submenu .owl-carousel .owl-stage-outer{padding: 10px 0;}

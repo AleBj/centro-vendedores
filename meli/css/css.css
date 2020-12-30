@@ -1418,6 +1418,12 @@ body.full-screen-content-item #course-item-content-header .toggle-content-item:b
 	main #single .bloque-links{padding: 20px;}
 	main #single .bloque-links a{margin: 0 0 10px 0;line-height: 1.2;min-height: 38px;padding: 10px 20px;height: auto;}
 
+	main #single .image_IT.img-6-col .contentImg,
+	main #single .image_IT.img-5-col .contentImg,
+	main #single .image_IT.img-4-col .contentImg,
+	main #single .image_IT.img-3-col .contentImg{max-width: 100%}
+	main #single .image_IT .contentImg img{min-width: 180px;}
+
 	main #single .block_multi_images{flex-wrap: wrap;}
 	main #single .block_multi_images img{width: calc(100% - 16px);}
 	main #single .block_multi_images.img-3-col img{width: calc(50% - 16px)}

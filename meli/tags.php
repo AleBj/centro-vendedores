@@ -16,10 +16,25 @@ $url = $_GET['t'];
 <main>
     
     <div class="wp" id="search">
-        <form action="" method="post">
+        <form action="" method="post" style="display: none;">
         	<label for="s" style="font-size:12px;"><?php _e( 'Etiquetas', 'meli-centro-vendedores' ); ?></label>
             <input type="text" name="s" id="buscar" placeholder="¿Qué estás buscando hoy?" value="<?php echo str_replace("-", " ", $url); ?>" readonly style="text-transform: capitalize;">
         </form>
+        
+    <?php 
+    	$tag = get_term_by('slug', $_GET['t'], 'post_tag');
+    	$tag_id =  $tag->term_id; 
+    	$tag_ds = $tag->description;
+    	//tag_description($tag_id);
+	?>
+		<div class="tagsTitle">
+	        <h2><?php echo $tag->name ?></h2>
+	        <!-- 195 -->
+	        <?php if($tag_ds): ?>
+	        	<p><?php echo substr($tag_ds, 0, 195);?></p>
+	        <?php endif; ?>
+        </div>
+
         <div id="filterssearch">  
             <a href="" class="ml bt" data-filter="mercado-libre"><?php _e( 'Mercado Libre', 'meli-centro-vendedores' ); ?></a>
             <a href="" class="mp bt" data-filter="mercado-pago"><?php _e( 'Mercado Pago', 'meli-centro-vendedores' ); ?></a>

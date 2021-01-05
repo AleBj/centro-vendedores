@@ -18,9 +18,11 @@
 	    if($tag){
 	    
 	    foreach ($tag as $t) {
+	    	
 	        $obj = new stdClass();
 	        $obj->name = $t->name;
 	        $obj->slug = $t->slug;
+	        $obj->id = $t->term_id;
 
 	        if (!in_array($obj->name, $arrayControl)) {
 	            array_push($tagsName, $obj);
@@ -44,6 +46,7 @@
 	        $obj = new stdClass();
 	        $obj->name = $t->name;
 	        $obj->slug = $t->slug;
+	        $obj->id = $t->term_id;
 
 	        if (!in_array($obj->name, $arrayControl)) {
 	            array_push($tagsName, $obj);
@@ -54,6 +57,10 @@
 	    
 	endwhile;
 	wp_reset_postdata();
+
+//ORDENAR TAGS
+asort($tagsName);
+// var_dump($tagsName);
 ?>
 <!DOCTYPE html>
 <html lang="es">

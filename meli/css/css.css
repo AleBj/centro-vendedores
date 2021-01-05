@@ -1031,6 +1031,9 @@ main #search #results .block_home.etiquetas .contentRes a {
 }
 main #search #results .block_home{display: none;}
 main #search #results .block_home .noExist{ color: var(--black-80);font-size: 26px;font-weight: 300;margin: 0 8px;}
+main #search .tagsTitle{margin-top: -15px;padding-bottom: 10px;}
+main #search .tagsTitle h2{font-size: 40px;font-weight: 500;color: var(--black);}
+main #search .tagsTitle p{ max-width: 885px; font-size: 20px;font-weight: 300;color: var(--black-80);margin-top: 20px;line-height: 1.1}
 main #filterssearch{
 	margin-top: 30px;
   	display: flex;

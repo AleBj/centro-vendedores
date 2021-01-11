@@ -68,7 +68,7 @@ $url = $_GET['t'];
 					            'terms' => $url,
 					        ),
 					        array(
-					            'taxonomy' => 'notas_categories', 
+					            'taxonomy' => 'novedades_categories', 
 					            'field'    => 'slug',
 				            	'terms'    => 'oculta',
 				            	'operator' => 'NOT IN',
@@ -198,7 +198,7 @@ $url = $_GET['t'];
 					            'terms' => $url,
 					        ),
 					        array(
-					            'taxonomy' => 'notas_categories', 
+					            'taxonomy' => 'course_categories', 
 					            'field'    => 'slug',
 				            	'terms'    => 'oculta',
 				            	'operator' => 'NOT IN',

@@ -156,7 +156,6 @@ if(isset($_GET['u'])){
             <div class="grid-sizer"></div>
             
             <?php
-
             while ( $the_query_webinar_nx->have_posts() ) :
                 $the_query_webinar_nx->the_post(); ?>
                 
@@ -191,6 +190,12 @@ if(isset($_GET['u'])){
                 </div>
             <?php endwhile; ?>
         </div>
+
+        <?php if(!$the_query_webinar_nx->have_posts() && !$the_query_webinar->have_posts()): ?>
+        <div class="content">
+            <p class="noExit"><?php _e( 'Estamos creando nuevos webinars para que puedas seguir aprendiendo. <br>Te recordamos que podés seguir aprendiendo con los webinars anteriores acá abajo.', 'meli-centro-vendedores' ); ?></p>
+        </div>
+        <?php endif; ?>
 
     </div>
     <div id="related" class="block_home novedades webinars anteriores">

@@ -48,6 +48,51 @@
 	}
 	add_filter( 'upload_size_limit', 'filter_site_upload_size_limit', 50 );
 
+	// LISTADO EN WP-ADMIN
+	add_filter( 'manage_edit-webinars_columns', 'columnas_post_type_webinars' ) ;
+
+	function columnas_post_type_webinars( $columnas ) {
+
+	    $columnas = array(
+	        'cb' => '&lt;input type="checkbox" />',
+	        'title' => 'Título',
+	        'fecha' => 'Fecha Realización',
+	        'tags' => 'Etiquetas',
+	        'author' => 'Autor',
+	        'date' => 'Fecha'
+	    );
+
+	 	return $columnas;
+	}
+	
+	add_action( 'manage_webinars_posts_custom_column', 'filas_post_type_webinars', 10, 2 );
+
+	function filas_post_type_webinars( $columna, $post_id ) {
+	    global $post;
+
+	    switch( $columna ) {
+	        case 'fecha':
+	            //$edad=get_post_meta( $post_id, 'gato_edad', true );
+	            $date = get_post_meta( $post_id, 'fecha_webinar', true); 
+                echo date('d/m', strtotime($date)) .' '. date('H:i', strtotime($date)) .'Hs';
+
+	            break;
+	        case 'tags':
+	            $gcat = get_object_taxonomies('webinars');
+                $cat = wp_get_post_terms($post_id, $taxonomy = $gcat[1]);
+                $ptag = get_the_tags();
+                $ptg = '';
+                if($ptag){
+                foreach ($ptag as $pt) {
+                    $ptg .= $pt->slug.' ';
+                }
+                }
+                echo $ptg;
+	            break;
+	        default :
+	            break;
+	    }
+	}
 	/**
 	 * WIDGETS
 	 *

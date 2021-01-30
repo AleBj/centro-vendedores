@@ -35,9 +35,7 @@ if(isset($_GET['u'])){
     $monthNameActual = strftime('%B', $dateObjActual->getTimestamp());
 
 
-   
-
-    $monthProx  = date("m", strtotime("+ 1 month")); 
+    $monthProx  = date("m", strtotime("+ 28 days")); 
     $dateObjProx   = DateTime::createFromFormat('!m', $monthProx);
     $monthNameProx = strftime('%B', $dateObjProx->getTimestamp());
 

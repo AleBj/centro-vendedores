@@ -382,7 +382,7 @@ function cursos(x){
 						<h2><a href="<?php the_permalink()?>"><?php the_title(); ?></a></h2>
 
 						<?php $content = get_the_content(); ?>
-						<p><a href="<?php the_permalink()?>"><?= $content ?></a></p>
+						<p><a href="<?php the_permalink()?>"><?= strip_tags($content) ?></a></p>
 
 						<div class="tags">
 							<?php $tags = get_the_tags();

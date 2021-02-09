@@ -641,7 +641,7 @@
                         		<small class="<?=$cat[0]->slug;?>"><?=$cat[0]->name;?></small>
                                 <h2><?php the_title();?></h2>
                                 <?php $content = get_the_content(); ?>
-                        		<p><?= $content ?></p>
+                        		<p><?= strip_tags($content); ?></p>
                                 <div class="tags">
                                 	<?php $tags = get_the_tags();
                                 	if(is_array($tags) || is_object($tags)){

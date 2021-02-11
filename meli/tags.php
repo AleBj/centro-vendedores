@@ -9,7 +9,8 @@ $url = explode("=", add_query_arg( $wp->query_vars, home_url() ));
 $url = $url[1];
 $course = LP_Global::course();
 
-$url = $_GET['t'];
+$url = strip_tags($_GET['t']);
+
 
 ?>
 
@@ -22,16 +23,24 @@ $url = $_GET['t'];
         </form>
         
     <?php 
-    	$tag = get_term_by('slug', $_GET['t'], 'post_tag');
-    	$tag_id =  $tag->term_id; 
-    	$tag_ds = $tag->description;
+    	$tag = get_term_by('slug', $url, 'post_tag');
+    	if($tag){
+	    	$tag_id =  $tag->term_id; 
+	    	$tag_ds = $tag->description;
+    	}
+
     	//tag_description($tag_id);
 	?>
 		<div class="tagsTitle">
+			<?php if($tag): ?>
 	        <h2><?php echo $tag->name ?></h2>
 	        <!-- 195 -->
 	        <?php if($tag_ds): ?>
 	        	<p><?php echo substr($tag_ds, 0, 195);?></p>
+	        <?php endif; ?>
+	        <?php else: ?>
+	        	<h2></h2>
+	        	<p></p>
 	        <?php endif; ?>
         </div>
 

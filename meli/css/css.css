@@ -39,9 +39,11 @@ header .right{
 	display: flex;
 	height: 100%;
 	justify-content: space-between;
+	order: 1;
 }
-header .wp{padding:0 64px;max-width: 100%;}
+header .wp{padding:0 32px;max-width: 100%;}
 header .wp .logo{height: 32px;}
+header .right nav{white-space: nowrap;}
 @media (max-width: 1440px) {
 	header .wp{padding: 0 20px}
 }
@@ -49,11 +51,11 @@ header .wp .logo{height: 32px;}
 header .right .lupa_header{width: 24px;cursor: pointer;margin-left: 8px;}
 header .right ul li{
 	display: inline-block;
-	text-transform: uppercase;
+	text-transform: capitalize;
 	font-weight: 300;
-	letter-spacing: 2px;
+	letter-spacing: 1.5px;
 	color: var(--black);
-	padding-right: 32px;
+	padding-right: 22px;
 	position: relative;
 	cursor: pointer;
 	font-size: 14px;
@@ -104,7 +106,7 @@ header .right ul li a.active{font-weight: 500}
 }
 #burger{display: none;}
 
-#header{margin-top: 64px;height: 290px;background-image: url(../img/final-cursos@2x.jpg);background-size: cover;background-position: center;color: var(--white);}
+#header{margin-top: 64px;height: auto;background-image: url(../img/final-cursos@2x.jpg);background-size: cover;background-position: center;color: var(--white);position: relative;display: flex;}
 #header .copy{width: 100%;height: 100%;display: flex;flex-direction: column;align-items: center;justify-content: center;}
 #header .copy h1{font-size: 36px;line-height: 1.1;font-weight: 300;max-width: 600px;text-align: center;}
 #header .copy form{position: relative;display: flex;align-items: center;width: 380px;height: 56px;background-color: var(--white);border-radius: 30px;box-shadow: var(--box-shadow);margin-top: 20px;transition: ease-out 0.3s;}
@@ -141,6 +143,70 @@ header .right ul li a.active{font-weight: 500}
   	text-transform: uppercase;
 }
 #header .copy form .list-search .tags a{
+	font-weight: 300;
+	letter-spacing: .4px;
+	color: var(--black);
+	display: inline-block;
+	text-align: center;
+	padding: 0 6px;
+	margin: 6px 3px;
+	border-radius: 20px;
+	height: 24px;
+	line-height: 24px;
+	border:1px solid var(--black-25);
+	font-size: 10px;
+	white-space: nowrap;
+}
+#header .slides img {display: block;width: 100%;}
+#header .slides li{width: 100vw}
+#header .flex-control-nav{position: absolute;bottom: 14px;width: 100%;display: flex;align-items: center;justify-content: center;z-index: 3;font-size: 0;list-style: none;}
+#header .flex-control-nav li a{ background-color: rgba(0, 0, 0, 0.3);display: block;width: 6px;height: 6px;border-radius: 100%;margin: 2px;}
+#header .flex-control-nav li a.flex-active{ border: solid 1px #ffffff;background-color: #3483fa;}
+#header .flex-direction-nav{position: absolute;top:50%;width: 100%;display: flex;align-items: center;justify-content: space-between;z-index: 3;font-size: 0;list-style: none;height: 0;}
+#header .flex-direction-nav li a{width: 37px;height: 76px;background-position:left center;background-repeat: no-repeat;display: block;}
+#header .flex-direction-nav li a.flex-prev{background-image: url(../img/arr-left.svg)}
+#header .flex-direction-nav li a.flex-next{background-image: url(../img/arr-right.svg)}
+#header .flex-direction-nav li a.flex-disabled{display: none;}
+#header img.img-mobile{display: none;}
+#header img.img-desktop{display: block;}
+
+#inputSearch{width: 46%;padding: 0 24px;}
+#inputSearch form{position: relative;display: flex;align-items: center;width: 580px;height: 40px;background-color: var(--bg-body);border-radius: 20px;border: solid 1px #cbcbcb;transition: ease-out 0.3s;}
+#inputSearch form input{padding: 0 24px;width: 100%; font-size: 16px;}
+#inputSearch form input::placeholder{color: rgba(0,0,0,0.3)}
+#inputSearch form button{padding: 0 16px 0 10px;border-left: 1px solid rgba(0,0,0,0.45)}
+#inputSearch form.open{width: 100%;border-radius: 20px 20px 0 0;}
+#inputSearch form .list-search{
+	position: absolute;
+	z-index: 9;color: var(--black-80);
+	top: 100%;width: calc(100% + 2px);
+	border-radius: 0 0 20px 20px;
+	background-color: var(--bg-body);
+	display: none;
+	border: solid 1px #cbcbcb;
+	left: -1px;
+}
+#inputSearch form .list-search .item{padding: 16px 30px 20px;border-top: 1px solid var(--black-25);line-height: 1.25;color: var(--black-80);}
+#inputSearch form .list-search .item:first-child{border:none;}
+#inputSearch form .list-search .item h4{
+	font-size: 12px;
+  	font-weight: 600;
+  	letter-spacing: 1.2px;
+  	margin-bottom: 12px;
+  	text-transform: uppercase;
+}
+#inputSearch form .list-search .item > a{display: flex;align-items: center;justify-content: space-between;}
+#inputSearch form .list-search .item > a .img{min-width: 97px;height: 64px;background-size: cover;background-position: center;margin-left: 10px;}
+#inputSearch form .list-search .item h4 a{font-size: 12px;font-weight: 400;color: var(--blue);text-transform: initial;letter-spacing: .5px;line-height: 20px;padding-left: 8px;cursor:pointer;}
+#inputSearch form .list-search .tags{padding: 10px 30px;border-top: 1px solid var(--black-25);}
+#inputSearch form .list-search .tags strong{
+	font-size: 12px;
+  	font-weight: 600;
+  	letter-spacing: 1.2px;
+  	margin-bottom: 12px;
+  	text-transform: uppercase;
+}
+#inputSearch form .list-search .tags a{
 	font-weight: 300;
 	letter-spacing: .4px;
 	color: var(--black);
@@ -293,6 +359,13 @@ main .block_home.webinars .noExit{
 	position: absolute;
 }
 #submenu .owl-carousel .owl-stage-outer{padding-bottom: 20px;}
+#submenu .tax-detail{
+	 font-size: 20px;
+	font-weight: 500;
+	text-align: center;
+	color: var(--black-80);
+	margin-bottom: 20px;
+}
 
 /**/
 #submenu .wp .item a.active,
@@ -1297,10 +1370,22 @@ body.full-screen-content-item #course-item-content-header .toggle-content-item:b
 }
 
 @media (max-width: 1000px) {
-	header{height: 56px;}
-	header .wp{padding:0 16px;}
+	header{height: auto}
+	header .wp{padding:16px;flex-wrap: wrap;}
+	header .right{order: initial;}
 	header .wp > a{position: relative;z-index: 1;max-width: 190px;}
 	header .wp > a img{display: block;width: 100%;}
+	#inputSearch{width: 100%;padding: 0;margin-top: 16px;}
+	#inputSearch form{width: 100%;}
+	#inputSearch form input{padding: 0 16px;font-size: 14px;}
+	#inputSearch form.open{width: 100%;border-radius: 16px 16px 0 0;}
+	#inputSearch form .list-search{border-radius: 0 0 16px 16px;}
+	#inputSearch form .list-search .item,
+	#inputSearch form .list-search .tags{padding: 10px 20px;}
+	#inputSearch form .list-search .item h4{font-size: 10px;margin-bottom: 8px;}
+	#inputSearch form .list-search .item > a{font-size: 14px;}
+	#inputSearch form .list-search .item > a .img{max-width: 70px;min-width: 70px;height: 50px;}
+
 	#burger{width: 30px;height: 30px;padding:6px 3px;display: flex;flex-direction: column;align-items: center;justify-content: space-between;margin-left: 12px;position: relative;z-index: 1;}
 	#burger.open{transform: rotate(45deg);}
 	#burger.open i:last-child{visibility: hidden;}
@@ -1313,7 +1398,7 @@ body.full-screen-content-item #course-item-content-header .toggle-content-item:b
 	header .right ul li .submenu{position: static;pointer-events: initial;opacity: 1;z-index: 0;box-shadow: none;border-radius: 0;padding: 20px 0;display: none;max-height: 296px;overflow: scroll;}
 	header .right ul li .submenu a{line-height: 30px;text-transform: capitalize;font-size: 14px;font-weight: 300;padding: 0;}
 
-	#header{margin-top: 56px;}
+	#header{margin-top: 120px;}
 	/*NOTAS*/
 	main #shared .wp-fixear .wp-indice{right: 16px;left: auto;}
 	main #shared .wp-fixear.fix{top: 56px;}
@@ -1321,7 +1406,9 @@ body.full-screen-content-item #course-item-content-header .toggle-content-item:b
 	main #single .block-mids-large.invert .text{padding-left: 0}
 }
 @media (max-width:770px) {
-	#header{height: 190px;}
+	#header img.img-mobile{display: block;}
+	#header img.img-desktop{display: none;}
+	#header .flex-direction-nav{display: none;}
 	#header .copy h1{font-size: 20px;}
 	#header .copy form{width: 256px;height: 50px;}
 	#header .copy form input{padding: 0 16px;font-size: 14px;}

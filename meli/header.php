@@ -160,8 +160,12 @@ echo '-->';
 				</li>
 			</ul>
 		</nav>
-		<a href="<?php bloginfo('url') ?>/buscar"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/lupa@3x.png" alt="Search :: Centro de vendedores" class="lupa_header"></a>
+		<!-- <a href="<?php bloginfo('url') ?>/buscar"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/lupa@3x.png" alt="Search :: Centro de vendedores" class="lupa_header"></a> -->
 		<div id="burger"><i></i><i></i><i></i></div>
 		</div>
+
+		<?php include('inc_search_header.php') ?>
 	</div>
 </header>
+
+

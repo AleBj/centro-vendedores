@@ -17,7 +17,7 @@ get_header();
 $course = LP_Global::course();
 
 if(isset($_GET['u'])){
-	$url = $_GET['u'];
+	$url = strip_tags($_GET['u']);
 }else{
 	$url = 'nada';
 }
@@ -42,6 +42,15 @@ if(isset($_GET['u'])){
 	    	$headerCol = get_sub_field('categoria_sb');
 	    ?>
 		<div class="wp <?= $headerCol->slug ?>">
+			<p class="tax-detail">
+				<?php $tax = $headerCol->slug;
+
+					$text = get_term_by('slug', $tax,'notas_categories');
+
+					echo $text->description;
+				?>
+				
+			</p>
 			<div class="owl-carousel">
 			<?php
     		if( have_rows('link_sb') ):

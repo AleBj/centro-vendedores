@@ -242,6 +242,13 @@
             'menu_slug' => 'submenu',
             'icon_url' => 'dashicons-tagcloud',
             'position' => 9
+        ));
+        acf_add_options_page(array(
+            'page_title' => 'Banners Hero',
+            'menu_title' => 'Banners Hero',
+            'menu_slug' => 'bannershero',
+            'icon_url' => 'dashicons-editor-insertmore',
+            'position' => 9
         )); 
 
     }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="68px" viewBox="0 0 34 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59 (86127) - https://sketch.com -->
+    <title>LEFT</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="37" height="76"></rect>
+        <path d="M0,71 C17.673112,71 32,56.673112 32,39 C32,21.326888 17.673112,7 0,7" id="path-3"></path>
+        <filter x="-10.9%" y="-3.9%" width="121.9%" height="110.9%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.12 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <polygon id="path-5" points="11.1262345 1.99312695 10.0655743 0.932466779 3.00116807 7.99687305 10.0718282 15.0675332 11.1324884 14.006873 5.12248842 7.99687305"></polygon>
+    </defs>
+    <g id="Diseño-Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="210210.HOME_Iteracion_Desktop" transform="translate(0.000000, -202.000000)">
+            <g id="LEFT" transform="translate(0.000000, 196.000000)">
+                <g id="⏺State">
+                    <g id="Path">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Mask"></g>
+                        <g mask="url(#mask-2)">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                        </g>
+                    </g>
+                </g>
+                <g id="一-/-Icons-/-24-/-chevron-left" transform="translate(7.000000, 31.000000)">
+                    <mask id="mask-6" fill="white">
+                        <use xlink:href="#path-5"></use>
+                    </mask>
+                    <use id="🎨Icon-color" fill="#3483FA" fill-rule="nonzero" xlink:href="#path-5"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

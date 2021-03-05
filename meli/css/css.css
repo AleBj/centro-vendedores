@@ -329,7 +329,7 @@ main .block_home.webinars .noExit{
 #submenu .owl-carousel .owl-stage{display: flex;}
 #submenu .owl-dots{display: none;}
 #submenu{background-color: var(--white);box-shadow: var(--box-shadow);position: relative;z-index: 1;}
-#submenu .wp{padding: 24px 16px 0;display: none;max-height: 172px;overflow: hidden;}
+#submenu .wp{padding: 24px 16px 0;display: none;max-height: 212px;overflow: hidden;}
 #submenu .wp .item{
   font-size: 16px;
   line-height: 1.75;

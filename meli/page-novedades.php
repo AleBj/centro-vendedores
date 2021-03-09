@@ -28,7 +28,7 @@ $the_query_novedades = new WP_Query( array(
 
 $title = '<h1><strong>'. __( 'No te pierdas los lanzamientos', 'meli-centro-vendedores' ).'</strong> '. __( ' y avances de nuestro ecosistema', 'meli-centro-vendedores' ).'</h1>'; 
 ?>
-<?php include('inc_hero.php') ?>
+<?php include('inc_hero_interna.php') ?>
 <div id="filters">  
     <div id="categories" class="wp tagsList">
         <a href=".mercado-libre" class="ml bt" data-filter="mercado-libre"><?php _e( 'Mercado Libre', 'meli-centro-vendedores' ); ?></a>

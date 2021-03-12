@@ -66,7 +66,7 @@ header .right ul li .submenu{
 	flex-direction: column;
 	min-width: 100%;
 	padding: 10px 0;
-	left: -20px;
+	right: 0px;
 	border-radius: 4px;
 	box-shadow: var(--box-shadow);
 	background-color: var(--white);

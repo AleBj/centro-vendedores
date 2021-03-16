@@ -45,7 +45,9 @@ if(isset($_GET['u'])){
     // echo '<hr>';
     // echo $monthNameActual;
     // echo $monthNameProx;
-    // echo $fechaActual;
+    echo '<!--';
+    echo $fechaActual;
+    echo '-->';
     ?>
     <!-- Webinars -->
     <div class="block_home novedades webinars mrg-b-0" style="opacity: 0">
@@ -209,7 +211,7 @@ if(isset($_GET['u'])){
                     'post_type' => 'webinars',
                     'meta_key'  => 'fecha_webinar',
                     'orderby'   => 'meta_value',
-                    'order'     => 'ASC',
+                    'order'     => 'DESC',
                     'meta_query' => array(
                         array(
                             'key' => 'fecha_webinar',

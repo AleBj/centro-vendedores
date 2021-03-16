@@ -29,7 +29,7 @@ if(isset($_GET['u'])){
     <?php 
     setlocale(LC_ALL, 'es_ES');
 
-    $fechaActual = date('d/m/Y H:i');
+    $fechaActual = date('d/m/Y H:i', strtotime("- 3 hours"));
     $monthActual  = date('m');
     $dateObjActual   = DateTime::createFromFormat('!m', $monthActual);
     $monthNameActual = strftime('%B', $dateObjActual->getTimestamp());

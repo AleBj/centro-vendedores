@@ -41,12 +41,16 @@ if(isset($_GET['u'])){
     }
     $dateObjProx   = DateTime::createFromFormat('!m', $monthProx);
     $monthNameProx = strftime('%B', $dateObjProx->getTimestamp());
-
-    // echo '<hr>';
-    // echo $monthNameActual;
-    // echo $monthNameProx;
+    
     echo '<!--';
-    echo $fechaActual;
+    echo '<hr>';
+    echo $monthNameActual;
+    echo '<hr>';
+    echo $monthNameProx;
+    echo '<hr>';
+    echo $monthActual;
+    echo '<hr>';
+    echo date('Y-m-d H:i:s');
     echo '-->';
     ?>
     <!-- Webinars -->
@@ -72,7 +76,7 @@ if(isset($_GET['u'])){
                     ),
                     array(
                         'key' => 'fecha_webinar',
-                        'value' => date('Y-m-d H:i:s', strtotime("- 3 hours")),
+                        'value' => date('Y-m-d'),
                         'compare' => '>=',
                         'type' => 'DATE'
 
@@ -101,6 +105,22 @@ if(isset($_GET['u'])){
                         $ptg .= $pt->slug.' ';
                     }
                     }
+
+                    $date = get_field('fecha_webinar');
+
+                    if($blog_id == 1 || $blog_id == 10 || $blog_id == 2 || $blog_id == 5 || $blog_id == 6){
+                        $hourNow = strtotime(date('Y-m-d H:i:s', strtotime("- 3 hours")));
+                    }else if($blog_id == 3){
+                        $hourNow = strtotime(date('Y-m-d H:i:s', strtotime("- 5 hours")));
+                    }else if($blog_id == 9){
+                        $hourNow = strtotime(date('Y-m-d H:i:s', strtotime("- 6 hours")));
+                    }                
+
+
+                    $hourWeb = strtotime(date('Y-m-d H:i:s', strtotime($date)));
+                   
+                    if($hourNow < $hourWeb):
+                      
                 ?>
 
                 <div class="card grid-item <?=$cat[0]->slug;?> <?=$ptg?>"> 
@@ -109,7 +129,7 @@ if(isset($_GET['u'])){
                     <?php endif; ?>
                     <small>
                         <img src="<?=get_bloginfo('template_url')?>/img/ico-calendar.svg" alt="">
-                        <?php $date = get_field('fecha_webinar'); 
+                        <?php ; 
                         echo date('d/m', strtotime($date)) .' '. date('H:i', strtotime($date))  ?>Hs
                     </small>
                     <h2><?php the_title(); ?></h2>
@@ -122,7 +142,7 @@ if(isset($_GET['u'])){
                     </p>
                     <a href="<?= get_field('link_webinar'); ?>" target="_blank"><?php _e( 'Registrarme', 'meli-centro-vendedores' ); ?></a>
                 </div>
-            <?php endwhile; ?>
+            <?php endif; endwhile; ?>
         </div>
 
         <?php
@@ -138,13 +158,6 @@ if(isset($_GET['u'])){
                     'key'    => 'mes_webinar',
                     'value'    => $monthProx,
                     'compare' => 'IN',
-                ),
-                array(
-                    'key' => 'fecha_webinar',
-                    'value' => date('Y-m-d H:i:s'),
-                    'compare' => '>=',
-                    'type' => 'DATE'
-
                 )
             )
         ) );

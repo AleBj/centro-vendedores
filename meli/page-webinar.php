@@ -61,7 +61,7 @@ if(isset($_GET['u'])){
         $hourNow = date('Y-m-d H:i:s', strtotime("- 6 hours"));
     }  
 
-    echo $hourNow;
+    //echo $hourNow;
     ?>
     <!-- Webinars -->
     <div class="block_home novedades webinars mrg-b-0" style="opacity: 0">

@@ -72,7 +72,7 @@ if(isset($_GET['u'])){
                     ),
                     array(
                         'key' => 'fecha_webinar',
-                        'value' => $fechaActual,//date('Y-m-d H:i:s'),
+                        'value' => date('Y-m-d H:i:s', strtotime("- 3 hours")),
                         'compare' => '>=',
                         'type' => 'DATE'
 

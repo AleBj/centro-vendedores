@@ -52,6 +52,16 @@ if(isset($_GET['u'])){
     echo '<hr>';
     echo date('Y-m-d H:i:s');
     echo '-->';
+
+    if($blog_id == 1 || $blog_id == 10 || $blog_id == 2 || $blog_id == 5 || $blog_id == 6){
+        $hourNow = date('Y-m-d H:i:s', strtotime("- 3 hours"));
+    }else if($blog_id == 3){
+        $hourNow = date('Y-m-d H:i:s', strtotime("- 5 hours"));
+    }else if($blog_id == 9){
+        $hourNow = date('Y-m-d H:i:s', strtotime("- 6 hours"));
+    }  
+
+    echo $hourNow;
     ?>
     <!-- Webinars -->
     <div class="block_home novedades webinars mrg-b-0" style="opacity: 0">
@@ -106,20 +116,8 @@ if(isset($_GET['u'])){
                     }
                     }
 
-                    $date = get_field('fecha_webinar');
-
-                    if($blog_id == 1 || $blog_id == 10 || $blog_id == 2 || $blog_id == 5 || $blog_id == 6){
-                        $hourNow = strtotime(date('Y-m-d H:i:s', strtotime("- 3 hours")));
-                    }else if($blog_id == 3){
-                        $hourNow = strtotime(date('Y-m-d H:i:s', strtotime("- 5 hours")));
-                    }else if($blog_id == 9){
-                        $hourNow = strtotime(date('Y-m-d H:i:s', strtotime("- 6 hours")));
-                    }                
-
-
-                    $hourWeb = strtotime(date('Y-m-d H:i:s', strtotime($date)));
-                   
-                    if($hourNow < $hourWeb):
+                    $date = get_field('fecha_webinar');              
+                  
                       
                 ?>
 
@@ -142,7 +140,7 @@ if(isset($_GET['u'])){
                     </p>
                     <a href="<?= get_field('link_webinar'); ?>" target="_blank"><?php _e( 'Registrarme', 'meli-centro-vendedores' ); ?></a>
                 </div>
-            <?php endif; endwhile; ?>
+            <?php endwhile; ?>
         </div>
 
         <?php

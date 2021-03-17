@@ -17,8 +17,8 @@
 
 	        if($bh < 3):
 
-	        	var_dump($link);
-	        	var_dump($target);
+	        	// var_dump($link);
+	        	// var_dump($target);
 	    ?>
 	    <li>
 	    	<?php if(isset($link) && $link !== ""): ?>

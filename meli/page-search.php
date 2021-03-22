@@ -60,7 +60,10 @@ input.addEventListener("keyup", function(event) {
   }
 });
 $('#formEnviar').on('submit', function(e){e.preventDefault();})
-
+$('#formSearch input').on('keydown', function(){
+    var val = $(this).val()
+    $('#formEnviar input').val(val)
+})
 function fetch(){
     
     $('#notas.bt').trigger('click');

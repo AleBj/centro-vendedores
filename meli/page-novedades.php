@@ -127,7 +127,7 @@ endwhile;
     })
 </script>
 <main id="interna">
-    <?php if($blog_id == 10): ?>
+    <?php if($blog_id == 100): ?>
     <div class="block_home alertas">
         <div class="wp">                                    
             <div class="alert small white">

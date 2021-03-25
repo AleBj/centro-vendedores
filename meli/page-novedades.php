@@ -127,7 +127,23 @@ endwhile;
     })
 </script>
 <main id="interna">
+    <?php if($blog_id !== 10): ?>
+    <div class="block_home alertas">
+        <div class="wp">                                    
+            <div class="alert small white">
 
+                <div class="left" style="align-items: center;">
+                    <img src="<?php bloginfo('template_url')?>/img/alert-megafono.svg" alt="Alertas" class="icon"><p><strong>Conocé la nueva sección de Novedades</strong> <br>Ahora podés mantenerte al día desde tu cuenta. Revisá la información que tenés que ver según las características de tu negocio.</p>
+                </div>
+                <div class="btnsAlert">
+                    <a href="https://www.mercadolibre.com.ar/novedades?utm_source=vendedores&utm_medium=referral&utm_campaign=encendidoCDN&utm_content=alerta_novedades" target="_blank"> Ver mis novedades</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <?php endif; ?>  
     <!-- NOVEDADES -->
     <div class="block_home novedades mrg-b-0" style="opacity: 0">
         <h3 class="wp"><?php _e( 'Novedades', 'meli-centro-vendedores' ); ?></h3>

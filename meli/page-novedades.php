@@ -143,6 +143,22 @@ endwhile;
 
         </div>
     </div>
+    <?php elseif ($blog_id == 6) :?>
+    <div class="block_home alertas">
+        <div class="wp">                                    
+            <div class="alert small white">
+
+                <div class="left" style="align-items: center;">
+                    <img src="<?php bloginfo('template_url')?>/img/alert-megafono.svg" alt="Alertas" class="icon"><p><strong>Confira a nova seção de Novidades</strong> <br>Agora você pode ficar em dia pela sua conta. Verifique as informações que precisa, conforme as características dos seus negócios.</p>
+                </div>
+                <div class="btnsAlert">
+                    <a href="https://www.mercadolivre.com.br/novidades?utm_source=vendedores&utm_medium=referral&utm_campaign=encendidoCDN&utm_content=alerta_novedades" target="_blank"> Ver minhas novidades </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>        
     <?php endif; ?>  
     <!-- NOVEDADES -->
     <div class="block_home novedades mrg-b-0" style="opacity: 0">

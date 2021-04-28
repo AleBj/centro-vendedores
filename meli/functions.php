@@ -455,7 +455,7 @@
 	    $the_query3 = new WP_Query( 
 	    	array( 
 	    		'posts_per_page' => 3, 
-	    		's' => esc_attr( $_POST['keyword'] ), 
+	    		's' => strip_tags( $_POST['keyword'] ), 
 	    		'post_status' => array('publish'),
 	    		'post_type' => array('notas'),
 			    'tax_query' => array(
@@ -501,7 +501,7 @@
 	    $the_query2 = new WP_Query( 
 	    array( 
 	    	'posts_per_page' => 1, 
-		    's' => esc_attr( $_POST['keyword'] ), 
+		    's' => strip_tags( $_POST['keyword'] ), 
 	    	'post_status' => array('publish'),
 		    'post_type' => array('novedades') ,
 		    'tax_query' => array(
@@ -534,7 +534,7 @@
 			</div> 
 	    <?php endif;
 
-	    $the_query4 = new WP_Query( array( 'posts_per_page' => 1, 's' => esc_attr( $_POST['keyword'] ),'post_status' => array('publish'), 'post_type' => array('lp_course') ) );
+	    $the_query4 = new WP_Query( array( 'posts_per_page' => 1, 's' => strip_tags( $_POST['keyword'] ),'post_status' => array('publish'), 'post_type' => array('lp_course') ) );
 
 	    if( $the_query4->have_posts() ) :
 	        while( $the_query4->have_posts() ): $the_query4->the_post(); ?>
@@ -600,14 +600,14 @@
 	add_action('wp_ajax_nopriv_data_search','data_search');
 	function data_search(){
 
-	    //$the_query = new WP_Query( array('category_name'  => 'Novedades', 'posts_per_page' => -1, 's' => esc_attr( $_POST['keyword'] ), 'post_type' => array('post','notas','novedades') ) );
+	    //$the_query = new WP_Query( array('category_name'  => 'Novedades', 'posts_per_page' => -1, 's' => strip_tags( $_POST['keyword'] ), 'post_type' => array('post','notas','novedades') ) );
 	  
 	    $post_tags = [];
 
 	    $the_query3 = new WP_Query( 
 	    	array( 
 	    		'posts_per_page' => -1, 
-	    		's' => esc_attr( $_POST['keyword'] ), 
+	    		's' => strip_tags( $_POST['keyword'] ), 
 	    		'post_status' => array('publish'),
 	    		'post_type' => array('notas'),
 			    'tax_query' => array(
@@ -684,7 +684,7 @@
 	    $the_query2 = new WP_Query( 
 	    	array( 
 	    		'posts_per_page' => -1, 
-	    		's' => esc_attr( $_POST['keyword'] ), 
+	    		's' => strip_tags( $_POST['keyword'] ), 
 	    		'post_status' => array('publish'),
 	    		'post_type' => array('novedades'),
 			    'tax_query' => array(
@@ -735,7 +735,7 @@
 			</div>
 	    <?php endif;
 
-	    $the_query4 = new WP_Query( array( 'posts_per_page' => -1, 's' => esc_attr( $_POST['keyword'] ), 'post_status' => array('publish'), 'post_type' => array('lp_course') ) );
+	    $the_query4 = new WP_Query( array( 'posts_per_page' => -1, 's' => strip_tags( $_POST['keyword'] ), 'post_status' => array('publish'), 'post_type' => array('lp_course') ) );
 
 	    if( $the_query4->have_posts() ) :
 		echo '<div class="block_home cursos"><div class="contentRes">';

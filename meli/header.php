@@ -145,7 +145,7 @@ echo '-->';
 		<div class="right">
 		<nav>
 			<ul> 
-				<?php if($blog_id != 10): ?>
+				<?php if($blog_id != 10 && $blog_id != 6): ?>
 				<li><a href="<?php bloginfo('url') ?>/novedades" class="<?= ($slug == 'novedades') ? 'active' : '';  ?>"><?php _e( 'Novedades', 'meli-centro-vendedores' ); ?></a></li>
 				<?php endif; ?>
 				<li><a href="<?php bloginfo('url') ?>/notas" class="<?= ($slug == 'notas') ? 'active' : '';  ?>"><?php _e( 'Notas', 'meli-centro-vendedores' ); ?></a></li>

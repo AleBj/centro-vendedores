@@ -189,7 +189,10 @@
 				'taxonomies' => $taxonomies,
 				'has_archive' => true,
 				'menu_icon'	=> $icon,
-				'rewrite' => array('slug' => $singular_lowercase, 'with_front'=>false)
+				'rewrite' => array('slug' => $singular_lowercase, 'with_front'=>false),
+				// 'show_in_rest'          => true,
+			 //    'rest_base'             => $singular_lowercase,
+			 //    'rest_controller_class' => 'WP_REST_Terms_Controller',
 			);
 			register_post_type($name, $args);
 		});

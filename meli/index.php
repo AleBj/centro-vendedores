@@ -125,7 +125,7 @@ $('#categories a').on('click', function(e){
 		$('#submenu .wp.'+h).slideDown(300);
 	}
 	//console.log(h);
-	novedades(h);
+	//novedades(h);
 	notas(h)
 	cursos(h)
 	alertas(h)
@@ -149,24 +149,24 @@ function alertas(x){
     });
 
 }
-function novedades(x){
-	$('.block_home.novedades .content').html('<div class="loading"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/spinner.svg" width="30"></div>')
-    jQuery.ajax({
-        url: '<?php echo admin_url('admin-ajax.php'); ?>',
-        type: 'post',
-        data: { action: 'act_novedades', keyword: x },
-        success: function(data) {
-        	// console.log(data);
-            $('.block_home.novedades .content').html( data );
-            setTimeout(function(){           	
-	            $('.block_home.novedades .card').each(function(i) {
-		           $(this).removeClass('hiddenbx');
-		        });
-	        }, 200)
-        }
-    });
+// function novedades(x){
+// 	$('.block_home.novedades .content').html('<div class="loading"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/spinner.svg" width="30"></div>')
+//     jQuery.ajax({
+//         url: '<?php echo admin_url('admin-ajax.php'); ?>',
+//         type: 'post',
+//         data: { action: 'act_novedades', keyword: x },
+//         success: function(data) {
+//         	// console.log(data);
+//             $('.block_home.novedades .content').html( data );
+//             setTimeout(function(){           	
+// 	            $('.block_home.novedades .card').each(function(i) {
+// 		           $(this).removeClass('hiddenbx');
+// 		        });
+// 	        }, 200)
+//         }
+//     });
 
-}
+// }
 function notas(x){	
 	$('.block_home.notas .content').html('<div class="loading"><img src="<?php bloginfo('url'); ?>/wp-content/themes/meli/img/spinner.svg" width="30"></div>')
 
@@ -314,7 +314,7 @@ function cursos(x){
 			</div>
 	</div>
 
-	<!-- NOVEDADES -->
+	<!-- NOVEDADES 
 	<div class="block_home novedades">
 		<h3 class="wp"><?php _e( 'Novedades', 'meli-centro-vendedores' ); ?> <a href="<?php bloginfo('url')?>/novedades"><?php _e( 'Ver más', 'meli-centro-vendedores' ); ?></a></h3>
 		
@@ -353,7 +353,7 @@ function cursos(x){
 			
 		</div>
 		
-	</div>
+	</div>-->
 
 	<!-- NOTAS -->
 	<div class="block_home notas">

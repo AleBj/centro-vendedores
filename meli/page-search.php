@@ -24,7 +24,7 @@ get_header();
         <div id="results">
             <div class="nav-result">
                 <div class="bt active" id="notas"><?php _e( 'Notas', 'meli-centro-vendedores' ); ?></div>
-                <div class="bt" id="novedades"><?php _e( 'Novedades', 'meli-centro-vendedores' ); ?></div>
+                <!-- <div class="bt" id="novedades"><?php _e( 'Novedades', 'meli-centro-vendedores' ); ?></div> -->
                 <div class="bt" id="cursos"><?php _e( 'Cursos', 'meli-centro-vendedores' ); ?></div>
                 <div class="bt" id="etiquetas"><?php _e( 'Etiquetas', 'meli-centro-vendedores' ); ?></div>
                 <i></i>

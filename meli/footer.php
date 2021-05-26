@@ -2,7 +2,7 @@
 <footer>
 	<div class="wp navlink">
 		<ul>
-			<li><a href="<?php bloginfo('url') ?>/novedades"><?php _e( 'Novedades', 'meli-centro-vendedores' ); ?></a></li>
+			<!-- <li><a href="<?php bloginfo('url') ?>/novedades"><?php _e( 'Novedades', 'meli-centro-vendedores' ); ?></a></li> -->
 			<li><a href="<?php bloginfo('url') ?>/notas"><?php _e( 'Notas', 'meli-centro-vendedores' ); ?></a></li>
 			<li><a href="<?php bloginfo('url') ?>/cursos"><?php _e( 'Cursos', 'meli-centro-vendedores' ); ?></a></li>
 		</ul>

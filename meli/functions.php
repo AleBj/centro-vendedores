@@ -606,6 +606,8 @@
 	    //$the_query = new WP_Query( array('category_name'  => 'Novedades', 'posts_per_page' => -1, 's' => strip_tags( $_POST['keyword'] ), 'post_type' => array('post','notas','novedades') ) );
 	  
 	    $post_tags = [];
+	    var_dump($_POST['keyword']);
+
 
 	    $the_query3 = new WP_Query( 
 	    	array( 

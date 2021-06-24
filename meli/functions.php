@@ -606,13 +606,15 @@
 	    //$the_query = new WP_Query( array('category_name'  => 'Novedades', 'posts_per_page' => -1, 's' => strip_tags( $_POST['keyword'] ), 'post_type' => array('post','notas','novedades') ) );
 	  
 	    $post_tags = [];
-	    var_dump($_POST['keyword']);
 
+	    $keyword = strip_tags( $_POST['keyword'] );
+	    
+	    var_dump($keyword);
 
 	    $the_query3 = new WP_Query( 
 	    	array( 
 	    		'posts_per_page' => -1, 
-	    		's' => strip_tags( $_POST['keyword'] ), 
+	    		's' => $keyword, 
 	    		'post_status' => array('publish'),
 	    		'post_type' => array('notas'),
 			    'tax_query' => array(
@@ -643,7 +645,7 @@
                 }
                 $image = get_field('imagen_principal_nota');						
 	        	?>
-				<?php if( $_POST['keyword'] ):?>
+				<?php if( $keyword ):?>
 
                     
                         <!-- NOTA -->
@@ -675,7 +677,7 @@
 	        wp_reset_postdata();  
 	    else:?>
 			<div class="block_home notas" style="display: block;">
-				<div class="noExist"><?php _e( 'Ups, no encontramos nada para', 'meli-centro-vendedores' ); ?> "<?= $_POST['keyword'] ?>". <br><br>
+				<div class="noExist"><?php _e( 'Ups, no encontramos nada para', 'meli-centro-vendedores' ); ?> "<?= $keyword ?>". <br><br>
 
 					<?php _e( 'Para volver a intentarlo podés:', 'meli-centro-vendedores' ); ?><br>
 					- <?php _e( 'Revisar si las palabras están bien escritas.', 'meli-centro-vendedores' ); ?><br>
@@ -689,7 +691,7 @@
 	    $the_query2 = new WP_Query( 
 	    	array( 
 	    		'posts_per_page' => -1, 
-	    		's' => strip_tags( $_POST['keyword'] ), 
+	    		's' => $keyword, 
 	    		'post_status' => array('publish'),
 	    		'post_type' => array('novedades'),
 			    'tax_query' => array(
@@ -708,7 +710,7 @@
 	    while( $the_query2->have_posts() ):
                 $y++; $the_query2->the_post(); 
                 ?>
-				<?php if( $_POST['keyword'] ):					
+				<?php if( $keyword ):					
                     $gcat = get_object_taxonomies('novedades');
                     $cat = wp_get_post_terms(get_the_ID(), $taxonomy = $gcat[1]);
 				?>
@@ -729,7 +731,7 @@
 	        wp_reset_postdata();  
 	    else:?>
 			<div class="block_home novedades">
-				<div class="noExist"><?php _e( 'Ups, no encontramos nada para', 'meli-centro-vendedores' ); ?> "<?= $_POST['keyword'] ?>". <br><br>
+				<div class="noExist"><?php _e( 'Ups, no encontramos nada para', 'meli-centro-vendedores' ); ?> "<?= $keyword ?>". <br><br>
 
 					<?php _e( 'Para volver a intentarlo podés:', 'meli-centro-vendedores' ); ?><br>
 					- <?php _e( 'Revisar si las palabras están bien escritas.', 'meli-centro-vendedores' ); ?><br>
@@ -740,7 +742,7 @@
 			</div>
 	    <?php endif;
 
-	    $the_query4 = new WP_Query( array( 'posts_per_page' => -1, 's' => strip_tags( $_POST['keyword'] ), 'post_status' => array('publish'), 'post_type' => array('lp_course') ) );
+	    $the_query4 = new WP_Query( array( 'posts_per_page' => -1, 's' => $keyword, 'post_status' => array('publish'), 'post_type' => array('lp_course') ) );
 
 	    if( $the_query4->have_posts() ) :
 		echo '<div class="block_home cursos"><div class="contentRes">';
@@ -752,7 +754,7 @@
 
 					$img = get_the_post_thumbnail_url($post->ID, 'thumbnail');
 				?>
-				<?php if( $_POST['keyword'] ):?>
+				<?php if( $keyword ):?>
                     
                         <!-- CURSOS -->
                         <a href="<?php echo esc_url( get_permalink() ); ?>" class="card <?=$cat[0]->slug;?>">
@@ -781,7 +783,7 @@
 	        wp_reset_postdata();  
 	    else:?>
 			<div class="block_home cursos">
-				<div class="noExist"><?php _e( 'Ups, no encontramos nada para', 'meli-centro-vendedores' ); ?> "<?= $_POST['keyword'] ?>". <br><br>
+				<div class="noExist"><?php _e( 'Ups, no encontramos nada para', 'meli-centro-vendedores' ); ?> "<?= $keyword ?>". <br><br>
 
 					<?php _e( 'Para volver a intentarlo podés:', 'meli-centro-vendedores' ); ?><br>
 					- <?php _e( 'Revisar si las palabras están bien escritas.', 'meli-centro-vendedores' ); ?><br>

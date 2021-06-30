@@ -609,7 +609,7 @@
 
 	    $keyword = strip_tags( $_POST['keyword'] );
 	    
-	    var_dump($keyword);
+	    //var_dump($keyword);
 
 	    $the_query3 = new WP_Query( 
 	    	array( 

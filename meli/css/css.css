@@ -1402,7 +1402,7 @@ body.full-screen-content-item #course-item-content-header .toggle-content-item:b
 	#header{margin-top: 120px;}
 	/*NOTAS*/
 	main #shared .wp-fixear .wp-indice{right: 16px;left: auto;}
-	main #shared .wp-fixear.fix{top: 56px;}
+	main #shared .wp-fixear.fix{top: 120px;}
 	main #shared .wp-fixear .wp-indice .listindice{left: auto;right: 0;z-index: 6}
 	main #single .block-mids-large.invert .text{padding-left: 0}
 }

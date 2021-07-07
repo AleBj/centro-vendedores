@@ -1539,7 +1539,7 @@ body.full-screen-content-item #course-item-content-header .toggle-content-item:b
 	main #single .block_cards_news .card-news .text-card-news{padding: 0 24px;margin: 24px auto;}
 	main #single .block_cards_news .card-news .head-card-news{height: 60px;padding: 0 24px;}
 
-	main #single .block_tables{text-align: flex-start;overflow: scroll;}
+	main #single .block_tables{align-items: flex-start;overflow: scroll;}
 	main #single .block_tables table {width: auto;min-width: 100%;}
 	main #single .block_tables table tr th{font-size: 10px;}
 	main #single .block_tables table tr th span{padding: 6px;border-radius: 8px;}
